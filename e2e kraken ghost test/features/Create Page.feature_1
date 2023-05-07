@@ -1,0 +1,155 @@
+Feature: Crear Página
+
+@user1 @web
+Scenario: Escenario 1 Crear página y publicar
+  Given I navigate to page "http://localhost:2368/ghost/#/signin"
+    And I wait for 2 seconds
+    And I enter email "<GHOST_EMAIL>"
+    And I wait for 1 seconds
+    And I enter password "<GHOST_PASSWORD>"
+    And I wait for 2 seconds
+    And I click login
+  When I navigate to page "http://localhost:2368/ghost/#/pages"
+    And I click new
+  Then I enter title "$name_1"
+    And I click on the redact post inputbox
+    And I click on link publish
+    And I wait for 2 seconds
+    And I click save
+    And I wait for 1 seconds
+    And I go back to pages
+    And I wait for 4 seconds
+    And I go to last created page
+    And I click on settings
+    And I check page "$$name_1"
+
+@user2 @web
+Scenario: Escenario 2 Programar creación de página
+   Given I navigate to page "http://localhost:2368/ghost/#/signin"
+    And I wait for 2 seconds
+    And I enter email "<GHOST_EMAIL>"
+    And I wait for 1 seconds
+    And I enter password "<GHOST_PASSWORD>"
+    And I wait for 2 seconds
+    And I click login
+  When I navigate to page "http://localhost:2368/ghost/#/pages"
+    And I click new
+  Then I enter title "$name_1"
+    And I click on the redact post inputbox
+    And I click on link publish
+    And I wait for 1 seconds
+    And I click on schedule
+    And I wait for 2 seconds
+    And I click save
+    And I wait for 1 seconds
+    And I go back to pages
+    And I wait for 3 seconds
+    And I go to last created page
+    And I wait for 3 seconds
+
+
+@user3 @web
+Scenario: Escenario 3 Programar creación de página y eliminar
+   Given I navigate to page "http://localhost:2368/ghost/#/signin"
+    And I wait for 2 seconds
+    And I enter email "<GHOST_EMAIL>"
+    And I wait for 1 seconds
+    And I enter password "<GHOST_PASSWORD>"
+    And I wait for 2 seconds
+    And I click login
+  When I navigate to page "http://localhost:2368/ghost/#/pages"
+    And I click new
+  Then I enter title "$name_1"
+    And I click on the redact post inputbox
+    And I click on link publish
+    And I wait for 1 seconds
+    And I click on schedule
+    And I wait for 2 seconds
+    And I click save
+    And I wait for 1 seconds
+    And I go back to pages
+    And I wait for 3 seconds
+    And I go to last created page
+    And I wait for 3 seconds
+    And I click on settings
+    And I click on delete
+    And I confirm delete
+    And I wait for 2 seconds
+
+
+@user4 @web
+Scenario: Escenario 4 Crear página, asignar tag, ver página
+   Given I navigate to page "http://localhost:2368/ghost/#/signin"
+    And I wait for 2 seconds
+    And I enter email "<GHOST_EMAIL>"
+    And I wait for 1 seconds
+    And I enter password "<GHOST_PASSWORD>"
+    And I wait for 2 seconds
+    And I click login
+  When I navigate to page "http://localhost:2368/ghost/#/pages"
+    And I click new
+  Then I enter title "$name_1"
+    And I click on the redact post inputbox
+    And I click on link publish
+    And I wait for 2 seconds
+    And I click save
+    And I wait for 1 seconds
+    And I go back to pages
+    And I wait for 1 seconds
+    And I go to last created page
+    And I click on settings
+    And I click on list tags
+    And I wait for 1 seconds
+    And I select first option
+    And I wait for 1 seconds
+    And I check page "$$name_1"
+    And I wait for 2 seconds
+    And I close settings
+    And I wait for 2 seconds
+    And I click on link publish
+    And I wait for 3 seconds
+    And I click save
+    And I wait for 1 seconds
+    And I go back to pages
+    And I wait for 4 seconds
+
+@user5 @web
+Scenario: Escenario 5 Crear página, Publicar, Revisar, Despublicar, Revisar, Publicar
+   Given I navigate to page "http://localhost:2368/ghost/#/signin"
+    And I wait for 2 seconds
+    And I enter email "<GHOST_EMAIL>"
+    And I wait for 1 seconds
+    And I enter password "<GHOST_PASSWORD>"
+    And I wait for 2 seconds
+    And I click login
+  When I navigate to page "http://localhost:2368/ghost/#/pages"
+    And I click new
+  Then I enter title "$name_1"
+    And I click on the redact post inputbox
+    And I click on link publish
+    And I wait for 2 seconds
+    And I click save
+    And I wait for 1 seconds
+    And I go back to pages
+    And I wait for 4 seconds
+    And I go to last created page
+    And I click on settings
+    And I check page "$$name_1"
+    And I close settings
+    And I click on link publish
+    And I wait for 2 seconds
+    And I change publication state
+    And I wait for 2 seconds
+    And I click save
+    And I wait for 1 seconds
+    And I go back to pages
+    And I go to last created page
+    And I click on settings
+    And I check page "$$name_1"
+    And I close settings
+    And I click on link publish
+    And I wait for 2 seconds
+    And I click save
+    And I wait for 1 seconds
+    And I go back to pages
+    

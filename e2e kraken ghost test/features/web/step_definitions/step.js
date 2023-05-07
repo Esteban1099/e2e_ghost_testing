@@ -220,7 +220,7 @@ Then('I delete first tag', async function () {
     return await element.click();
   });
 
-When('I click login', async function () {
+  When('I click login', async function () {
     let element = await this.driver.$('.login');
     return await element.click();
 });
@@ -269,7 +269,7 @@ Then('I delete tag', async function () {
     return await element.click();
 });
 
-Then('I confirm delete tag', async function () {
+Then('I confirm delete', async function () {
     let element = await this.driver.$('.modal-footer > .gh-btn-red');
     return await element.click();
 });
@@ -306,7 +306,7 @@ Then('I click on link publish', async function () {
     return await element.click();
   });
 
-Then('I select first option', async function () {
+Then('I select first tag option', async function () {
     let element = await this.driver.$('div.settings-menu-content > form > div:nth-child(3) > div > div:nth-child(2) > div > ul.ember-power-select-options > li:nth-child(2)');
     return await element.click();
   });
@@ -322,7 +322,7 @@ Then('I select first option', async function () {
   });
 
   Then('I go back to pages', async function () {
-    let element = await this.driver.$("a[href='#/pages/'")
+    let element = await this.driver.$("a[href='#/pages/']")
     return await element.click();
   });
 
@@ -340,6 +340,18 @@ Then('I select first option', async function () {
   });
 
   Then('I click on schedule', async function () {
-    let element = await this.driver.$(".gh-publishmenu-section > div:nth-child(2)");
+    let element = await this.driver.$(".gh-publishmenu-section > div:nth-child(2) > .gh-publishmenu-radio-button");
     return await element.click();
   });
+
+  Then('I change publication state', async function () {
+    let element = await this.driver.$(".gh-publishmenu-section > div:nth-child(1) > .gh-publishmenu-radio-button");
+    return await element.click();
+  });
+
+  Then('I click on delete', async function () {
+    let element = await this.driver.$(".settings-menu-delete-button");
+    return await element.click();
+  });
+
+  

@@ -77,7 +77,7 @@ Scenario: Escenario 4 Eliminar Tag después de crear
     And I navigate to page "http://localhost:2368/ghost/#/tags"
     And I check tag "$$name_1"
     And I delete tag
-    And I confirm delete tag
+    And I confirm delete
     And I wait for 2 seconds
     And I navigate to page "http://localhost:2368/ghost/#/tags"
 
@@ -103,7 +103,7 @@ Scenario: Escenario 5 Crear tag, asignar tag a post y eliminar tag
     And I click on the redact post inputbox
     And I click on settings
     And I click on list tags
-    And I select first option
+    And I select tag first option
     And I wait for 1 seconds
     And I close settings
     And I wait for 1 seconds
@@ -115,6 +115,6 @@ Scenario: Escenario 5 Crear tag, asignar tag a post y eliminar tag
     And I wait for 1 seconds
     And I check tag "$$name_1"
     And I delete tag
-    And I confirm delete tag
+    And I confirm delete
     And I wait for 1 seconds
     And I navigate to page "http://localhost:2368/ghost/#/tags"
