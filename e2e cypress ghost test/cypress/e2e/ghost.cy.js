@@ -60,23 +60,6 @@ function outfocus() {
     });
 }
 
-<<<<<<< HEAD
-function desingPost(type, postName) {
-    if (type == 'basic') {
-        enterInputInForm('textarea.gh-editor-title', postName);
-    }
-}
-
-function checkPostTitle(position, title) {
-    cy.get('ol.posts-list').then($ol => {
-        var objectList = $ol.get(0);
-        var li = objectList.querySelectorAll('li.gh-posts-list-item')[position]
-        var link = li.querySelectorAll('a')[1];
-        var header = link.querySelectorAll('h3')[0];
-        console.log(header.textContent.trim(), '-- title');
-        expect(header.textContent.trim()).to.eql(title)
-    });
-=======
 function desingPost(type, postName, tagName) {
   if (type == 'basic') {
     enterInputInForm('textarea.gh-editor-title', postName);
@@ -111,7 +94,6 @@ function checkPostTitle(position, title) {
     var header = link.querySelectorAll('h3')[0];
     expect(header.textContent.trim()).to.eql(title)
   });
->>>>>>> 6f595e0eb8388b82772d1815fd466e7ad33254b3
 }
 
 function checkPostTag(position, tag) {
@@ -249,9 +231,8 @@ function createTag(tagName, tagDescription) {
 
 
 describe('E2E Test in ghost', () => {
-<<<<<<< HEAD
-    const emailLogin = 'm.garzonr2@uniandes.edu.co'
-    const passLogin = 'Bogota10***'
+    const emailLogin = 'reyes1099@outlook.com'
+    const passLogin = 'Miso123456'
     const name = cy.faker.name.firstName();
     const email = cy.faker.internet.email();
     const tagName = cy.faker.lorem.word();
@@ -292,48 +273,6 @@ describe('E2E Test in ghost', () => {
     //     checkPostTitle(0, postName)
     //     //
     // });
-=======
-  //   const name = cy.faker.name.firstName();
-  //   const email = cy.faker.internet.email();
-  //   const tagName = cy.faker.lorem.word();
-  //   const tagNameEdit = cy.faker.lorem.word();
-  //   const tagDescription = cy.faker.lorem.lines();
-
-    // it('Feature: Create post - Scenario: Create draft post', () => {
-    //   let postName = cy.faker.lorem.word();
-    //   // Given I visit ghost
-    //   cy.visit('http://localhost:2368/ghost/#/signin');
-    //   // And I wait 1 seconds
-    //   cy.wait(1000);
-    //   // And I login in ghost
-    //   loginGhost('reyes1099@outlook.com', 'Miso123456');
-    //   // And I wait 1 seconds
-    //   cy.wait(1000);
-    //   // And I navigate to members
-    //   navigateModule('staff');
-    //   // And I wait 1 seconds
-    //   cy.wait(1000);
-    //   // When I navigate to post
-    //   navigateModule('posts');
-    //   // And I wait 1 seconds
-    //   cy.wait(1000);
-    //   // And I navigate to create post
-    //   navigateModule('editor/post');
-    //   // And I wait 1 seconds
-    //   cy.wait(1000);
-    //   // And I desing post title 
-    //   desingPost('basic', postName);
-    //   // And I wait 1 seconds
-    //   cy.wait(1000);
-    //   // And I navigate to post
-    //   navigateModule('posts');
-    //   // And I wait 1 seconds
-    //   cy.wait(1000);
-    //   // Then I expect that first post on list must has the title of the one I created
-    //   checkPostTitle(0, postName);
-    //   // And I expect that first post on list must be draft 
-    //   checkPostIsDraft(0);
-    // });
 
   it('Feature: Create post - Scenario: Create draft post with tag', () => {
     let postName = cy.faker.lorem.word();
@@ -344,7 +283,7 @@ describe('E2E Test in ghost', () => {
     // And I wait 1 seconds
     cy.wait(1000);
     // And I login in ghost
-    loginGhost('reyes1099@outlook.com', 'Miso123456');
+    loginGhost(emailLogin, passLogin);
     // And I wait 1 seconds
     cy.wait(1000);
     // And I navigate to tags
@@ -384,7 +323,6 @@ describe('E2E Test in ghost', () => {
     // And I expect that first post on list must have the tag 
     checkPostTag(0, tagName)
   });
->>>>>>> 6f595e0eb8388b82772d1815fd466e7ad33254b3
 
     // it('Feature: Create member | Scenario: Activate option and register member', () => {
     //     // Given I visit ghost
