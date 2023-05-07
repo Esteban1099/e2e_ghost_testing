@@ -1,0 +1,149 @@
+Feature: Crear Página
+
+@user1 @web
+Scenario: Escenario 1 Crear página y publicar
+  Given I navigate to page "http://localhost:2368/ghost"
+    And I wait for 1 seconds
+    And I enter email "<USERNAME1>"
+    And I enter password "<PASSWORD1>"
+    And I click login
+  When I navigate to page "http://localhost:2368/ghost/#/pages"
+    And I wait for 1 seconds
+    And I click new
+  Then I enter title "$name_1"
+    And I click on the redact post inputbox
+    And I click on link publish
+    And I wait for 3 seconds
+    And I click save
+    And I wait for 2 seconds
+    And I go back to pages
+    And I wait for 1 seconds
+    And I go to last created page
+    Then I send a signal to user 5 containing "Page 1 complete"
+    And I click on settings
+    And I check page "$$name_1"
+    And I wait for 30 seconds
+    And I wait for 30 seconds
+    
+@user2 @web
+Scenario: Escenario 2 Programar creación de página
+   Given I navigate to page "http://localhost:2368/ghost"
+    And I wait for 1 seconds
+    And I enter email "<USERNAME1>"
+    And I enter password "<PASSWORD1>"
+    And I click login
+  When I navigate to page "http://localhost:2368/ghost/#/pages"
+    And I wait for 3 seconds
+    And I click new
+    And I wait for 20 seconds
+    And I wait for a signal containing "Page 3 complete" for 30 seconds
+  Then I enter title "$name_1"
+    And I click on the redact post inputbox
+    And I click on link publish
+    And I wait for 3 seconds
+    And I click on schedule
+    And I wait for 1 seconds
+    And I click save
+    And I wait for 1 seconds
+    And I go back to pages
+    And I wait for 3 seconds
+    And I go to last created page
+    And I wait for 3 seconds
+
+
+@user3 @web
+Scenario: Escenario 3 Programar creación de página y eliminar
+   Given I navigate to page "http://localhost:2368/ghost"
+    And I wait for 1 seconds
+    And I enter email "<USERNAME1>"
+    And I enter password "<PASSWORD1>"
+    And I click login
+  When I navigate to page "http://localhost:2368/ghost/#/pages"
+    And I wait for 10 seconds
+    And I click new
+    And I wait for a signal containing "Page 4 complete" for 30 seconds
+  Then I enter title "$name_1"
+    And I click on the redact post inputbox
+    And I click on link publish
+    And I wait for 3 seconds
+    And I click on schedule
+    And I wait for 2 seconds
+    And I click save
+    And I wait for 1 seconds
+    And I go back to pages
+    And I wait for 1 seconds
+    And I go to last created page
+    And I wait for 1 seconds
+    And I click on settings
+    And I click on delete
+    And I confirm delete
+    Then I send a signal to user 2 containing "Page 3 complete"
+    And I wait for 30 seconds
+
+@user4 @web
+Scenario: Escenario 4 Crear página, asignar tag, ver página
+   Given I navigate to page "http://localhost:2368/ghost"
+    And I wait for 1 seconds
+    And I enter email "<USERNAME1>"
+    And I enter password "<PASSWORD1>"
+    And I click login
+  When I navigate to page "http://localhost:2368/ghost/#/pages"
+    And I wait for 1 seconds
+    And I click new
+    And I wait for a signal containing "Page 5 complete" for 30 seconds
+  Then I enter title "$name_1"
+    And I click on the redact post inputbox
+    And I click on link publish
+    And I wait for 2 seconds
+    And I click save
+    And I wait for 1 seconds
+    And I go back to pages
+    And I go to last created page
+    Then I send a signal to user 3 containing "Page 4 complete"
+    And I click on settings
+    And I click on list tags
+    And I wait for 1 seconds
+    And I select first option
+    And I wait for 1 seconds
+    And I close settings
+    And I click on link publish
+    And I wait for 2 seconds
+    And I click save
+    And I wait for 1 seconds
+    And I go back to pages
+    And I wait for 30 seconds
+
+@user5 @web
+Scenario: Escenario 5 Crear página, Publicar, Revisar, Despublicar, Revisar, Publicar
+   Given I navigate to page "http://localhost:2368/ghost"
+    And I wait for 1 seconds
+    And I enter email "<USERNAME1>"
+    And I enter password "<PASSWORD1>"
+    And I click login
+  When I navigate to page "http://localhost:2368/ghost/#/pages"
+    And I wait for 1 seconds
+    And I click new
+    And I wait for a signal containing "Page 1 complete" for 15 seconds
+  Then I enter title "$name_1"
+    And I click on the redact post inputbox
+    And I click on link publish
+    And I wait for 3 seconds
+    And I click save
+    And I wait for 1 seconds
+    And I go back to pages
+    And I go to last created page
+    And I click on link publish
+    And I wait for 3 seconds
+    And I change publication state
+    And I wait for 1 seconds
+    And I click save
+    And I wait for 1 seconds
+    And I go back to pages
+    And I go to last created page
+    Then I send a signal to user 4 containing "Page 5 complete"
+    And I click on link publish
+    And I wait for 3 seconds
+    And I click save
+    And I wait for 1 seconds
+    And I go back to pages
+    And I wait for 30 seconds
