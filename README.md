@@ -8,104 +8,104 @@
 
 ## Escenarios
 1. Funcionalidad: Crear publicación
-    1. Escenario 1: Crear publicación tipo draft 
-        * Login credenciales correctas 
-	* Navegar a ver sitio web 
-	* Navegar a ver el staff del sitio 
-	* Navegar a ver las publicaciones del sitio web 
-	* Seleccionar crear una publicación 
-	* Escribir el título de la publicación 
-	* Seleccionar volver a las publicaciones 
-	* Verificar que se creó la publicación con el título ingresado y que se clasifico como draft 
+    1. Escenario 1: Crear publicación tipo draft
+       * Login credenciales correctas 
+       * Navegar a ver sitio web 
+       * Navegar a ver el staff del sitio 
+       * Navegar a ver las publicaciones del sitio web 
+       * Seleccionar crear una publicación 
+       * Escribir el título de la publicación 
+       * Seleccionar volver a las publicaciones 
+       * Verificar que se creó la publicación con el título ingresado y que se clasifico como draft 
 
     2. Escenario 2: Crear publicación con etiqueta
-        * Login credenciales correctas 
-	* Navegar a etiquetas del sitio web 
-	* Crear una etiqueta nueva 
-	* Navegar a ver las páginas del sitio 
-	* Navegar a ver las publicaciones del sitio web 
-	* Seleccionar crear una publicación 
-	* Escribir el título de la publicación 
-	* Escribir un texto de publicación 
-	* Asignar una etiqueta a la publicación 
-	* Seleccionar volver a las publicaciones 
-	* Verificar que se creó la publicación con el título ingresado, que se clasifico como draft y con la etiqueta asignada 
+       * Login credenciales correctas 
+       * Navegar a etiquetas del sitio web 
+       * Crear una etiqueta nueva 
+       * Navegar a ver las páginas del sitio 
+       * Navegar a ver las publicaciones del sitio web 
+       * Seleccionar crear una publicación 
+       * Escribir el título de la publicación 
+       * Escribir un texto de publicación 
+       * Asignar una etiqueta a la publicación 
+       * Seleccionar volver a las publicaciones 
+       * Verificar que se creó la publicación con el título ingresado, que se clasifico como draft y con la etiqueta asignada 
 
     3. Escenario 3: Crear publicación, editarla y publicar el ajuste
-        * Login credenciales correctas 
-	* Navegar a ver las publicaciones del sitio web 
-	* Seleccionar crear una publicación 
-	* Escribir el título de la publicación 
-	* Escribo un texto de publicación 
-	* Publicar
-	* Editar la misma publicación
-	* Modificar el titulo de la publicación
-	* Publicar nuevamente
-	* Seleccionar volver a las publicaciones 
-	* Verificar que se creó la publicación con el título ingresado y vemos que indique estar publicado
+       * Login credenciales correctas 
+       * Navegar a ver las publicaciones del sitio web 
+       * Seleccionar crear una publicación 
+       * Escribir el título de la publicación 
+       * Escribo un texto de publicación 
+       * Publicar
+       * Editar la misma publicación
+       * Modificar el titulo de la publicación
+       * Publicar nuevamente
+       * Seleccionar volver a las publicaciones 
+       * Verificar que se creó la publicación con el título ingresado y vemos que indique estar publicado
 
 2. Funcionalidad: Crear Miembros
     1. Escenario 1: Crear miembro
-	* Login credenciales correctas 
-	* Ir a la opción Labs
-	* Si la opción miembros no se encuentra habilitada, dar clic en la opción de miembros
-	* Activar los miembros 
-	* Guardar la configuración 
-	* Ir a la opción miembros 
-	* Crear miembro
-	* Guardar el miembro
-	* Ir a miembros 
-	* Verificar que el registro se haya creado correctamente
+       * Login credenciales correctas 
+       * Ir a la opción Labs
+       * Si la opción miembros no se encuentra habilitada, dar clic en la opción de miembros
+       * Activar los miembros 
+       * Guardar la configuración 
+       * Ir a la opción miembros 
+       * Crear miembro
+       * Guardar el miembro
+       * Ir a miembros 
+       * Verificar que el registro se haya creado correctamente
 
     2. Escenario 2: Crear miembro con datos incorrectos
-	* Login credenciales correctas 
-	* Ir a la opción miembro 
-	* Crear un nuevo miembro 
-	* Diligenciar datos incorrectos
-	* Guardar el miembro 
-	* Corregir el formulario 
-	* Intentar guardar el miembro nuevamente
-	* Ir a la opción miembros 
-	* Verificar que el registro se haya creado correctamente
+       * Login credenciales correctas 
+       * Ir a la opción miembro 
+       * Crear un nuevo miembro 
+       * Diligenciar datos incorrectos
+       * Guardar el miembro 
+       * Corregir el formulario 
+       * Intentar guardar el miembro nuevamente
+       * Ir a la opción miembros 
+       * Verificar que el registro se haya creado correctamente
 
 3. Funcionalidad: Editar publicación
     1. Escenario 1: Crear y editar publicación
-	* Login credenciales correctas
-        * Navegar a sitio web
-        * Navegar a módulo de publicaciones
-        * Seleccionar crear publicación
-        * Ingresar el título de la publicación
-        * Volver a módulo de publicaciones
-        * Editar la publicación creada
-        * Publicar la publicación
-        * Selecciono volver a las publicaciones
-        * Verifico que se creó la publicación con el título ingresado y vemos que indique estar publicado 
+       * Login credenciales correctas
+       * Navegar a sitio web
+       * Navegar a módulo de publicaciones
+       * Seleccionar crear publicación
+       * Ingresar el título de la publicación
+       * Volver a módulo de publicaciones
+       * Editar la publicación creada
+       * Publicar la publicación
+       * Selecciono volver a las publicaciones
+       * Verifico que se creó la publicación con el título ingresado y vemos que indique estar publicado 
     2. Escenario 2: 
-        * Login credenciales correctas 
-        * Navego a ver las publicaciones del sitio web 
-        * Selecciono crear una publicación 
-        * Escribo el título de la publicación 
-        * Escribo un texto de publicación 
-        * Selecciono volver a las publicaciones 
-        * Edito la publicación creada 
-        * Cambio el título de la publicación 
-        * Selecciono volver a las publicaciones 
-        * Verifico que se creó la publicación con el título editado y que se clasifico como draft 
+       * Login credenciales correctas 
+       * Navego a ver las publicaciones del sitio web 
+       * Selecciono crear una publicación 
+       * Escribo el título de la publicación 
+       * Escribo un texto de publicación 
+       * Selecciono volver a las publicaciones 
+       * Edito la publicación creada 
+       * Cambio el título de la publicación 
+       * Selecciono volver a las publicaciones 
+       * Verifico que se creó la publicación con el título editado y que se clasifico como draft 
     3. Escenario 3: 
-        * Login credenciales correctas 
-        * Navego a etiquetas del sitio web 
-        * Creo una etiqueta A nueva 
-        * Creo una etiqueta B nueva 
-        * Navego a ver las páginas del sitio 
-        * Navego a ver las publicaciones del sitio web 
-        * Selecciono crear una publicación 
-        * Escribo el título de la publicación 
-        * Escribo un texto de publicación 
-        * Le asigno un tag A en la publicación 
-        * Selecciono volver a las publicaciones 
-        * Edito la publicación creada 
-        * Cambio el tag a B de la publicación creada 
-        * Verifico que se creó la publicación con el título ingresado, que se clasifico como draft y con la etiqueta B 
+       * Login credenciales correctas 
+       * Navego a etiquetas del sitio web 
+       * Creo una etiqueta A nueva 
+       * Creo una etiqueta B nueva 
+       * Navego a ver las páginas del sitio 
+       * Navego a ver las publicaciones del sitio web 
+       * Selecciono crear una publicación 
+       * Escribo el título de la publicación 
+       * Escribo un texto de publicación 
+       * Le asigno un tag A en la publicación 
+       * Selecciono volver a las publicaciones 
+       * Edito la publicación creada 
+       * Cambio el tag a B de la publicación creada 
+       * Verifico que se creó la publicación con el título ingresado, que se clasifico como draft y con la etiqueta B 
 
 4. Funcionalidad: Modificar navegación 
     1. Escenario 1:  
