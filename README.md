@@ -108,7 +108,7 @@
        * Verificar la creación de la publicación con el título ingresado, en estado Borrador y con etiqueta B
 
 4. Funcionalidad: Modificar navegación 
-    1. Escenario 1:  
+    1. Escenario 1:  Agregar sitio a navegación
         * Login credenciales correctas 
         * Navegar a módulo de páginas 
         * Ingresar a crear nueva página 
@@ -123,7 +123,7 @@
         * Verificar nueva opción 
         * Navegar a nueva página creada 
      
-    2. Escenario 2: 
+    2. Escenario 2: Agregar sitio a navegación secundaria
         * Login credenciales correctas 
         * Navegar a módulo de páginas 
         * Ingresar a crear nueva página 
