@@ -267,3 +267,8 @@
         * Publicar página creada 
         * Navegar a módulo de páginas 
         * Verificar página en estado Publicado
+
+
+# Pasos para ejecución Cypress
+
+# Pasos para ejecución Kraken
