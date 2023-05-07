@@ -94,13 +94,13 @@ function desingPost(type, postName, tagName, postText) {
 }
 
 function checkPostTitle(position, title) {
-  cy.get('ol.posts-list').then($ol => {
-    var objectList = $ol.get(0);
-    var li = objectList.querySelectorAll('li.gh-posts-list-item')[position]
-    var link = li.querySelectorAll('a')[1];
-    var header = link.querySelectorAll('h3')[0];
-    expect(header.textContent.trim()).to.eql(title)
-  });
+    cy.get('ol.posts-list').then($ol => {
+        var objectList = $ol.get(0);
+        var li = objectList.querySelectorAll('li.gh-posts-list-item')[position]
+        var link = li.querySelectorAll('a')[1];
+        var header = link.querySelectorAll('h3')[0];
+        expect(header.textContent.trim()).to.eql(title)
+    });
 }
 
 function checkPublishedPostTitle(position, title) {
@@ -125,27 +125,26 @@ function checkPublishedPostTitle(position, title) {
 }
 
 function checkPostTag(position, tag) {
-  cy.get('ol.posts-list').then($ol => {
-    var objectList = $ol.get(0);
-    var li = objectList.querySelectorAll('li.gh-posts-list-item')[position]
-    var link = li.querySelectorAll('a')[1];
-    var paraghap = link.querySelectorAll('p')[0];
-    var spanParent = paraghap.querySelectorAll('span')[0];
-    var span = spanParent.querySelectorAll('span')[1];
-    expect(span.textContent.trim()).to.eql(tag)
-  });
+    cy.get('ol.posts-list').then($ol => {
+        var objectList = $ol.get(0);
+        var li = objectList.querySelectorAll('li.gh-posts-list-item')[position]
+        var link = li.querySelectorAll('a')[1];
+        var paraghap = link.querySelectorAll('p')[0];
+        var spanParent = paraghap.querySelectorAll('span')[0];
+        var span = spanParent.querySelectorAll('span')[1];
+        expect(span.textContent.trim()).to.eql(tag)
+    });
 }
 
 function checkPostIsDraft(position) {
-  cy.get('ol.posts-list').then($ol => {
-    var objectList = $ol.get(0);
-    var li = objectList.querySelectorAll('li.gh-posts-list-item')[position]
-    var link = li.querySelectorAll('a')[4];
-    var span = link.querySelectorAll('span')[0];
-    expect(span.textContent.trim()).to.eql('Draft')
-  });
+    cy.get('ol.posts-list').then($ol => {
+        var objectList = $ol.get(0);
+        var li = objectList.querySelectorAll('li.gh-posts-list-item')[position]
+        var link = li.querySelectorAll('a')[4];
+        var span = link.querySelectorAll('span')[0];
+        expect(span.textContent.trim()).to.eql('Draft')
+    });
 }
-
 
 function clickInOptionAction(option) {
   cy.get(option).then($links => {
@@ -187,29 +186,62 @@ function clickButtonDelete(selector, modal) {
 }
 
 function findInListSection(selectorSection, selectorFind, dataFakerFind) {
-  let aux = "";
-  cy.document().then((doc) => {
-    let section = doc.querySelectorAll(selectorSection);
-    if (section.length > 0) {
-      var ol = section[0];
-      var li = ol.querySelectorAll('li');
-      console.log('li', li)
-      if (li.length > 0) {
-        cy.document().then((doc) => {
-          let element = doc.querySelectorAll(selectorFind);
-          console.log('element', element)
-          if (element.length > 0) {
-            for (let index = 0; index < element.length; index++) {
-              aux = element[index].textContent.trim();
-              if (aux == dataFakerFind) {
-                break;
-              }
+    let aux = "";
+    let auxTag = "";
+    cy.document().then((doc) => {
+        let section = doc.querySelectorAll(selectorSection);
+        if (section.length > 0) {
+            var ol = section[0];
+            var li = ol.querySelectorAll('li');
+            console.log('li', li)
+            if (li.length > 0) {
+                cy.document().then((doc) => {
+                    let element = doc.querySelectorAll(selectorFind);
+                    console.log('element', element)
+                    if (element.length > 0) {
+                        for (let index = 0; index < element.length; index++) {
+                            aux = element[index].textContent.trim();
+                            auxTag = element[index];
+                            if (aux == dataFakerFind) {
+                                break;
+                            }
+                        }
+                        expect(aux).to.eql(dataFakerFind);
+                        cy.wrap(auxTag).click({ force: true });
+                    }
+                });
             }
-            expect(aux).to.eql(dataFakerFind)
+        }
+    });
+}
+
+function findInListSectionDeleted(selectorSection, selectorFind, dataFakerFind) {
+  let aux = "";
+  let auxTag = "";
+  cy.document().then((doc) => {
+      let section = doc.querySelectorAll(selectorSection);
+      if (section.length > 0) {
+          var ol = section[0];
+          var li = ol.querySelectorAll('li');
+          console.log('li', li)
+          if (li.length > 0) {
+              cy.document().then((doc) => {
+                  let element = doc.querySelectorAll(selectorFind);
+                  console.log('element', element)
+                  if (element.length > 0) {
+                      for (let index = 0; index < element.length; index++) {
+                          aux = element[index].textContent.trim();
+                          auxTag = element[index];
+                          if (aux == dataFakerFind)
+                              break;
+                          else
+                              aux = "";
+                      }
+                      expect(aux).to.eql("");
+                  }
+              });
           }
-        });
       }
-    }
   });
 }
 
@@ -246,15 +278,15 @@ function optionTypeTag(selector, flag) {
 }
 
 function createTag(tagName, tagDescription) {
-  optionTypeTag('div.gh-contentfilter', false)
-  cy.wait(1000);
-  navigateModule('tags/new')
-  cy.wait(1000);
-  enterInputInForm('input[id="tag-name"]', `${tagName}`)
-  cy.wait(500);
-  enterInputInForm('textarea[id="tag-description"]', tagDescription)
-  cy.wait(1000);
-  clickButtonSave('button.gh-btn')
+    optionTypeTag('div.gh-contentfilter', true)
+    cy.wait(1000);
+    navigateModule('tags/new')
+    cy.wait(1000);
+    enterInputInForm('input[id="tag-name"]', `${tagName}`)
+    cy.wait(500);
+    enterInputInForm('textarea[id="tag-description"]', tagDescription)
+    cy.wait(1000);
+    clickButtonSave('button.gh-btn')
 }
 
 
@@ -385,284 +417,299 @@ describe('E2E Test in ghost', () => {
     checkPublishedPostTitle(0, postName);
   });
 
-  // it('Feature: Create member | Scenario: Activate option and register member', () => {
-  //     // Given I visit ghost
-  //     cy.visit('http://localhost:2368/ghost/#/signin');
-  //     // And I wait 1 seconds
-  //     cy.wait(1000);
-  //     // And I login in ghost
-  //     loginGhost(emailLogin, passLogin);
-  //     // And I wait 1 seconds
-  //     cy.wait(1000);
-  //     // And I navigate to labs
-  //     navigateModule('settings/labs')
-  //     // And I wait 1 seconds
-  //     cy.wait(1000);
-  //     // When i activate section members
-  //     clickInOptionAction('.gh-setting-action')
-  //     // And I wait 1 seconds
-  //     cy.wait(1000);
-  //     // When I activate option members
-  //     activateCheckBox()
-  //     // And I wait 1 seconds
-  //     cy.wait(1000);
-  //     // When I save configuration
-  //     clickButtonSave('button.gh-btn')
-  //     // And I wait 1 seconds
-  //     cy.wait(1000);
-  //     // And I navigate to members
-  //     navigateModule('members')
-  //     // And I wait 1 seconds
-  //     cy.wait(1500);
-  //     // And I navigate to new member
-  //     navigateModule('members/new')
-  //     // And I wait 1 seconds
-  //     cy.wait(1000);
-  //     // And I fill the form input name
-  //     enterInputInForm('input[id="member-name"]', name)
-  //     // And I wait 0.5 seconds
-  //     cy.wait(500);
-  //     // And I fill the form input email
-  //     enterInputInForm('input[id="member-email"]', email)
-  //     // And I wait 1 seconds
-  //     cy.wait(1000);
-  //     // When I save member
-  //     clickButtonSave('button.gh-btn')
-  //     // And I wait 1 seconds
-  //     cy.wait(1000);
-  //     // And I navigate to members
-  //     navigateModule('members')
-  //     // And I wait 1 seconds
-  //     cy.wait(1000);
-  //     // And I verify member created in the list
-  //     findInListSection('section.content-list', 'p.gh-members-list-email', email)
-  // });
+  it('Feature: Create member | Scenario: Activate option and register member', () => {
+      // Given I visit ghost
+      cy.visit('http://localhost:2368/ghost/#/signin');
+      // And I wait 1 seconds
+      cy.wait(1000);
+      // And I login in ghost
+      loginGhost(emailLogin, passLogin);
+      // And I wait 1 seconds
+      cy.wait(1000);
+      // And I navigate to labs
+      navigateModule('settings/labs')
+      // And I wait 1 seconds
+      cy.wait(1000);
+      // When i activate section members
+      clickInOptionAction('.gh-setting-action')
+      // And I wait 1 seconds
+      cy.wait(1000);
+      // When I activate option members
+      activateCheckBox()
+      // And I wait 1 seconds
+      cy.wait(1000);
+      // When I save configuration
+      clickButtonSave('button.gh-btn')
+      // And I wait 1 seconds
+      cy.wait(1000);
+      // And I navigate to members
+      navigateModule('members')
+      // And I wait 1 seconds
+      cy.wait(1500);
+      // And I navigate to new member
+      navigateModule('members/new')
+      // And I wait 1 seconds
+      cy.wait(1000);
+      // And I fill the form input name
+      enterInputInForm('input[id="member-name"]', name)
+      // And I wait 0.5 seconds
+      cy.wait(500);
+      // And I fill the form input email
+      enterInputInForm('input[id="member-email"]', email)
+      // And I wait 1 seconds
+      cy.wait(1000);
+      // When I save member
+      clickButtonSave('button.gh-btn')
+      // And I wait 1 seconds
+      cy.wait(1000);
+      // And I navigate to members
+      navigateModule('members')
+      // And I wait 1 seconds
+      cy.wait(1000);
+      // And I verify member created in the list
+      findInListSection('section.content-list', 'p.gh-members-list-email', email)
+  });
 
-  // it('Feature: Create member | Scenario: Register member', () => {
-  //     // Given I visit ghost
-  //     cy.visit('http://localhost:2368/ghost/#/signin');
-  //     // And I wait 1 seconds
-  //     cy.wait(1000);
-  //     // And I login in ghost
-  //     loginGhost(emailLogin, passLogin);
-  //     // And I wait 1 seconds
-  //     cy.wait(1000);
-  //     // And I navigate to members
-  //     navigateModule('members')
-  //     // And I wait 1 seconds
-  //     cy.wait(1500);
-  //     // And I navigate to new member
-  //     navigateModule('members/new')
-  //     // And I wait 1 seconds
-  //     cy.wait(1000);
-  //     // And I fill the form input name
-  //     enterInputInForm('input[id="member-name"]', name)
-  //     // And I wait 0.5 seconds
-  //     cy.wait(500);
-  //     // And I fill the form input email
-  //     enterInputInForm('input[id="member-email"]', name)
-  //     // And I wait 1 seconds
-  //     cy.wait(1000);
-  //     // When I save member
-  //     clickButtonSave('button.gh-btn')
-  //     cy.wait(1000);
-  //     validateErrorMessage('p.response')
-  //     // And I wait 1 seconds
-  //     cy.wait(1500);
-  //     enterInputInForm('input[id="member-email"]', email)
-  //     // And I wait 1 seconds
-  //     cy.wait(1000);
-  //     // When I save member
-  //     clickButtonSave('button.gh-btn')
-  //     //And I wait 1 seconds
-  //     cy.wait(1000);
-  //     // And I navigate to members
-  //     navigateModule('members')
-  //     // And I verify member created in the list
-  //     findInListSection('section.content-list', 'p.gh-members-list-email', email)
-  // });
+  it('Feature: Create member | Scenario: Register member', () => {
+      // Given I visit ghost
+      cy.visit('http://localhost:2368/ghost/#/signin');
+      // And I wait 1 seconds
+      cy.wait(1000);
+      // And I login in ghost
+      loginGhost(emailLogin, passLogin);
+      // And I wait 1 seconds
+      cy.wait(1000);
+      // And I navigate to members
+      navigateModule('members')
+      // And I wait 1 seconds
+      cy.wait(1500);
+      // And I navigate to new member
+      navigateModule('members/new')
+      // And I wait 1 seconds
+      cy.wait(1000);
+      // And I fill the form input name
+      enterInputInForm('input[id="member-name"]', name)
+      // And I wait 0.5 seconds
+      cy.wait(500);
+      // And I fill the form input email
+      enterInputInForm('input[id="member-email"]', name)
+      // And I wait 1 seconds
+      cy.wait(1000);
+      // When I save member
+      clickButtonSave('button.gh-btn')
+      cy.wait(1000);
+      validateErrorMessage('p.response')
+      // And I wait 1 seconds
+      cy.wait(1500);
+      enterInputInForm('input[id="member-email"]', email)
+      // And I wait 1 seconds
+      cy.wait(1000);
+      // When I save member
+      clickButtonSave('button.gh-btn')
+      //And I wait 1 seconds
+      cy.wait(1000);
+      // And I navigate to members
+      navigateModule('members')
+      // And I verify member created in the list
+      findInListSection('section.content-list', 'p.gh-members-list-email', email)
+  });
 
-  // it('Feature: Create Tag | Scenario: create public tag', () => {
-  //     // Given I visit ghost
-  //     cy.visit('http://localhost:2368/ghost/#/signin');
-  //     // And I wait 1 seconds
-  //     cy.wait(1000);
-  //     // And I login in ghost
-  //     loginGhost(emailLogin, passLogin);
-  //     // And I wait 1 seconds
-  //     cy.wait(1000);
-  //     // And I navigate to members
-  //     navigateModule('tags')
-  //     // And I wait 1 seconds
-  //     cy.wait(1000);
-  //     optionTypeTag('div.gh-contentfilter', true)
-  //     // And I wait 1 seconds
-  //     cy.wait(1000);
-  //     // And I navigate to new member
-  //     navigateModule('tags/new')
-  //     // And I wait 1 seconds
-  //     cy.wait(1000);
-  //     // And I fill the form input name
-  //     enterInputInForm('input[id="tag-name"]', tagName)
-  //     // And I wait 0.5 seconds
-  //     cy.wait(500);
-  //     // And I fill the form input email
-  //     enterInputInForm('textarea[id="tag-description"]', tagDescription)
-  //     // And I wait 1 seconds
-  //     cy.wait(1000);
-  //     // When I save member
-  //     clickButtonSave('button.gh-btn')
-  //     //And I wait 1 seconds
-  //     cy.wait(1000);
-  //     // And I navigate to members
-  //     navigateModule('tags')
-  //     // And I verify member created in the list
-  //     findInListSection('section.content-list', 'h3.gh-tag-list-name', tagName)
-  // });
+  it('Feature: Create Tag | Scenario: create public tag', () => {
+      // Given I visit ghost
+      cy.visit('http://localhost:2368/ghost/#/signin');
+      // And I wait 1 seconds
+      cy.wait(1000);
+      // And I login in ghost
+      loginGhost(emailLogin, passLogin);
+      // And I wait 1 seconds
+      cy.wait(1000);
+      // And I navigate to members
+      navigateModule('tags')
+      // And I wait 1 seconds
+      cy.wait(1000);
+      optionTypeTag('div.gh-contentfilter', true)
+      // And I wait 1 seconds
+      cy.wait(1000);
+      // And I navigate to new member
+      navigateModule('tags/new')
+      // And I wait 1 seconds
+      cy.wait(1000);
+      // And I fill the form input name
+      enterInputInForm('input[id="tag-name"]', tagName)
+      // And I wait 0.5 seconds
+      cy.wait(500);
+      // And I fill the form input email
+      enterInputInForm('textarea[id="tag-description"]', tagDescription)
+      // And I wait 1 seconds
+      cy.wait(1000);
+      // When I save member
+      clickButtonSave('button.gh-btn')
+      //And I wait 1 seconds
+      cy.wait(1000);
+      // And I navigate to members
+      navigateModule('tags')
+      // And I verify member created in the list
+      findInListSection('section.content-list', 'h3.gh-tag-list-name', tagName)
+  });
 
-  // it('Feature: Create Tag | Scenario: create internal tag', () => {
-  //     // Given I visit ghost
-  //     cy.visit('http://localhost:2368/ghost/#/signin');
-  //     // And I wait 1 seconds
-  //     cy.wait(1000);
-  //     // And I login in ghost
-  //     loginGhost(emailLogin, passLogin);
-  //     // And I wait 1 seconds
-  //     cy.wait(1000);
-  //     // And I navigate to members
-  //     navigateModule('tags')
-  //     // And I wait 1 seconds
-  //     cy.wait(1000);
-  //     optionTypeTag('div.gh-contentfilter', false)
-  //     // And I wait 1 seconds
-  //     cy.wait(1000);
-  //     // And I navigate to new member
-  //     navigateModule('tags/new')
-  //     // And I wait 1 seconds
-  //     cy.wait(1000);
-  //     // And I fill the form input name
-  //     enterInputInForm('input[id="tag-name"]', `#${tagName}`)
-  //     // And I wait 0.5 seconds
-  //     cy.wait(500);
-  //     // And I fill the form input email
-  //     enterInputInForm('textarea[id="tag-description"]', tagDescription)
-  //     // And I wait 1 seconds
-  //     cy.wait(1000);
-  //     // When I save member
-  //     clickButtonSave('button.gh-btn')
-  //     //And I wait 1 seconds
-  //     cy.wait(1000);
-  //     // And I navigate to members
-  //     navigateModule('tags')
-  //     //And I wait 1 seconds
-  //     cy.wait(1000);
-  //     optionTypeTag('div.gh-contentfilter', false)
-  //     // And I verify member created in the list
-  //     findInListSection('section.content-list', 'h3.gh-tag-list-name', tagName)
-  // });
+  it('Feature: Create Tag | Scenario: create internal tag', () => {
+      // Given I visit ghost
+      cy.visit('http://localhost:2368/ghost/#/signin');
+      // And I wait 1 seconds
+      cy.wait(1000);
+      // And I login in ghost
+      loginGhost(emailLogin, passLogin);
+      // And I wait 1 seconds
+      cy.wait(1000);
+      // And I navigate to members
+      navigateModule('tags')
+      // And I wait 1 seconds
+      cy.wait(1000);
+      optionTypeTag('div.gh-contentfilter', false)
+      // And I wait 1 seconds
+      cy.wait(1000);
+      // And I navigate to new member
+      navigateModule('tags/new')
+      // And I wait 1 seconds
+      cy.wait(1000);
+      // And I fill the form input name
+      enterInputInForm('input[id="tag-name"]', `#${tagName}`)
+      // And I wait 0.5 seconds
+      cy.wait(500);
+      // And I fill the form input email
+      enterInputInForm('textarea[id="tag-description"]', tagDescription)
+      // And I wait 1 seconds
+      cy.wait(1000);
+      // When I save member
+      clickButtonSave('button.gh-btn')
+      //And I wait 1 seconds
+      cy.wait(1000);
+      // And I navigate to members
+      navigateModule('tags')
+      //And I wait 1 seconds
+      cy.wait(1000);
+      optionTypeTag('div.gh-contentfilter', false)
+      // And I verify member created in the list
+      findInListSection('section.content-list', 'h3.gh-tag-list-name', tagName)
+  });
 
-  // it('Feature: Create Tag | Scenario: Edit tag after creating', () => {
-  //     // Given I visit ghost
-  //     cy.visit('http://localhost:2368/ghost/#/signin');
-  //     // And I wait 1 seconds
-  //     cy.wait(1000);
-  //     // And I login in ghost
-  //     loginGhost(emailLogin, passLogin);
-  //     // And I wait 1 seconds
-  //     cy.wait(1000);
-  //     // And I navigate to members
-  //     navigateModule('tags')
-  //     // And I wait 1 seconds
-  //     cy.wait(1000);
-  //     optionTypeTag('div.gh-contentfilter', true)
-  //     // And I wait 1 seconds
-  //     cy.wait(1000);
-  //     // And I navigate to new member
-  //     navigateModule('tags/new')
-  //     // And I wait 1 seconds
-  //     cy.wait(1000);
-  //     // And I fill the form input name
-  //     enterInputInForm('input[id="tag-name"]', tagName)
-  //     // And I wait 0.5 seconds
-  //     cy.wait(500);
-  //     // And I fill the form input email
-  //     enterInputInForm('textarea[id="tag-description"]', tagDescription)
-  //     // And I wait 1 seconds
-  //     cy.wait(1000);
-  //     // When I save member
-  //     clickButtonSave('button.gh-btn')
-  //     //And I wait 1 seconds
-  //     cy.wait(1000);
-  //     // And I navigate to members
-  //     navigateModule('tags')
-  //     // And I verify member created in the list
-  //     findInListSection('section.content-list', 'h3.gh-tag-list-name', tagName)
-  //     //And I wait 1 seconds
-  //     cy.wait(1000);
-  //     enterInputInForm('input[id="tag-name"]', tagNameEdit)
-  //     // And I wait 1 seconds
-  //     cy.wait(1000);
-  //     // When I save member
-  //     clickButtonSave('button.gh-btn')
-  //     //And I wait 1 seconds
-  //     cy.wait(1000);
-  //     // And I navigate to members
-  //     navigateModule('tags')
-  //And I wait 1 seconds
-  // cy.wait(1000);
-  //     // And I verify member created in the list
-  //     findInListSection('section.content-list', 'h3.gh-tag-list-name', tagNameEdit)
-  // });
+    it('Feature: Create Tag | Scenario: Delete tag after creating', () => {
+        // Given I visit ghost
+        cy.visit('http://localhost:2368/ghost/#/signin');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // And I login in ghost
+        loginGhost(emailLogin, passLogin);
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // And I navigate to members
+        navigateModule('tags')
+        // And I wait 1 seconds
+        cy.wait(1000);
+        optionTypeTag('div.gh-contentfilter', true)
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // And I navigate to new member
+        navigateModule('tags/new')
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // And I fill the form input name
+        enterInputInForm('input[id="tag-name"]', tagName)
+        // And I wait 0.5 seconds
+        cy.wait(500);
+        // And I fill the form input email
+        enterInputInForm('textarea[id="tag-description"]', tagDescription)
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // When I save member
+        clickButtonSave('button.gh-btn')
+        //And I wait 1 seconds
+        cy.wait(1000);
+        // And I navigate to members
+        navigateModule('tags')
+        // And I verify member created in the list
+        findInListSection('section.content-list', 'h3.gh-tag-list-name', tagName)
+        //And I wait 1 seconds
+        cy.wait(1000);
+        clickButtonDelete('button.gh-btn-red', false)
+        //And I wait 1 seconds
+        cy.wait(1000);
+        clickButtonDelete('button.gh-btn-red', true)
+        //And I wait 1 seconds
+        cy.wait(1000);
+        // And I navigate to members
+        navigateModule('tags')
+        //And I wait 1 seconds
+        cy.wait(1000);
+        findInListSection('section.content-list', 'h3.gh-tag-list-name', tagName)
+    });
 
-  // it('Feature: Create Tag | Scenario: Delete tag after creating', () => {
-  //     // Given I visit ghost
-  //     cy.visit('http://localhost:2368/ghost/#/signin');
-  //     // And I wait 1 seconds
-  //     cy.wait(1000);
-  //     // And I login in ghost
-  //     loginGhost(emailLogin, passLogin);
-  //     // And I wait 1 seconds
-  //     cy.wait(1000);
-  //     // And I navigate to members
-  //     navigateModule('tags')
-  //     // And I wait 1 seconds
-  //     cy.wait(1000);
-  //     optionTypeTag('div.gh-contentfilter', true)
-  //     // And I wait 1 seconds
-  //     cy.wait(1000);
-  //     // And I navigate to new member
-  //     navigateModule('tags/new')
-  //     // And I wait 1 seconds
-  //     cy.wait(1000);
-  //     // And I fill the form input name
-  //     enterInputInForm('input[id="tag-name"]', tagName)
-  //     // And I wait 0.5 seconds
-  //     cy.wait(500);
-  //     // And I fill the form input email
-  //     enterInputInForm('textarea[id="tag-description"]', tagDescription)
-  //     // And I wait 1 seconds
-  //     cy.wait(1000);
-  //     // When I save member
-  //     clickButtonSave('button.gh-btn')
-  //     //And I wait 1 seconds
-  //     cy.wait(1000);
-  //     // And I navigate to members
-  //     navigateModule('tags')
-  //     // And I verify member created in the list
-  //     findInListSection('section.content-list', 'h3.gh-tag-list-name', tagName)
-  //     //And I wait 1 seconds
-  //     cy.wait(1000);
-  //     clickButtonDelete('button.gh-btn-red', false)
-  //     //And I wait 1 seconds
-  //     cy.wait(1000);
-  //     clickButtonDelete('button.gh-btn-red', true)
-  //     //And I wait 1 seconds
-  //     cy.wait(1000);
-  //     // And I navigate to members
-  //     navigateModule('tags')
-  //     //And I wait 1 seconds
-  //     cy.wait(1000);
-  //     findInListSection('section.content-list', 'h3.gh-tag-list-name', tagName)
-  // });
-
+    it('Feature: Create post - Scenario: Create tag, Assign tag to Post and delete tag', () => {
+        let postName = cy.faker.lorem.word();
+        let tagName = cy.faker.lorem.word();
+        let tagDescription = cy.faker.lorem.lines();
+        // Given I visit ghost
+        cy.visit('http://localhost:2368/ghost/#/signin');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // And I login in ghost
+        loginGhost(emailLogin, passLogin);
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // And I navigate to tags
+        navigateModule('tags');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // And I create a new tag
+        createTag(tagName, tagDescription);
+        //And I wait 1 seconds
+        cy.wait(1000);
+        // And I navigate to tags
+        navigateModule('tags')
+        //And I wait 1 seconds
+        cy.wait(1000);
+        findInListSection('section.content-list', 'h3.gh-tag-list-name', tagName)
+        //And I wait 1 seconds
+        cy.wait(1000);
+        // When I navigate to post
+        navigateModule('posts');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // And I navigate to create post
+        navigateModule('editor/post');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // And I desing post title and set post tag
+        desingPost('basic-tag', postName, tagName);
+        // And I wait 1 seconds
+        cy.wait(1000);
+        clickButtonSave('div.gh-publishmenu-trigger')
+        // And I wait 1 seconds
+        cy.wait(1000);
+        clickButtonSave('button.gh-publishmenu-button')
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // And I navigate to post
+        navigateModule('posts');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        navigateModule('tags')
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // And I verify member created in the list
+        findInListSection('section.content-list', 'h3.gh-tag-list-name', tagName)
+        //And I wait 1 seconds
+        cy.wait(1000);
+        clickButtonDelete('button.gh-btn-red', false)
+        //And I wait 1 seconds
+        cy.wait(1000);
+        clickButtonDelete('button.gh-btn-red', true)
+        //And I wait 1 seconds
+        cy.wait(1000);
+        // And I navigate to members
+        navigateModule('tags')
+        //And I wait 1 seconds
+        cy.wait(1000);
+        findInListSectionDeleted('section.content-list', 'h3.gh-tag-list-name', tagName)
+    });
 });
