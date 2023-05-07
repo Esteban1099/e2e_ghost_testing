@@ -301,7 +301,7 @@
 4. Ejecucion Features con Kraken
     1. Desde la carpeta `e2e kraken ghost test` entrar a la carpeta `features`; en esta carpeta encontrará varios archivos .feature.
     2. Debido a que la aplicación solo puede ejecutar un feature a la vez, encontrará que varios archivos tienen un número al final de la extensión del archivo.
-    3. De acuerdo a lo anterior, cuando desee ejecutar un feature en especifico, quitarle el número del final y al feature que estaba habilitado para ejecutar ponerle un número en la extensión
+    3. De acuerdo a lo anterior, cuando desee ejecutar un feature en especifico, quitarle el número del final y agregar un número en la extensión al feature que estaba habilitado para ejecutar
     4. Una vez haya seleccionado el feature que desea ejecutar, desde una terminal que se encuentre en la carpeta `e2e kraken ghost test` se debe colocar el siguiente comando: `./node_modules/kraken-node/bin/kraken-node run`
     5. Al ejecutar el comando anterior se abrirán tantas ventanas del navegador como escenarios tenga el feature
     6. Al finalizar la prueba, la consola indicará la ejecución exitosa de las mismas y adicionalmente en el directorio se creará una carpeta llamada `reports` en la cual encontrará las evidencias de ejecución de las pruebas.
