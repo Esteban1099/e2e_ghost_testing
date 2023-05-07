@@ -1,7 +1,7 @@
 Feature: Navegation
 
 @user1 @web
-Scenario: Como usuario inicio sesion y creo una publicacion de tipo borrador
+Scenario: Crear sitio de navegación
 	Given I navigate to page "http://localhost:2368/ghost"
 	And I wait for 5 seconds
 	When I enter email "<USERNAME1>"
@@ -17,11 +17,11 @@ Scenario: Como usuario inicio sesion y creo una publicacion de tipo borrador
 	And I click on the redact message inputbox
   	And I wait for 2 seconds
 	And I enter text "Pagina kraken"
-  	And I wait for 4 seconds
+  	And I wait for 2 seconds
 	And I click on the redact post inputbox
   	And I wait for 2 seconds
 	And I enter text "Descripcion Pagina"
-  	And I wait for 4 seconds
+  	And I wait for 2 seconds
 	And I click on link publish
 	And I wait for 2 seconds
 	And I click save
@@ -50,7 +50,7 @@ Scenario: Como usuario inicio sesion y creo una publicacion de tipo borrador
 	And I wait for 4 seconds
 
 @user2 @web
-Scenario: Como usuario inicio sesion y creo una publicacion de tipo borrador
+Scenario: Crear sitio de navegación secundaria
 	Given I navigate to page "http://localhost:2368/ghost"
 	And I wait for 5 seconds
 	When I enter email "<USERNAME1>"
@@ -119,5 +119,4 @@ Scenario: Como usuario inicio sesion y creo una publicacion de tipo borrador
 	And I click new secondary site
 	And I wait for 4 seconds
 	And I navigate to page "http://localhost:2368/ghost"
-	And I wait for 4 seconds
-	
+	And I wait for 4 seconds	

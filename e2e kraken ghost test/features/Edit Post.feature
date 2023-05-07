@@ -1,7 +1,7 @@
 Feature: Edit Post
 
 @user1 @web
-Scenario: Como usuario inicio sesion y creo una publicacion de tipo borrador
+Scenario: Crear y editar publicación
 	Given I navigate to page "http://localhost:2368/ghost"
 	And I wait for 5 seconds
 	When I enter email "<USERNAME1>"
@@ -33,8 +33,8 @@ Scenario: Como usuario inicio sesion y creo una publicacion de tipo borrador
 	And I click on the post for back
 	And I wait for 4 seconds
 
-@user2 @web
-Scenario: Como usuario inicio sesion y creo una publicacion de tipo borrador
+@user2 @web 
+Scenario: Crear y editar borrador de publicación
 	Given I navigate to page "http://localhost:2368/ghost"
 	And I wait for 5 seconds
 	When I enter email "<USERNAME1>"
@@ -70,7 +70,7 @@ Scenario: Como usuario inicio sesion y creo una publicacion de tipo borrador
 	And I wait for 4 seconds
 
 @user3 @web
-Scenario: Como usuario inicio sesion y creo una publicacion de tipo borrador
+Scenario: Crear y editar borrador de publicación agregar etiqueta y editar etiqueta
 	Given I navigate to page "http://localhost:2368/ghost"
 	And I wait for 5 seconds
 	When I enter email "<USERNAME1>"

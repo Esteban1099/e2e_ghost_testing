@@ -16,12 +16,12 @@ When('I click next', async function() {
 });
 
 When('I click member', async function() {
-    let element = await this.driver.$('#ember39');
+    let element = await this.driver.$("a[href='#/staff/']");
     return await element.click();
 });
 
 When('I click post', async function() {
-    let element = await this.driver.$('#ember28');
+    let element = await this.driver.$("a[href='#/posts/']");
     return await element.click();
 });
 
@@ -31,7 +31,7 @@ When('I click new', async function() {
 });
 
 When('I click tags', async function() {
-    let element = await this.driver.$('#ember38');
+    let element = await this.driver.$("a[href='#/tags/']");
     return await element.click();
 });
 
@@ -94,7 +94,7 @@ Then('I click on the redact message inputbox', async function () {
   });
 
 Then('I click on the post for back', async function () {
-    let element = await this.driver.$('svg.w3');
+    let element = await this.driver.$("svg.w3");
     return await element.click();
   });
 
@@ -134,7 +134,7 @@ Then('I click save habilitar', async function () {
   });
 
 Then('I click pages', async function() {
-    let element = await this.driver.$('#ember37');
+    let element = await this.driver.$("a[href='#/pages/']");
     return await element.click();
 });
 
