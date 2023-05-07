@@ -47,7 +47,7 @@ Scenario: Crear sitio de navegación
 	And I click new site
 	And I wait for 4 seconds
 	And I navigate to page "http://localhost:2368/ghost"
-	And I wait for 4 seconds
+	And I wait for 10 seconds
 
 @user2 @web
 Scenario: Crear sitio de navegación secundaria
@@ -78,45 +78,45 @@ Scenario: Crear sitio de navegación secundaria
 	And I click on the post for back
 	And I wait for 30 seconds
 	And I click Design
-	And I wait for 4 seconds
+	And I wait for 1 seconds
 	And I add label
-	And I wait for 5 seconds
+	And I wait for 1 seconds
 	And I enter text "LabelNew2"
-  	And I wait for 4 seconds
+  	And I wait for 1 seconds
 	And I add url
-	And I wait for 5 seconds
+	And I wait for 1 seconds
 	And I enter text "pagina-kraken-secundaria"
-  	And I wait for 10 seconds
+  	And I wait for 1 seconds
 	And I click save
-	And I wait for 4 seconds
+	And I wait for 1 seconds
 	And I click ViewSite
-	And I wait for 4 seconds
+	And I wait for 1 seconds
 	And I navigate to page "http://localhost:2368"
-	And I wait for 4 seconds
+	And I wait for 1 seconds
 	And I click new site
-	And I wait for 4 seconds
+	And I wait for 1 seconds
 	And I navigate to page "http://localhost:2368/ghost"
-	And I wait for 4 seconds
+	And I wait for 1 seconds
 	Then I click Design
-	And I wait for 5 seconds
+	And I wait for 1 seconds
 	And I delete last Url
-	And I wait for 5 seconds
+	And I wait for 1 seconds
 	And I add secondary label
-	And I wait for 5 seconds
+	And I wait for 1 seconds
 	And I enter text "LabelNew2"
-  	And I wait for 4 seconds
+  	And I wait for 1 seconds
 	And I add secondary url
-	And I wait for 5 seconds
+	And I wait for 1 seconds
 	And I enter text "pagina-kraken-secundaria"
-  	And I wait for 4 seconds
+  	And I wait for 1 seconds
 	And I click save
-	And I wait for 4 seconds
+	And I wait for 1 seconds
 	And I click ViewSite
-	And I wait for 4 seconds
-	And I wait for 4 seconds
+	And I wait for 1 seconds
+	And I wait for 1 seconds
 	And I navigate to page "http://localhost:2368"
-	And I wait for 4 seconds
+	And I wait for 1 seconds
 	And I click new secondary site
-	And I wait for 4 seconds
+	And I wait for 1 seconds
 	And I navigate to page "http://localhost:2368/ghost"
-	And I wait for 4 seconds	
+	And I wait for 1 seconds	
