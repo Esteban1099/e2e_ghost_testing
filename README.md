@@ -284,16 +284,16 @@
     4. Una vez finalice, ahora ingrese el siguiente comando: `npm install kraken-node`
     5. Y finalmente ejecutar el siguiente comando: `npm install -g appium`
 2. Intalación de ghost y configuración del usuario y contraseña
-    Precondición: Se debe tener instalado `Node v12.22.1`
-    1. Desde un directorio diferente al creado anteriormente, abra una terminal e ingrese el siguiente comando: `npm install ghost-cli@1.13.1`
-    2. Diríjase a un directorio vacío en su sistema de archivos, el cual dedicará exclusivamente a Ghost. Puede hacer esto desde el directorio en el que está ubicado actualmente con los siguientes comandos: `mkdir ghost`
-    3. Ir a la carpeta creada `cd ghost`
-    4. Ahora que su terminal está ubicada en el directorio deseado, ejecute el comando de instalación con las herramientas que recién descargó: `ghost install 3.41.1 --local`
-    5. Una vez el comando termine de ejecutar, la aplicación quedará activa en su máquina
-    6. Para probar la aplicación y su funcionamiento, abra su navegador y escriba en la barra de navegación la siguiente dirección: `http://localhost:2368/ghost`
-    7. Cree una cuenta siguiendo las instrucciones que le brindará esa página. Luego de tener su cuenta de administrador, podrá acceder a múltiples funcionalidades que comprenden la administración de contenido y la configuración de otros parámetros sobre los blogs y los usuarios
-    8. Mientras Ghost esté ejecutándose habrá una terminal de Node activa, en caso de querer detener la aplicación solo basta con cerrar la terminal creada
-    9. Para iniciar nuevamente la aplicación de Ghost se ejecuta el siguiente comando: `ghost start`
+    1. Precondición: Se debe tener instalado `Node v12.22.1`
+    2. Desde un directorio diferente al creado anteriormente, abra una terminal e ingrese el siguiente comando: `npm install ghost-cli@1.13.1`
+    3. Diríjase a un directorio vacío en su sistema de archivos, el cual dedicará exclusivamente a Ghost. Puede hacer esto desde el directorio en el que está ubicado actualmente con los siguientes comandos: `mkdir ghost`
+    4. Ir a la carpeta creada `cd ghost`
+    5. Ahora que su terminal está ubicada en el directorio deseado, ejecute el comando de instalación con las herramientas que recién descargó: `ghost install 3.41.1 --local`
+    6. Una vez el comando termine de ejecutar, la aplicación quedará activa en su máquina
+    7. Para probar la aplicación y su funcionamiento, abra su navegador y escriba en la barra de navegación la siguiente dirección: `http://localhost:2368/ghost`
+    8. Cree una cuenta siguiendo las instrucciones que le brindará esa página. Luego de tener su cuenta de administrador, podrá acceder a múltiples funcionalidades que comprenden la administración de contenido y la configuración de otros parámetros sobre los blogs y los usuarios
+    9. Mientras Ghost esté ejecutándose habrá una terminal de Node activa, en caso de querer detener la aplicación solo basta con cerrar la terminal creada
+    10. Para iniciar nuevamente la aplicación de Ghost se ejecuta el siguiente comando: `ghost start`
 3. Actualización de usuario y contraseña en archivo properties.json de kraken
     1. Durante la instalación de Ghost, en el paso 7 se creó un usuario administrador por lo tanto el usuario y contraseña se debe configurar en las propiedades del proyecto clonado anteriormente
     2. En la carpeta `e2e kraken ghost test` encontrará un archivo `properties.json`
