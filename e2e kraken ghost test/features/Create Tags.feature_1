@@ -4,9 +4,9 @@ Feature: Crear Tag
 Scenario: Escenario 1 Crear Tag Publico 
   Given I navigate to page "http://localhost:2368/ghost/#/signin"
     And I wait for 2 seconds
-    And I enter email "<GHOST_EMAIL>"
+    And I enter email "<USERNAME1>"
     And I wait for 1 seconds
-    And I enter password "<GHOST_PASSWORD>"
+    And I enter password "<PASSWORD1>"
     And I wait for 2 seconds
     And I click login
   When I navigate to page "http://localhost:2368/ghost/#/tags"
