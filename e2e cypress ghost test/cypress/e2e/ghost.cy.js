@@ -636,7 +636,7 @@ describe('E2E Test in ghost', () => {
     //     findInListSection('section.content-list', 'h3.gh-tag-list-name', tagName)
     // });
 
-    it('Feature: Create post - Scenario: Create tag, Assign tag to Post and delete tag', () => {
+    it('Feature: Create Tag - Scenario: Create tag, Assign tag to Post and delete tag', () => {
         let postName = cy.faker.lorem.word();
         let tagName = cy.faker.lorem.word();
         let tagDescription = cy.faker.lorem.lines();
