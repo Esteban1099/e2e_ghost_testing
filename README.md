@@ -284,6 +284,7 @@
     4. Una vez finalice, ahora ingrese el siguiente comando: `npm install kraken-node`
     5. Y finalmente ejecutar el siguiente comando: `npm install -g appium`
 2. Intalación de ghost y configuración del usuario y contraseña
+    Precondición: Se debe tener instalado `Node v12.22.1`
     1. Desde un directorio diferente al creado anteriormente, abra una terminal e ingrese el siguiente comando: `npm install ghost-cli@1.13.1`
     2. Diríjase a un directorio vacío en su sistema de archivos, el cual dedicará exclusivamente a Ghost. Puede hacer esto desde el directorio en el que está ubicado actualmente con los siguientes comandos: `mkdir ghost`
     3. Ir a la carpeta creada `cd ghost`
