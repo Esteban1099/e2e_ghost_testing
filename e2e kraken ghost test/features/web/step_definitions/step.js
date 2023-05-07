@@ -25,11 +25,6 @@ When('I click post', async function() {
     return await element.click();
 });
 
-When('I click new', async function() {
-    let element = await this.driver.$('.gh-btn-green');
-    return await element.click();
-});
-
 When('I click tags', async function() {
     let element = await this.driver.$("a[href='#/tags/']");
     return await element.click();
@@ -124,7 +119,7 @@ Then('I click save', async function () {
     return await element.click();
   });
 
-Then('I click save habilitar', async function () {
+Then('I click enable members', async function () {
     let element = await this.driver.$('.gh-btn-blue');
     console.log(element);
     if(element.error != null){
@@ -143,7 +138,7 @@ Then('I click on the redact post inputbox', async function () {
     return await element.click();
   });
 
-Then('I click on settings', async function () {
+  Then('I click on settings', async function () {
     let element = await this.driver.$('.post-settings');
     return await element.click();
   });
@@ -285,39 +280,13 @@ Then('I enter title {kraken-string}', async function (string) {
     return await element.setValue(string);
   });
 
-
-  Then('I click on settings', async function () {
-    let element = await this.driver.$('.post-settings');
-    return await element.click();
-  });
-
   Then('I close settings', async function () {
     let element = await this.driver.$('.close');
     return await element.click();
   });
 
-  Then('I click on list tags', async function () {
-    let element = await this.driver.$('.ember-power-select-trigger-multiple-input');
-    return await element.click();
-  });
-
-Then('I click on link publish', async function () {
-    let element = await this.driver.$('.gh-publishmenu-trigger');
-    return await element.click();
-  });
-
 Then('I select first tag option', async function () {
     let element = await this.driver.$('div.settings-menu-content > form > div:nth-child(3) > div > div:nth-child(2) > div > ul.ember-power-select-options > li:nth-child(2)');
-    return await element.click();
-  });
-
-  Then('I click save', async function () {
-    let element = await this.driver.$('.gh-btn-blue');
-    return await element.click();
-  });
-
-  Then('I click on the redact post inputbox', async function () {
-    let element = await this.driver.$('.koenig-editor');
     return await element.click();
   });
 

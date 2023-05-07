@@ -2,97 +2,115 @@ Feature: Crear Tag
 
 @user1 @web
 Scenario: Escenario 1 Crear Tag Publico 
-  Given I navigate to page "http://localhost:2368/ghost/#/signin"
-    And I wait for 2 seconds
+  Given I navigate to page "http://localhost:2368/ghost"
+    And I wait for 1 seconds
     And I enter email "<USERNAME1>"
     And I wait for 1 seconds
     And I enter password "<PASSWORD1>"
     And I wait for 2 seconds
     And I click login
   When I navigate to page "http://localhost:2368/ghost/#/tags"
-    And I click create new tag
+    And I wait for 2 seconds
+    And I click new
   Then I enter tag name "$name_1"
-    And I wait for 5 seconds
+    And I wait for 1 seconds
     And I save tag
     And I navigate to page "http://localhost:2368/ghost/#/tags"
+    And I wait for 2 seconds
     And I check tag "$$name_1"
+    And I send a signal to user 2 containing "Tag 1 complete"
 
 @user2 @web
 Scenario: Escenario 2 Crear Tag Interno
-  Given I navigate to page "http://localhost:2368/ghost/#/signin"
-    And I wait for 2 seconds
-    And I enter email "<GHOST_EMAIL>"
+  Given I navigate to page "http://localhost:2368/ghost"
+    And I wait for a signal containing "Tag 1 complete" for 30 seconds
+    And I enter email "<USERNAME1>"
     And I wait for 1 seconds
-    And I enter password "<GHOST_PASSWORD>"
-    And I wait for 5 seconds
+    And I enter password "<PASSWORD1>"
+    And I wait for 1 seconds
     And I click login
   When I navigate to page "http://localhost:2368/ghost/#/tags"
+    And I wait for 2 seconds
     And I click internal tags
-    And I wait for 5 seconds
-    And I click create new tag
-    And I wait for 5 seconds
+    And I wait for 1 seconds
+    And I click new
+    And I wait for 1 seconds
   Then I enter internal tag name "$name_1"
     And I save tag
     And I navigate to page "http://localhost:2368/ghost/#/tags"
+    And I wait for 2 seconds
     And I click internal tags
     And I check internal tag "$$name_1"
-
+    And I send a signal to user 3 containing "Tag 2 complete"
 
 @user3 @web
 Scenario: Escenario 3 Editar Tag después de crear
-  Given I navigate to page "http://localhost:2368/ghost/#/signin"
-    And I wait for 2 seconds
-    And I enter email "<GHOST_EMAIL>"
+  Given I navigate to page "http://localhost:2368/ghost"
+    And I wait for 10 seconds
+    And I wait for a signal containing "Tag 2 complete" for 30 seconds
+    And I enter email "<USERNAME1>"
     And I wait for 1 seconds
-    And I enter password "<GHOST_PASSWORD>"
-    And I wait for 5 seconds
+    And I enter password "<PASSWORD1>"
+    And I wait for 1 seconds
     And I click login
   When I navigate to page "http://localhost:2368/ghost/#/tags"
-    And I click create new tag
+    And I wait for 2 seconds
+    And I click new
   Then I enter tag name "$name_1"
-    And I wait for 5 seconds
+    And I wait for 1 seconds
     And I save tag
     And I navigate to page "http://localhost:2368/ghost/#/tags"
+    And I wait for 2 seconds
     And I check tag "$$name_1"
     And I enter tag name "$name_2"
     And I wait for 2 seconds
     And I save tag
     And I navigate to page "http://localhost:2368/ghost/#/tags"
+    And I wait for 2 seconds
     And I check tag "$$name_1"
+    And I send a signal to user 4 containing "Tag 3 complete"
+
 
 @user4 @web
 Scenario: Escenario 4 Eliminar Tag después de crear
-  Given I navigate to page "http://localhost:2368/ghost/#/signin"
-    And I wait for 2 seconds
-    And I enter email "<GHOST_EMAIL>"
+  Given I navigate to page "http://localhost:2368/ghost"
+    And I wait for 20 seconds
+    And I wait for a signal containing "Tag 3 complete" for 30 seconds
+    And I enter email "<USERNAME1>"
     And I wait for 1 seconds
-    And I enter password "<GHOST_PASSWORD>"
-    And I wait for 5 seconds
+    And I enter password "<PASSWORD1>"
+    And I wait for 1 seconds
     And I click login
   When I navigate to page "http://localhost:2368/ghost/#/tags"
-    And I click create new tag
+    And I wait for 2 seconds
+    And I click new
   Then I enter tag name "$name_1"
-    And I wait for 5 seconds
+    And I wait for 1 seconds
     And I save tag
     And I navigate to page "http://localhost:2368/ghost/#/tags"
+    And I wait for 2 seconds
     And I check tag "$$name_1"
     And I delete tag
     And I confirm delete
     And I wait for 2 seconds
     And I navigate to page "http://localhost:2368/ghost/#/tags"
+    And I send a signal to user 5 containing "Tag 4 complete"
 
 
 @user5 @web
 Scenario: Escenario 5 Crear tag, asignar tag a post y eliminar tag
-  Given I navigate to page "http://localhost:2368/ghost/#/signin"
-    And I wait for 2 seconds
-    And I enter email "<GHOST_EMAIL>"
+  Given I navigate to page "http://localhost:2368/ghost"
+    And I wait for 30 seconds
+    And I wait for 10 seconds
+    And I wait for a signal containing "Tag 4 complete" for 30 seconds
+    And I enter email "<USERNAME1>"
     And I wait for 1 seconds
-    And I enter password "<GHOST_PASSWORD>"
-    And I wait for 2 seconds
+    And I enter password "<PASSWORD1>"
+    And I wait for 1 seconds
     And I click login
   When I navigate to page "http://localhost:2368/ghost/#/tags"
-    And I click create new tag
+    And I wait for 2 seconds
+    And I click new
   Then I enter tag name "$name_1"
     And I wait for 1 seconds
     And I save tag
@@ -103,7 +121,7 @@ Scenario: Escenario 5 Crear tag, asignar tag a post y eliminar tag
     And I click on the redact post inputbox
     And I click on settings
     And I click on list tags
-    And I select tag first option
+    And I select first tag option
     And I wait for 1 seconds
     And I close settings
     And I wait for 1 seconds
@@ -112,7 +130,7 @@ Scenario: Escenario 5 Crear tag, asignar tag a post y eliminar tag
     And I click save
     And I wait for 1 seconds
     And I navigate to page "http://localhost:2368/ghost/#/tags"
-    And I wait for 1 seconds
+    And I wait for 2 seconds
     And I check tag "$$name_1"
     And I delete tag
     And I confirm delete

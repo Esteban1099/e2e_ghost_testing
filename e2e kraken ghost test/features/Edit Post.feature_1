@@ -31,7 +31,8 @@ Scenario: Crear y editar publicación
 	And I click save
 	And I wait for 4 seconds
 	And I click on the post for back
-	And I wait for 4 seconds
+	And I wait for 10 seconds
+	And I wait for 10 seconds
 
 @user2 @web 
 Scenario: Crear y editar borrador de publicación
@@ -50,7 +51,7 @@ Scenario: Crear y editar borrador de publicación
 	And I click on the redact message inputbox
   	And I wait for 10 seconds
 	And I enter text "Publicacion borrador edito nombre"
-  	And I wait for 10 seconds
+  	And I wait for 1 seconds
 	And I click on the redact post inputbox
   	And I wait for 5 seconds
 	And I enter text "Se mantiene en borrador"
@@ -67,7 +68,7 @@ Scenario: Crear y editar borrador de publicación
 	And I click on the redact post inputbox
 	And I wait for 2 seconds
 	And I click on the post for back
-	And I wait for 4 seconds
+	And I wait for 10 seconds
 
 @user3 @web
 Scenario: Crear y editar borrador de publicación agregar etiqueta y editar etiqueta
@@ -104,56 +105,56 @@ Scenario: Crear y editar borrador de publicación agregar etiqueta y editar etiq
 	And I click on the redact description inputbox
   	And I wait for 2 seconds
 	And I enter text "descripcion2"
-  	And I wait for 4 seconds
+  	And I wait for 1 seconds
 	And I click save
-	And I wait for 4 seconds
+	And I wait for 1 seconds
 	And I click pages
-	And I wait for 5 seconds
+	And I wait for 1 seconds
 	And I click post
-	And I wait for 5 seconds
+	And I wait for 1 seconds
 	And I click new
-	And I wait for 10 seconds
+	And I wait for 1 seconds
 	And I click on the redact message inputbox
-  	And I wait for 5 seconds
+  	And I wait for 1 seconds
 	And I enter text "Edicion tag"
-  	And I wait for 5 seconds
+  	And I wait for 1 seconds
 	And I click on the redact post inputbox
-  	And I wait for 5 seconds
+  	And I wait for 1 seconds
 	And I enter text "Se ajustará tag"
-  	And I wait for 5 seconds
+  	And I wait for 1 seconds
 	And I click on settings
-  	And I wait for 2 seconds
+  	And I wait for 1 seconds
 	And I click on list tags
   	And I wait for 2 seconds
 	And I enter text "tag kraken1"
-  	And I wait for 4 seconds
+  	And I wait for 1 seconds
 	And I select first option
-	And I wait for 4 seconds
+	And I wait for 2 seconds
 	And I click on the redact message inputbox
-  	And I wait for 2 seconds
+  	And I wait for 1 seconds
 	And I click on the post for back
-	And I wait for 4 seconds
+	And I wait for 1 seconds
 	And I leave
-	And I wait for 4 seconds
+	And I wait for 1 seconds
 	Then I click on the last post
-	And I wait for 4 seconds
+	And I wait for 1 seconds
 	And I click on settings
-  	And I wait for 2 seconds
+  	And I wait for 1 seconds
 	And I click on list tags
-  	And I wait for 2 seconds
+  	And I wait for 1 seconds
 	And I enter text "tag kraken2"
-  	And I wait for 4 seconds
+  	And I wait for 1 seconds
 	And I select first option
-	And I wait for 4 seconds
+	And I wait for 1 seconds
 	And I click on the redact message inputbox
-  	And I wait for 2 seconds
+  	And I wait for 1 seconds
 	And I click on settings
-  	And I wait for 2 seconds
+  	And I wait for 1 seconds
 	And I click on the redact message inputbox
-  	And I wait for 2 seconds
+  	And I wait for 1 seconds
 	And I click on the post for back
-	And I wait for 4 seconds
+	And I wait for 1 seconds
 	And I leave
-	And I wait for 4 seconds
+	And I wait for 1 seconds
 	
 	
