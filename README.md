@@ -80,7 +80,7 @@
        * Publicar nuevamente
        * Volver al módulo de publicaciones
        * Verificar la creación de la publicación con el título ingresado y en estado Publicado
-    2. Escenario 2: 
+    2. Escenario 2: Crear y editar borrador de publicación
        * Login credenciales correctas 
        * Navegar a módulo de publicaciones
        * Seleccionar crear publicación
@@ -91,7 +91,7 @@
        * Cambiar el título de la publicación 
        * Volver a módulo de publicaciones
        * Verificar la creación de la publicación con el título editado y en estado Borrador
-    3. Escenario 3: 
+    3. Escenario 3: Crear borrador de Publicación, Agregar Etiqueta y Editar etiqueta
        * Login credenciales correctas 
        * Navegar a módulo de etiquetas
        * Crear nueva etiqueta A
