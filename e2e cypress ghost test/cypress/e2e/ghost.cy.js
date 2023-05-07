@@ -60,6 +60,38 @@ function outfocus() {
   });
 }
 
+function desingPageEr(type, pageName, pageText) {
+  if (type == 'basic-text-publish') {
+    enterInputInForm('textarea.gh-editor-title', pageName);
+    enterInputInForm('div.koenig-editor__editor', pageText);
+    cy.wait(1000);
+    clickButtonSave('div.gh-publishmenu-trigger');
+    cy.wait(1000);
+    clickButtonSave('button.gh-publishmenu-button');
+  } else if (type == 'basic-text-program-publish') {
+    enterInputInForm('textarea.gh-editor-title', pageName);
+    enterInputInForm('div.koenig-editor__editor', pageText);
+    cy.wait(1000);
+    clickButtonSave('div.gh-publishmenu-trigger');
+    cy.wait(1000);
+    cy.document().then((doc) => {
+      let buttonSchedule = doc.querySelectorAll('div.gh-publishmenu-radio-button')[1];
+      cy.wrap(buttonSchedule).click({ force: true });
+      clickButtonSave('button.gh-publishmenu-button');
+    });
+
+  }
+}
+
+function deletePage() {
+  clickInOptionAction('button.post-settings');
+  cy.wait(1000);
+  clickButtonDelete('button.gh-btn-hover-red', false)
+  cy.wait(1000);
+  clickButtonDelete('button.gh-btn-red', false)
+
+}
+
 function desingPost(type, postName, tagName, postText) {
   if (type == 'basic') {
     enterInputInForm('textarea.gh-editor-title', postName);
@@ -160,6 +192,21 @@ function navigateEditPostByTitle(title) {
   });
 }
 
+function navigateEditPageByTitle(title) {
+  cy.get('ol.gh-list').then($ol => {
+    var objectList = $ol.get(0);
+    var items = objectList.querySelectorAll('li.gh-posts-list-item')
+    for (let index = 0; index < items.length; index++) {
+      var li = items[index];
+      var link = li.querySelectorAll('a')[1];
+      var header = link.querySelectorAll('h3')[0];
+      if (header.textContent.trim() == title) {
+        cy.wrap(header).click({ force: true });
+      }
+    }
+  });
+}
+
 
 function checkPublishedPostTitle(position, title) {
   var contador = 0;
@@ -181,6 +228,72 @@ function checkPublishedPostTitle(position, title) {
     }
   });
 }
+
+function checkPublishedPageTitleEr(position, title) {
+  var contador = 0;
+  cy.get('ol.gh-list').then($ol => {
+    var objectList = $ol.get(0);
+    var items = objectList.querySelectorAll('li.gh-posts-list-item')
+    for (let index = 0; index < items.length; index++) {
+      var li = items[index];
+      var link = li.querySelectorAll('a')[2];
+      var span = link.querySelectorAll('span')[0];
+      if (span.textContent.trim() == 'Published') {
+        if (contador == position) {
+          var link = li.querySelectorAll('a')[1];
+          var header = link.querySelectorAll('h3')[0];
+          expect(header.textContent.trim()).to.eql(title)
+        }
+        contador++;
+      }
+    }
+  });
+}
+
+function checkScheduledPageTitleEr(position, title) {
+  var contador = 0;
+  cy.get('ol.gh-list').then($ol => {
+    var objectList = $ol.get(0);
+    var items = objectList.querySelectorAll('li.gh-posts-list-item')
+    for (let index = 0; index < items.length; index++) {
+      var li = items[index];
+      var link = li.querySelectorAll('a')[2];
+      var span = link.querySelectorAll('span')[0];
+      if (span.textContent.trim() == 'Scheduled') {
+        if (contador == position) {
+          var link = li.querySelectorAll('a')[1];
+          var header = link.querySelectorAll('h3')[0];
+          expect(header.textContent.trim()).to.eql(title)
+        }
+        contador++;
+      }
+    }
+  });
+}
+
+function checkScheduledPageTitleNotAtPosition(position, title) {
+  var contador = 0;
+  var headerText = "";
+  cy.get('ol.gh-list').then($ol => {
+    var objectList = $ol.get(0);
+    var items = objectList.querySelectorAll('li.gh-posts-list-item')
+    for (let index = 0; index < items.length; index++) {
+      var li = items[index];
+      var link = li.querySelectorAll('a')[2];
+      var span = link.querySelectorAll('span')[0];
+      if (span.textContent.trim() == 'Scheduled') {
+        if (contador == position) {
+          var link = li.querySelectorAll('a')[1];
+          var header = link.querySelectorAll('h3')[0];
+          headerText = header.textContent.trim();
+        }
+        contador++;
+      }
+    }
+  });
+  expect(headerText).to.not.to.eql(title)
+}
+
 
 function checkPostTag(position, tag) {
   cy.get('ol.posts-list').then($ol => {
@@ -565,7 +678,7 @@ describe('E2E Test in ghost', () => {
   //   checkPostIsDraft(0);
   // });
 
-  // it('Feature: Edit post - Scenario: Edit a recent created post and let it as draft', () => {
+  // it('Feature: Edit post - Scenario: Edit a recent created post and change tag', () => {
   //   let postName = cy.faker.lorem.word();
   //   let postText = cy.faker.lorem.lines();
   //   let tagNameA = cy.faker.lorem.word();
@@ -636,6 +749,122 @@ describe('E2E Test in ghost', () => {
   //   // And I expect that first post on post list must have the edit tag 
   //   checkPostTag(0, tagNameB)
   // });
+
+  // it('Feature: Create page - Scenario: Create page and publish', () => {
+  //   let pageName = cy.faker.lorem.word();
+  //   let pageText = cy.faker.lorem.lines();
+
+  //   // Given I visit ghost
+  //   cy.visit('http://localhost:2368/ghost/#/signin');
+  //   // And I wait 1 seconds
+  //   cy.wait(1000);
+  //   // And I login in ghost
+  //   loginGhost(emailLogin, passLogin);
+  //   // And I wait 1 seconds
+  //   cy.wait(1000);
+  //   // When I navigate to pages
+  //   navigateModule('pages')
+  //   // And I wait 1 seconds
+  //   cy.wait(1000);
+  //   // And I navigate to create page
+  //   navigateModule('editor/page')
+  //   // And I wait 1 seconds
+  //   cy.wait(1000);
+  //   // And I desing page title, text and publish 
+  //   desingPageEr('basic-text-publish', pageName, pageText)
+  //   // And I wait 1 seconds
+  //   cy.wait(1000);
+  //   // And I navigate to pages
+  //   navigateModule('pages')
+  //   // And I wait 1 seconds
+  //   cy.wait(1000);
+  //   // Then I expect that first page published on page list must has the title of the one I created
+  //   checkPublishedPageTitleEr(0, pageName);
+  // });
+
+  // it('Feature: Create page - Scenario: Create page and schedule publish in 5 minutes ', () => {
+  //   let pageName = cy.faker.lorem.word();
+  //   let pageText = cy.faker.lorem.lines();
+
+  //   // Given I visit ghost
+  //   cy.visit('http://localhost:2368/ghost/#/signin');
+  //   // And I wait 1 seconds
+  //   cy.wait(1000);
+  //   // And I login in ghost
+  //   loginGhost(emailLogin, passLogin);
+  //   // And I wait 1 seconds
+  //   cy.wait(1000);
+  //   // When I navigate to pages
+  //   navigateModule('pages')
+  //   // And I wait 1 seconds
+  //   cy.wait(1000);
+  //   // And I navigate to create page
+  //   navigateModule('editor/page')
+  //   // And I wait 1 seconds
+  //   cy.wait(1000);
+  //   // And I desing page title, text and schedule publish in 5 minutes 
+  //   desingPageEr('basic-text-program-publish', pageName, pageText)
+  //   // And I wait 1 seconds
+  //   cy.wait(1000);
+  //   // And I navigate to pages
+  //   navigateModule('pages')
+  //   // And I wait 1 seconds
+  //   cy.wait(1000);
+  //   // Then I expect that first page scheduled on page list must has the title of the one I created
+  //   checkScheduledPageTitleEr(0, pageName);
+  //   // And I wait 5 minutes for page be published
+  //   cy.wait(300000)
+  //   // And I re navigate to post
+  //   navigateModule('posts')
+  //   // And I re navigate to pages
+  //   navigateModule('pages')    
+  //   // And I wait 1 seconds
+  //   cy.wait(1000);
+  //   // And I expect that first post published on post list must has the title of the one I created
+  //   checkPublishedPageTitleEr(0, pageName);
+
+  // });
+
+  it('Feature: Create page - Scenario: Create page, schedule publish in 5 minutes and delete before pusblish', () => {
+    let pageName = cy.faker.lorem.word();
+    let pageText = cy.faker.lorem.lines();
+
+    // Given I visit ghost
+    cy.visit('http://localhost:2368/ghost/#/signin');
+    // And I wait 1 seconds
+    cy.wait(1000);
+    // And I login in ghost
+    loginGhost(emailLogin, passLogin);
+    // And I wait 1 seconds
+    cy.wait(1000);
+    // When I navigate to pages
+    navigateModule('pages')
+    // And I wait 1 seconds
+    cy.wait(1000);
+    // And I navigate to create page
+    navigateModule('editor/page')
+    // And I wait 1 seconds
+    cy.wait(1000);
+    // And I desing page title, text and schedule publish in 5 minutes 
+    desingPageEr('basic-text-program-publish', pageName, pageText)
+    // And I wait 1 seconds
+    cy.wait(1000);
+    // And I navigate to pages
+    navigateModule('pages')
+    // And I wait 1 seconds
+    cy.wait(1000);
+    // Then I expect that first page scheduled on page list must has the title of the one I created
+    checkScheduledPageTitleEr(0, pageName);
+    // And I wait 1 seconds
+    cy.wait(1000);
+    // And I navigate to edit page
+    navigateEditPageByTitle(pageName);
+    // And I delete page
+    deletePage()
+    // And I expect the page is not on page list
+    checkScheduledPageTitleNotAtPosition(0, pageName);
+
+  });
 
   // it('Feature: Create member | Scenario: Activate option and register member', () => {
   //     // Given I visit ghost
@@ -865,6 +1094,75 @@ describe('E2E Test in ghost', () => {
   //   });
 
   //   it('Feature: Create post - Scenario: Create tag, Assign tag to Post and delete tag', () => {
+  //       let postName = cy.faker.lorem.word();
+  //       let tagName = cy.faker.lorem.word();
+  //       let tagDescription = cy.faker.lorem.lines();
+  //       // Given I visit ghost
+  //       cy.visit('http://localhost:2368/ghost/#/signin');
+  //       // And I wait 1 seconds
+  //       cy.wait(1000);
+  //       // And I login in ghost
+  //       loginGhost(emailLogin, passLogin);
+  //       // And I wait 1 seconds
+  //       cy.wait(1000);
+  //       // And I navigate to tags
+  //       navigateModule('tags');
+  //       // And I wait 1 seconds
+  //       cy.wait(1000);
+  //       // And I create a new tag
+  //       createTag(tagName, tagDescription);
+  //       //And I wait 1 seconds
+  //       cy.wait(1000);
+  //       // And I navigate to tags
+  //       navigateModule('tags')
+  //       //And I wait 1 seconds
+  //       cy.wait(1000);
+  //       findInListSection('section.content-list', 'h3.gh-tag-list-name', tagName)
+  //       //And I wait 1 seconds
+  //       cy.wait(1000);
+  //       // When I navigate to post
+  //       navigateModule('posts');
+  //       // And I wait 1 seconds
+  //       cy.wait(1000);
+  //       // And I navigate to create post
+  //       navigateModule('editor/post');
+  //       // And I wait 1 seconds
+  //       cy.wait(1000);
+  //       // And I desing post title and set post tag
+  //       desingPost('basic-tag', postName, tagName);
+  //       // And I wait 1 seconds
+  //       cy.wait(1000);
+  //       clickButtonSave('div.gh-publishmenu-trigger')
+  //       // And I wait 1 seconds
+  //       cy.wait(1000);
+  //       clickButtonSave('button.gh-publishmenu-button')
+  //       // And I wait 1 seconds
+  //       cy.wait(1000);
+  //       // And I navigate to post
+  //       navigateModule('posts');
+  //       // And I wait 1 seconds
+  //       cy.wait(1000);
+  //       navigateModule('tags')
+  //       // And I wait 1 seconds
+  //       cy.wait(1000);
+  //       // And I verify member created in the list
+  //       findInListSection('section.content-list', 'h3.gh-tag-list-name', tagName)
+  //       //And I wait 1 seconds
+  //       cy.wait(1000);
+  //       clickButtonDelete('button.gh-btn-red', false)
+  //       //And I wait 1 seconds
+  //       cy.wait(1000);
+  //       clickButtonDelete('button.gh-btn-red', true)
+  //       //And I wait 1 seconds
+  //       cy.wait(1000);
+  //       // And I navigate to members
+  //       navigateModule('tags')
+  //       //And I wait 1 seconds
+  //       cy.wait(1000);
+  //       findInListSectionDeleted('section.content-list', 'h3.gh-tag-list-name', tagName)
+  //   });
+
+  //   it('Feature: Create Tag - Scenario: Create tag, Assign tag to Post and delete tag', () => {
   //       let postName = cy.faker.lorem.word();
   //       let tagName = cy.faker.lorem.word();
   //       let tagDescription = cy.faker.lorem.lines();
