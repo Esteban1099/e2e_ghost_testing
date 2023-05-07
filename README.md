@@ -271,4 +271,9 @@
 
 # Pasos para ejecución Cypress
 
+1. instalacion de kraken y dependencias
+2. instalacion de ghost y configuracion de usuario y contraseña
+3. actualización de usuario y contraseña en archivo properties.json de kraken
+
+
 # Pasos para ejecución Kraken
