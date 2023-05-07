@@ -65,8 +65,6 @@ function desingPost(type, postName, tagName) {
     enterInputInForm('textarea.gh-editor-title', postName);
   }
   else if (type == 'basic-tag') {
-    enterInputInForm('textarea.gh-editor-title', postName);
-    cy.wait(1000)
     clickInOptionAction('button.post-settings');
     cy.wait(1000)
     clickInOptionAction('span.ember-power-select-status-icon');
@@ -77,9 +75,7 @@ function desingPost(type, postName, tagName) {
           var tag = $tags[index];
           if (tag.textContent.trim() == tagName) {
             cy.wrap(tag).click({ force: true });
-            navigateModule('posts');
-            cy.wait(1000)
-            clickInOptionAction('button.gh-btn-red');
+            enterInputInForm('textarea.gh-editor-title', postName);            
             break;
           }
         }
@@ -97,6 +93,18 @@ function checkPostTitle(position, title) {
     var link = li.querySelectorAll('a')[1];
     var header = link.querySelectorAll('h3')[0];
     expect(header.textContent.trim()).to.eql(title)
+  });
+}
+
+function checkPostTag(position, tag) {
+  cy.get('ol.posts-list').then($ol => {
+    var objectList = $ol.get(0);
+    var li = objectList.querySelectorAll('li.gh-posts-list-item')[position]
+    var link = li.querySelectorAll('a')[1];
+    var paraghap = link.querySelectorAll('p')[0];
+    var spanParent = paraghap.querySelectorAll('span')[0];
+    var span = spanParent.querySelectorAll('span')[1];
+    expect(span.textContent.trim()).to.eql(tag)
   });
 }
 
@@ -221,41 +229,41 @@ describe('E2E Test in ghost', () => {
   //   const tagNameEdit = cy.faker.lorem.word();
   //   const tagDescription = cy.faker.lorem.lines();
 
-  //   it('Feature: Create post - Scenario: Create draft post', () => {
-  //     let postName = cy.faker.lorem.word();
-  //     // Given I visit ghost
-  //     cy.visit('http://localhost:2368/ghost/#/signin');
-  //     // And I wait 1 seconds
-  //     cy.wait(1000);
-  //     // And I login in ghost
-  //     loginGhost('reyes1099@outlook.com', 'Miso123456');
-  //     // And I wait 1 seconds
-  //     cy.wait(1000);
-  //     // And I navigate to members
-  //     navigateModule('staff');
-  //     // And I wait 1 seconds
-  //     cy.wait(1000);
-  //     // When I navigate to post
-  //     navigateModule('posts');
-  //     // And I wait 1 seconds
-  //     cy.wait(1000);
-  //     // And I navigate to create post
-  //     navigateModule('editor/post');
-  //     // And I wait 1 seconds
-  //     cy.wait(1000);
-  //     // And I desing post title 
-  //     desingPost('basic', postName);
-  //     // And I wait 1 seconds
-  //     cy.wait(1000);
-  //     // And I navigate to post
-  //     navigateModule('posts');
-  //     // And I wait 1 seconds
-  //     cy.wait(1000);
-  //     // Then I expect that first post on list must has the title of the one I created
-  //     checkPostTitle(0, postName);
-  //     // And I expect that first post on list must be draft 
-  //     checkPostIsDraft(0);
-  //   });
+    // it('Feature: Create post - Scenario: Create draft post', () => {
+    //   let postName = cy.faker.lorem.word();
+    //   // Given I visit ghost
+    //   cy.visit('http://localhost:2368/ghost/#/signin');
+    //   // And I wait 1 seconds
+    //   cy.wait(1000);
+    //   // And I login in ghost
+    //   loginGhost('reyes1099@outlook.com', 'Miso123456');
+    //   // And I wait 1 seconds
+    //   cy.wait(1000);
+    //   // And I navigate to members
+    //   navigateModule('staff');
+    //   // And I wait 1 seconds
+    //   cy.wait(1000);
+    //   // When I navigate to post
+    //   navigateModule('posts');
+    //   // And I wait 1 seconds
+    //   cy.wait(1000);
+    //   // And I navigate to create post
+    //   navigateModule('editor/post');
+    //   // And I wait 1 seconds
+    //   cy.wait(1000);
+    //   // And I desing post title 
+    //   desingPost('basic', postName);
+    //   // And I wait 1 seconds
+    //   cy.wait(1000);
+    //   // And I navigate to post
+    //   navigateModule('posts');
+    //   // And I wait 1 seconds
+    //   cy.wait(1000);
+    //   // Then I expect that first post on list must has the title of the one I created
+    //   checkPostTitle(0, postName);
+    //   // And I expect that first post on list must be draft 
+    //   checkPostIsDraft(0);
+    // });
 
   it('Feature: Create post - Scenario: Create draft post with tag', () => {
     let postName = cy.faker.lorem.word();
@@ -295,12 +303,16 @@ describe('E2E Test in ghost', () => {
     desingPost('basic-tag', postName, tagName);
     // And I wait 1 seconds
     cy.wait(1000);
+    // And I navigate to post
+    navigateModule('posts');
+    // And I wait 1 seconds
+    cy.wait(1000);
     // Then I expect that first post on list must has the title of the one I created
     checkPostTitle(0, postName);
     // And I expect that first post on list must be draft 
     checkPostIsDraft(0);
     // And I expect that first post on list must have the tag 
-    checkPostIsDraft(0);
+    checkPostTag(0, tagName)
   });
 
   // it('Feature: Create member | Scenario: Activate option and register member', () => {
