@@ -1,4 +1,8 @@
 {
     "USERNAME1": "ja.beltrang12@uniandes.edu.co",
-    "PASSWORD1": "joha1015434021@"
+    "PASSWORD1": "joha1015434021@",
+    "URL1": "http://localhost:2368/ghost",
+    "URL2": "http://localhost:3002/ghost",
+    "URL1_1": "http://localhost:2368",
+    "URL2_2": "http://localhost:3002"
 }

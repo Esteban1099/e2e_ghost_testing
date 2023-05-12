@@ -2,7 +2,7 @@ Feature: Crear Página
 
 @user1 @web
 Scenario: Escenario 1 Crear página y publicar
-  Given I navigate to page "http://localhost:2368/ghost"
+  Given I navigate to page "<URL1>"
     And I wait for 1 seconds
     And I enter email "<USERNAME1>"
     And I save device snapshot in file with path "Create Page/Escenario_1/IngresarCorreo"
@@ -10,7 +10,7 @@ Scenario: Escenario 1 Crear página y publicar
     And I save device snapshot in file with path "Create Page/Escenario_1/IngresarContrasenia"
     And I click login
     And I save device snapshot in file with path "Create Page/Escenario_1/ClickLogin"
-  When I navigate to page "http://localhost:2368/ghost/#/pages"
+  When I navigate to page "<URL1>/#/pages"
     And I save device snapshot in file with path "Create Page/Escenario_1/ListadoPagina"
     And I wait for 1 seconds
     And I click new
@@ -38,7 +38,7 @@ Scenario: Escenario 1 Crear página y publicar
     
 @user2 @web
 Scenario: Escenario 2 Programar creación de página
-   Given I navigate to page "http://localhost:2368/ghost"
+   Given I navigate to page "<URL1>"
     And I wait for 1 seconds
     And I enter email "<USERNAME1>"
     And I save device snapshot in file with path "Create Page/Escenario_2/IngresarCorreo"
@@ -75,7 +75,7 @@ Scenario: Escenario 2 Programar creación de página
 
 @user3 @web
 Scenario: Escenario 3 Programar creación de página y eliminar
-   Given I navigate to page "http://localhost:2368/ghost"
+   Given I navigate to page "<URL1>"
     And I wait for 1 seconds
     And I enter email "<USERNAME1>"
     And I save device snapshot in file with path "Create Page/Escenario_3/IngresarCorreo"
@@ -83,7 +83,7 @@ Scenario: Escenario 3 Programar creación de página y eliminar
     And I save device snapshot in file with path "Create Page/Escenario_3/IngresarContrasenia"
     And I click login
     And I save device snapshot in file with path "Create Page/Escenario_3/ClickLogin"
-  When I navigate to page "http://localhost:2368/ghost/#/pages"
+  When I navigate to page "<URL1>/#/pages"
     And I save device snapshot in file with path "Create Page/Escenario_3/ListadoPagina"
     And I wait for 10 seconds
     And I click new
@@ -118,7 +118,7 @@ Scenario: Escenario 3 Programar creación de página y eliminar
 
 @user4 @web
 Scenario: Escenario 4 Crear página, asignar tag, ver página
-   Given I navigate to page "http://localhost:2368/ghost"
+   Given I navigate to page "<URL1>"
     And I wait for 1 seconds
     And I enter email "<USERNAME1>"
     And I save device snapshot in file with path "Create Page/Escenario_4/IngresarCorreo"
@@ -168,7 +168,7 @@ Scenario: Escenario 4 Crear página, asignar tag, ver página
 
 @user5 @web
 Scenario: Escenario 5 Crear página, Publicar, Revisar, Despublicar, Revisar, Publicar
-   Given I navigate to page "http://localhost:2368/ghost"
+   Given I navigate to page "<URL1>"
     And I wait for 1 seconds
     And I enter email "<USERNAME1>"
     And I save device snapshot in file with path "Create Page/Escenario_5/IngresarCorreo"
@@ -176,7 +176,7 @@ Scenario: Escenario 5 Crear página, Publicar, Revisar, Despublicar, Revisar, Pu
     And I save device snapshot in file with path "Create Page/Escenario_5/IngresarContrasenia"
     And I click login
     And I save device snapshot in file with path "Create Page/Escenario_5/ClickLogin"
-  When I navigate to page "http://localhost:2368/ghost/#/pages"
+  When I navigate to page "<URL1>/#/pages"
     And I save device snapshot in file with path "Create Page/Escenario_5/ListadoPagina"
     And I wait for 1 seconds
     And I click new

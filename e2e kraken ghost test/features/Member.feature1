@@ -2,7 +2,7 @@ Feature: Member
 
 @user1 @web
 Scenario: Crear miembro
-	Given I navigate to page "http://localhost:2368/ghost"
+	Given I navigate to page "<URL1>"
 	And I wait for 5 seconds
 	When I enter email "<USERNAME1>"
 	And I save device snapshot in file with path "Member/Escenario_1/IngresarCorreo"
@@ -49,7 +49,7 @@ Scenario: Crear miembro
 
 @user2 @web
 Scenario: Crear miembro con datos incorrectos
-	Given I navigate to page "http://localhost:2368/ghost"
+	Given I navigate to page "<URL1>"
 	And I wait for 5 seconds
 	When I enter email "<USERNAME1>"
 	And I save device snapshot in file with path "Member/Escenario_2/IngresarCorreo"
