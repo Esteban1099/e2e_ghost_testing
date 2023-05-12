@@ -1,0 +1,104 @@
+Feature: Member
+
+@user1 @web
+Scenario: Crear miembro
+	Given I navigate to page "http://localhost:2368/ghost"
+	And I wait for 5 seconds
+	When I enter email "<USERNAME1>"
+	And I save device snapshot in file with path "Member/Escenario_1/IngresarCorreo"
+	And I wait for 5 seconds
+	And I enter password "<PASSWORD1>"
+	And I save device snapshot in file with path "Member/Escenario_1/IngresarPassword"
+	And I wait for 5 seconds
+  	And I click next
+	And I save device snapshot in file with path "Member/Escenario_1/IniciarSesion"
+	And I wait for 5 seconds
+	And I click Labs
+	And I save device snapshot in file with path "Member/Escenario_1/ClickLabs"
+	And I wait for 5 seconds
+	And I click on members option
+	And I save device snapshot in file with path "Member/Escenario_1/ParaHabilitar"
+	And I wait for 5 seconds
+	And I active members
+	And I save device snapshot in file with path "Member/Escenario_1/ActivarMiembros"
+	And I wait for 2 seconds
+	And I click save habilitar
+	And I save device snapshot in file with path "Member/Escenario_1/GuardarHabilitar"
+	And I wait for 2 seconds
+	And I click members
+	And I save device snapshot in file with path "Member/Escenario_1/OpcionMiembros"
+	And I wait for 5 seconds
+	And I click new
+	And I save device snapshot in file with path "Member/Escenario_1/NuevoMiembro"
+	And I wait for 5 seconds
+	Then I click on the redact name member inputbox
+  	And I wait for 2 seconds
+	And I enter text "Johanna 2"
+	And I save device snapshot in file with path "Member/Escenario_1/NombreMiembro"
+  	And I wait for 2 seconds
+	And I click on the redact email inputbox
+  	And I wait for 2 seconds
+	And I enter text "johana@hotmail.com"
+	And I save device snapshot in file with path "Member/Escenario_1/EmailMiembro"
+  	And I wait for 2 seconds
+	And I click save
+	And I save device snapshot in file with path "Member/Escenario_1/GuardarMiembro"
+	And I wait for 4 seconds
+	And I click members
+	And I wait for 5 seconds
+
+@user2 @web
+Scenario: Crear miembro con datos incorrectos
+	Given I navigate to page "http://localhost:2368/ghost"
+	And I wait for 5 seconds
+	When I enter email "<USERNAME1>"
+	And I save device snapshot in file with path "Member/Escenario_2/IngresarCorreo"
+	And I wait for 5 seconds
+	And I enter password "<PASSWORD1>"
+	And I save device snapshot in file with path "Member/Escenario_2/IngresarPassword"
+	And I wait for 5 seconds
+  	And I click next
+	And I save device snapshot in file with path "Member/Escenario_2/IniciarSesion"
+	And I wait for 5 seconds
+	And I click Labs
+	And I save device snapshot in file with path "Member/Escenario_2/ClickLabs"
+	And I wait for 5 seconds
+	And I click on members option
+	And I save device snapshot in file with path "Member/Escenario_2/ParaHabilitar"
+	And I wait for 5 seconds
+	And I active members
+	And I save device snapshot in file with path "Member/Escenario_2/ActivarMiembros"
+	And I wait for 2 seconds
+	And I click save habilitar
+	And I save device snapshot in file with path "Member/Escenario_2/GuardarHabilitar"
+	And I wait for 2 seconds
+	And I click members
+	And I save device snapshot in file with path "Member/Escenario_2/OpcionMiembros"
+	And I wait for 5 seconds
+	And I click new
+	And I save device snapshot in file with path "Member/Escenario_2/NuevoMiembro"
+	And I wait for 5 seconds
+	Then I click on the redact name member inputbox
+  	And I wait for 2 seconds
+	And I enter text "Johanna correo mal"
+	And I save device snapshot in file with path "Member/Escenario_2/NombreMiembro"
+  	And I wait for 4 seconds
+	And I click on the redact email inputbox
+  	And I wait for 2 seconds
+	And I enter text "johana"
+	And I save device snapshot in file with path "Member/Escenario_2/CorreoIncorrecto"
+  	And I wait for 2 seconds
+	And I click save
+	And I save device snapshot in file with path "Member/Escenario_2/GuardarMiembro"
+	And I wait for 4 seconds
+	And I click on the redact email inputbox
+  	And I wait for 2 seconds
+	Then I delete text
+	And I enter text "johanna@hotmail.com"
+	And I save device snapshot in file with path "Member/Escenario_2/CorreoCorregido"
+  	And I wait for 2 seconds
+	And I click save
+	And I save device snapshot in file with path "Member/Escenario_2/GuardarMiembroCorrectamente"
+	And I wait for 4 seconds
+	And I click members
+	And I wait for 5 seconds

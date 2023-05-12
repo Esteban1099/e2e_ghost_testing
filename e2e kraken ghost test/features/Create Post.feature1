@@ -5,28 +5,32 @@ Scenario: Crear publicación tipo draft
 	Given I navigate to page "http://localhost:2368/ghost"
 	And I wait for 2 seconds
 	When I enter email "<USERNAME1>"
-	And I save device snapshot in file with path "Members/Escenario1_IngresarCorreo"
+	And I save device snapshot in file with path "Create Post/Escenario_1/IngresarCorreo"
 	And I wait for 1 seconds
 	And I enter password "<PASSWORD1>"
-	And I save device snapshot in file with path "IngresarPassword"
+	And I save device snapshot in file with path "Create Post/Escenario_1/IngresarPassword"
 	And I wait for 1 seconds
   	And I click next
-	And I save device snapshot in file with path "IniciaSesion"
+	And I save device snapshot in file with path "Create Post/Escenario_1/IniciarSesion"
 	And I wait for 1 seconds
 	And I click member
-	And I save device snapshot in file with path "IngresarCorreo"
+	And I save device snapshot in file with path "Create Post/Escenario_1/Staff"
 	And I wait for 1 seconds
 	And I click post
+	And I save device snapshot in file with path "Create Post/Escenario_1/Publicaciones"
 	And I wait for 1 seconds
 	And I click new
+	And I save device snapshot in file with path "Create Post/Escenario_1/NuevaPublicacion"
 	And I wait for 1 seconds
 	Then I click on the redact message inputbox
   	And I wait for 1 seconds
 	And I enter text "Borrador"
+	And I save device snapshot in file with path "Create Post/Escenario_1/NombrePublicacion"
   	And I wait for 1 seconds
 	And I click on the redact post inputbox
   	And I wait for 1 seconds
 	And I click on the post for back
+	And I save device snapshot in file with path "Create Post/Escenario_1/VolverGuardaBorrador"
 	And I wait for 5 seconds
 
 @user2 @web
@@ -34,52 +38,70 @@ Scenario: Crear publicación con etiqueta
 	Given I navigate to page "http://localhost:2368/ghost"
 	And I wait for 2 seconds
 	When I enter email "<USERNAME1>"
+	And I save device snapshot in file with path "Create Post/Escenario_2/IngresarCorreo"
 	And I wait for 1 seconds
 	And I enter password "<PASSWORD1>"
+	And I save device snapshot in file with path "Create Post/Escenario_2/IngresarPassword"
 	And I wait for 1 seconds
   	And I click next
+	And I save device snapshot in file with path "Create Post/Escenario_2/IniciarSesion"
 	And I wait for 1 seconds
 	And I click tags
+	And I save device snapshot in file with path "Create Post/Escenario_2/Tags"
 	And I wait for 1 seconds
 	And I click new
+	And I save device snapshot in file with path "Create Post/Escenario_2/NuevaEtiqueta"
 	And I wait for 1 seconds
 	And I click on the redact name inputbox
   	And I wait for 1 seconds
 	And I enter text "tag kraken"
+	And I save device snapshot in file with path "Create Post/Escenario_2/NombreEtiqueta"
   	And I wait for 1 seconds
 	And I click on the redact description inputbox
   	And I wait for 1 seconds
 	And I enter text "descripcion"
+	And I save device snapshot in file with path "Create Post/Escenario_2/DescripcionEtiqueta"
   	And I wait for 1 seconds
 	And I click save
+	And I save device snapshot in file with path "Create Post/Escenario_2/GuardarEtiqueta"
 	And I wait for 1 seconds
 	And I click pages
+	And I save device snapshot in file with path "Create Post/Escenario_2/Paginas"
 	And I wait for 1 seconds
 	Then I click post
+	And I save device snapshot in file with path "Create Post/Escenario_2/Publicaciones"
 	And I wait for 1 seconds
 	And I click new
+	And I save device snapshot in file with path "Create Post/Escenario_2/NuevaPublicacion"
 	And I wait for 1 seconds
 	And I click on the redact message inputbox
   	And I wait for 1 seconds
 	And I enter text "Publicacion con tag"
+	And I save device snapshot in file with path "Create Post/Escenario_2/NombrePublicacion"
   	And I wait for 1 seconds
 	And I click on the redact post inputbox
   	And I wait for 1 seconds
 	And I enter text "descripcion publicacion"
+	And I save device snapshot in file with path "Create Post/Escenario_2/DescripcionPublicacion"
   	And I wait for 1 seconds
 	And I click on settings
+	And I save device snapshot in file with path "Create Post/Escenario_2/ConfiguracionPublicacion"
   	And I wait for 1 seconds
 	And I click on list tags
   	And I wait for 1 seconds
 	And I enter text "tag kraken"
+	And I save device snapshot in file with path "Create Post/Escenario_2/BuscarEtiqueta"
   	And I wait for 1 seconds
 	And I select first option
+	And I save device snapshot in file with path "Create Post/Escenario_2/SeleccionarEtiqueta"
 	And I wait for 1 seconds
 	And I click on the redact message inputbox
   	And I wait for 1 seconds
 	And I click on link publish
+	And I save device snapshot in file with path "Create Post/Escenario_2/LinkPublicar"
 	And I wait for 1 seconds
 	And I click save
+	And I save device snapshot in file with path "Create Post/Escenario_2/Publicar"
 	And I wait for 1 seconds
 	And I click on the post for back
 	And I wait for 1 seconds
@@ -89,44 +111,58 @@ Scenario: Crear publicación, editarla y publicar el ajuste
 	Given I navigate to page "http://localhost:2368/ghost"
 	And I wait for 2 seconds
 	When I enter email "<USERNAME1>"
+	And I save device snapshot in file with path "Create Post/Escenario_3/IngresarCorreo"
 	And I wait for 1 seconds
 	And I enter password "<PASSWORD1>"
+	And I save device snapshot in file with path "Create Post/Escenario_3/IngresarPassword"
 	And I wait for 1 seconds
   	And I click next
+	And I save device snapshot in file with path "Create Post/Escenario_3/IniciarSesion"
 	And I wait for 1 seconds
 	And I click post
+	And I save device snapshot in file with path "Create Post/Escenario_3/Publicacion"
 	And I wait for 1 seconds
 	And I click new
+	And I save device snapshot in file with path "Create Post/Escenario_3/CrearPublicacion"
 	And I wait for 1 seconds
 	And I click on the redact message inputbox
   	And I wait for 1 seconds
 	And I enter text "Publicacion para edicion"
+	And I save device snapshot in file with path "Create Post/Escenario_3/NombrePublicacion"
   	And I wait for 1 seconds
 	And I click on the redact post inputbox
   	And I wait for 1 seconds
 	And I enter text "descripcion publicacion"
+	And I save device snapshot in file with path "Create Post/Escenario_3/DescripcionPublicacion"
   	And I wait for 1 seconds
 	And I click on link publish
+	And I save device snapshot in file with path "Create Post/Escenario_3/LinkPublicacion"
 	And I wait for 1 seconds
 	And I click save
+	And I save device snapshot in file with path "Create Post/Escenario_3/GuardarPublicacion"
 	And I wait for 1 seconds
 	And I click on the post for back
+	And I save device snapshot in file with path "Create Post/Escenario_3/VolverAPublicaciones"
 	And I wait for 1 seconds
 	And I click Published
+	And I save device snapshot in file with path "Create Post/Escenario_3/Publicados"
 	And I wait for 1 seconds
 	Then I click on the last post
+	And I save device snapshot in file with path "Create Post/Escenario_3/UltimaPublicacion"
 	And I wait for 1 seconds
 	And I click on the redact message inputbox
   	And I wait for 1 seconds
 	And I clear message inputbox
 	And I wait for 1 seconds
 	And I enter text "Publicacion para edicion cambiando nombre"
+	And I save device snapshot in file with path "Create Post/Escenario_3/CambiaNombrePublicacion"
   	And I wait for 1 seconds
 	And I click on the redact post inputbox
   	And I wait for 1 seconds
 	And I click on link publish
 	And I wait for 1 seconds
 	And I click save
+	And I save device snapshot in file with path "Create Post/Escenario_3/PublicarNuevamente"
 	And I wait for 1 seconds
 	And I click on the post for back
 	And I wait for 1 seconds

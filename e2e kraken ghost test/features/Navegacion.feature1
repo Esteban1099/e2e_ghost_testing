@@ -5,46 +5,62 @@ Scenario: Crear sitio de navegación
 	Given I navigate to page "http://localhost:2368/ghost"
 	And I wait for 5 seconds
 	When I enter email "<USERNAME1>"
+	And I save device snapshot in file with path "Navegacion/Escenario_1/IngresarCorreo"
 	And I wait for 5 seconds
 	And I enter password "<PASSWORD1>"
+	And I save device snapshot in file with path "Navegacion/Escenario_1/IngresarPassword"
 	And I wait for 5 seconds
   	And I click next
+	And I save device snapshot in file with path "Navegacion/Escenario_1/IniciarSesion"
 	And I wait for 5 seconds
 	And I click Pages
+	And I save device snapshot in file with path "Navegacion/Escenario_1/Paginas"
 	And I wait for 5 seconds
 	And I click new
+	And I save device snapshot in file with path "Navegacion/Escenario_1/NuevaPagina"
 	And I wait for 5 seconds
 	And I click on the redact message inputbox
   	And I wait for 2 seconds
 	And I enter text "Pagina kraken"
+	And I save device snapshot in file with path "Navegacion/Escenario_1/NombrePagina"
   	And I wait for 2 seconds
 	And I click on the redact post inputbox
   	And I wait for 2 seconds
 	And I enter text "Descripcion Pagina"
+	And I save device snapshot in file with path "Navegacion/Escenario_1/DescripcionPagina"
   	And I wait for 2 seconds
 	And I click on link publish
+	And I save device snapshot in file with path "Navegacion/Escenario_1/LinkParaPublicar"
 	And I wait for 2 seconds
 	And I click save
+	And I save device snapshot in file with path "Navegacion/Escenario_1/Publicar"
 	And I wait for 4 seconds
 	And I click on the post for back
+	And I save device snapshot in file with path "Navegacion/Escenario_1/RegresarAPaginas"
 	And I wait for 4 seconds
 	Then I click Design
+	And I save device snapshot in file with path "Navegacion/Escenario_1/Diseño"
 	And I wait for 5 seconds
 	And I add label
 	And I wait for 2 seconds
 	And I enter text "LabelNew"
+	And I save device snapshot in file with path "Navegacion/Escenario_1/NombreLabel"
   	And I wait for 2 seconds
 	And I add url
 	And I wait for 2 seconds
 	And I enter text "pagina-kraken"
+	And I save device snapshot in file with path "Navegacion/Escenario_1/UrlLabel"
   	And I wait for 2 seconds
 	And I click save
+	And I save device snapshot in file with path "Navegacion/Escenario_1/GuardarLabel"
 	And I wait for 4 seconds
 	And I click ViewSite
+	And I save device snapshot in file with path "Navegacion/Escenario_1/ViewSite"
 	And I wait for 4 seconds
 	And I navigate to page "http://localhost:2368"
 	And I wait for 4 seconds
 	And I click new site
+	And I save device snapshot in file with path "Navegacion/Escenario_1/NuevoSitioCreado"
 	And I wait for 4 seconds
 	And I navigate to page "http://localhost:2368/ghost"
 	And I wait for 10 seconds
@@ -54,69 +70,92 @@ Scenario: Crear sitio de navegación secundaria
 	Given I navigate to page "http://localhost:2368/ghost"
 	And I wait for 5 seconds
 	When I enter email "<USERNAME1>"
+	And I save device snapshot in file with path "Navegacion/Escenario_2/IngresarCorreo"
 	And I wait for 5 seconds
 	And I enter password "<PASSWORD1>"
+	And I save device snapshot in file with path "Navegacion/Escenario_2/IngresarPassword"
 	And I wait for 5 seconds
   	And I click next
+	And I save device snapshot in file with path "Navegacion/Escenario_2/IniciarSesion"
 	And I wait for 5 seconds
 	And I click Pages
+	And I save device snapshot in file with path "Navegacion/Escenario_2/Paginas"
 	And I wait for 5 seconds
 	And I click new
+	And I save device snapshot in file with path "Navegacion/Escenario_2/NuevaPagina"
 	And I wait for 5 seconds
 	And I click on the redact message inputbox
   	And I wait for 2 seconds
 	And I enter text "Pagina kraken secundaria"
+	And I save device snapshot in file with path "Navegacion/Escenario_2/NombrePagina"
   	And I wait for 4 seconds
 	And I click on the redact post inputbox
   	And I wait for 2 seconds
 	And I enter text "Descripcion Pagina"
+	And I save device snapshot in file with path "Navegacion/Escenario_2/DescripcionPagina"
   	And I wait for 4 seconds
 	And I click on link publish
+	And I save device snapshot in file with path "Navegacion/Escenario_2/LinkParaPublicar"
 	And I wait for 2 seconds
 	And I click save
+	And I save device snapshot in file with path "Navegacion/Escenario_2/Publicar"
 	And I wait for 4 seconds
 	And I click on the post for back
+	And I save device snapshot in file with path "Navegacion/Escenario_2/RegresarAPaginas"
 	And I wait for 30 seconds
 	And I click Design
+	And I save device snapshot in file with path "Navegacion/Escenario_2/Diseño"
 	And I wait for 1 seconds
 	And I add label
 	And I wait for 1 seconds
 	And I enter text "LabelNew2"
+	And I save device snapshot in file with path "Navegacion/Escenario_2/NombreLabel"
   	And I wait for 1 seconds
 	And I add url
 	And I wait for 1 seconds
 	And I enter text "pagina-kraken-secundaria"
+	And I save device snapshot in file with path "Navegacion/Escenario_2/URLLabel"
   	And I wait for 1 seconds
 	And I click save
+	And I save device snapshot in file with path "Navegacion/Escenario_2/GuardarLabel"
 	And I wait for 1 seconds
 	And I click ViewSite
+	And I save device snapshot in file with path "Navegacion/Escenario_2/ViewSite"
 	And I wait for 1 seconds
 	And I navigate to page "http://localhost:2368"
 	And I wait for 1 seconds
 	And I click new site
+	And I save device snapshot in file with path "Navegacion/Escenario_2/NuevoSitioCreado"
 	And I wait for 1 seconds
 	And I navigate to page "http://localhost:2368/ghost"
 	And I wait for 1 seconds
 	Then I click Design
+	And I save device snapshot in file with path "Navegacion/Escenario_2/VuelveADiseño"
 	And I wait for 1 seconds
 	And I delete last Url
+	And I save device snapshot in file with path "Navegacion/Escenario_2/EliminaUltimoLabel"
 	And I wait for 1 seconds
 	And I add secondary label
 	And I wait for 1 seconds
 	And I enter text "LabelNew2"
+	And I save device snapshot in file with path "Navegacion/Escenario_2/NombreLabelSecundario"
   	And I wait for 1 seconds
 	And I add secondary url
 	And I wait for 1 seconds
 	And I enter text "pagina-kraken-secundaria"
+	And I save device snapshot in file with path "Navegacion/Escenario_2/URLLabelSecundario"
   	And I wait for 1 seconds
 	And I click save
+	And I save device snapshot in file with path "Navegacion/Escenario_2/GuardarLabelSecundario"
 	And I wait for 1 seconds
 	And I click ViewSite
+	And I save device snapshot in file with path "Navegacion/Escenario_2/ViewSiteSecundario"
 	And I wait for 1 seconds
 	And I wait for 1 seconds
 	And I navigate to page "http://localhost:2368"
 	And I wait for 1 seconds
 	And I click new secondary site
+	And I save device snapshot in file with path "Navegacion/Escenario_2/NuevoSitioSecundarioCreado"
 	And I wait for 1 seconds
 	And I navigate to page "http://localhost:2368/ghost"
 	And I wait for 1 seconds	
