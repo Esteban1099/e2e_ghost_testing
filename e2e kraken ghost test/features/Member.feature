@@ -5,6 +5,7 @@ Scenario: Crear miembro
 	Given I navigate to page "http://localhost:2368/ghost"
 	And I wait for 5 seconds
 	When I enter email "<USERNAME1>"
+	And I save device snapshot in file with path "Members/Escenario_1/IngresarCorreo"
 	And I wait for 5 seconds
 	And I enter password "<PASSWORD1>"
 	And I wait for 5 seconds
@@ -40,6 +41,7 @@ Scenario: Crear miembro con datos incorrectos
 	Given I navigate to page "http://localhost:2368/ghost"
 	And I wait for 5 seconds
 	When I enter email "<USERNAME1>"
+	And I save device snapshot in file with path "Members/Escenario_2/IngresarCorreo"
 	And I wait for 5 seconds
 	And I enter password "<PASSWORD1>"
 	And I wait for 5 seconds

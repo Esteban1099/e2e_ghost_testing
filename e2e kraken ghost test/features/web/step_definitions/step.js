@@ -5,6 +5,10 @@ When('I enter email {kraken-string}', async function (email) {
     return await element.setValue(email);
 });
 
+When('I save device snapshot in file with path {string}', async function (nombreArchivo) {
+    return [4 /*yield*/, this.driver.saveScreenshot("./Snapshots/" + nombreArchivo + ".png")];
+});
+
 When('I enter password {kraken-string}', async function (password) {
     let element = await this.driver.$('.password');
     return await element.setValue(password);
@@ -320,6 +324,15 @@ Then('I select first tag option', async function () {
 
   Then('I click on delete', async function () {
     let element = await this.driver.$(".settings-menu-delete-button");
+    return await element.click();
+  });
+
+  Then('I click save habilitar', async function () {
+    let element = await this.driver.$('.gh-btn-blue');
+    console.log(element);
+    if(element.error != null){
+	console.log("No existe");
+     	element = await this.driver.$("a[href='#/members/']");}
     return await element.click();
   });
 
