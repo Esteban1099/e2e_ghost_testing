@@ -24,6 +24,31 @@ When('I click member', async function() {
     return await element.click();
 });
 
+When('I click menu settings', async function() {
+    let element = await this.driver.$("a[href='#/settings/']");
+    return await element.click();
+});
+
+When('I click navigation', async function() {
+    let element = await this.driver.$("a[href='#/settings/navigation/']");
+    return await element.click();
+});
+
+When('I click new tag', async function() {
+    let element = await this.driver.$("a[href='#/tags/new/']");
+    return await element.click();
+});
+
+When('I click new post', async function() {
+    let element = await this.driver.$("a[href='#/editor/post/']");
+    return await element.click();
+});
+
+When('I click new page', async function() {
+    let element = await this.driver.$("a[href='#/editor/page/']");
+    return await element.click();
+});
+
 When('I click post', async function() {
     let element = await this.driver.$("a[href='#/posts/']");
     return await element.click();
@@ -93,7 +118,7 @@ Then('I click on the redact message inputbox', async function () {
   });
 
 Then('I click on the post for back', async function () {
-    let element = await this.driver.$("svg.w3");
+    let element = await this.driver.$("svg");
     return await element.click();
   });
 
@@ -119,7 +144,12 @@ Then('I click on the redact description inputbox', async function () {
   });
 
 Then('I click save', async function () {
-    let element = await this.driver.$('.gh-btn-blue');
+    let element = await this.driver.$('.gh-btn');
+    return await element.click();
+  });
+
+Then('I publish', async function () {
+    let element = await this.driver.$('.gh-btn-black');
     return await element.click();
   });
 
@@ -144,6 +174,11 @@ Then('I click on the redact post inputbox', async function () {
 
   Then('I click on settings', async function () {
     let element = await this.driver.$('.post-settings');
+    return await element.click();
+  });
+
+  Then('I click on settings version', async function () {
+    let element = await this.driver.$('.settings-menu-toggle');
     return await element.click();
   });
 
@@ -179,13 +214,28 @@ Then('I add label', async function () {
     return await element.click();
   });
 
+Then('I add label Version', async function () {
+    let element = await this.driver.$('div.gh-main-section-content > form > div:nth-child(2) > div > span.gh-blognav-label');
+    return await element.click();
+  });
+
 Then('I add url', async function () {
     let element = await this.driver.$('div.gh-blognav-container > form > div:nth-child(2) > div > span.gh-blognav-url');
     return await element.click();
   });
 
+Then('I add url Version', async function () {
+    let element = await this.driver.$('div.gh-main-section-content > form > div:nth-child(2) > div > span.gh-blognav-url');
+    return await element.click();
+  });
+
 Then('I click new site', async function () {
     let element = await this.driver.$('div.site-wrapper > header > div > div > nav > div.site-nav-left-wrapper > div > div > ul > li:last-child > a');
+    return await element.click();
+  });
+
+Then('I click new site Version', async function () {
+    let element = await this.driver.$('div.viewport > header > nav > div:nth-child(2) > ul > li:last-child > a');
     return await element.click();
   });
 

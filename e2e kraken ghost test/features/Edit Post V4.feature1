@@ -1,0 +1,49 @@
+Feature: Edit Post
+
+@user1 @web
+Scenario: Crear y editar publicación
+	Given I navigate to page "<URL2>"
+	And I wait for 5 seconds
+	When I enter email "<USERNAME1>"
+	And I save device snapshot in file with path "Edit Post Nueva Version/Escenario_1/IngresarCorreo"
+	And I wait for 5 seconds
+	And I enter password "<PASSWORD1>"
+	And I save device snapshot in file with path "Edit Post Nueva Version/Escenario_1/IngresarPassword"
+	And I wait for 5 seconds
+  	And I click next
+	And I save device snapshot in file with path "Edit Post Nueva Version/Escenario_1/IniciarSesion"
+	And I wait for 5 seconds
+	And I click post
+	And I save device snapshot in file with path "Edit Post Nueva Version/Escenario_1/Publicaciones"
+	And I wait for 5 seconds
+	And I click new post
+	And I save device snapshot in file with path "Edit Post Nueva Version/Escenario_1/NuevaPublicacion"
+	And I wait for 5 seconds
+	And I click on the redact message inputbox
+  	And I wait for 2 seconds
+	And I enter text "Publicacion borrador edito para publicar"
+	And I save device snapshot in file with path "Edit Post Nueva Version/Escenario_1/NombrePublicacion"
+  	And I wait for 4 seconds
+	And I click on the redact post inputbox
+  	And I wait for 2 seconds
+	And I enter text "descripcion"
+	And I save device snapshot in file with path "Edit Post Nueva Version/Escenario_1/DescripcionPublicacion"
+  	And I wait for 4 seconds
+	And I click on the post for back
+	And I save device snapshot in file with path "Edit Post Nueva Version/Escenario_1/VolverAPublicaciones"
+	And I wait for 4 seconds
+	Then I click on the last post
+	And I save device snapshot in file with path "Edit Post Nueva Version/Escenario_1/SeleccionarBorrador"
+	And I wait for 4 seconds
+	And I click on link publish
+	And I save device snapshot in file with path "Edit Post Nueva Version/Escenario_1/LinkPublicacion"
+	And I wait for 2 seconds
+	And I publish
+	And I save device snapshot in file with path "Edit Post Nueva Version/Escenario_1/Publicar"
+	And I wait for 4 seconds
+	And I publish
+	And I save device snapshot in file with path "Edit Post Nueva Version/Escenario_1/ConfirmarPublicacion"
+	And I click on the post for back
+	And I wait for 10 seconds
+	
+	
