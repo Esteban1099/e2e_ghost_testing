@@ -3,21 +3,30 @@ Feature: Crear Tag
 @user1 @web
 Scenario: Escenario 1 Crear Tag Publico 
   Given I navigate to page "http://localhost:2368/ghost"
-    And I wait for 1 seconds
+  	And I wait for 1 seconds
     And I enter email "<USERNAME1>"
+    And I save device snapshot in file with path "Create Tags/Escenario_1/IngresarCorreo"
     And I wait for 1 seconds
     And I enter password "<PASSWORD1>"
+    And I save device snapshot in file with path "Create Tags/Escenario_1/IngresarContrasenia"
     And I wait for 2 seconds
     And I click login
+    And I save device snapshot in file with path "Create Tags/Escenario_1/ClickLogin"
   When I navigate to page "http://localhost:2368/ghost/#/tags"
     And I wait for 2 seconds
+    And I save device snapshot in file with path "Create Tags/Escenario_1/PaginaEtiquetas"
     And I click new
+    And I save device snapshot in file with path "Create Tags/Escenario_1/NuevaEtiqueta"
   Then I enter tag name "$name_1"
+    And I save device snapshot in file with path "Create Tags/Escenario_1/IngresarNombreEtiqueta"
     And I wait for 1 seconds
     And I save tag
+    And I save device snapshot in file with path "Create Tags/Escenario_1/GuardarEtiqueta"
     And I navigate to page "http://localhost:2368/ghost/#/tags"
+    And I save device snapshot in file with path "Create Tags/Escenario_1/PaginaEtiquetasActualizada"
     And I wait for 2 seconds
     And I check tag "$$name_1"
+    And I save device snapshot in file with path "Create Tags/Escenario_1/DetalleEtiqueta"
     And I send a signal to user 2 containing "Tag 1 complete"
 
 @user2 @web
@@ -25,22 +34,32 @@ Scenario: Escenario 2 Crear Tag Interno
   Given I navigate to page "http://localhost:2368/ghost"
     And I wait for a signal containing "Tag 1 complete" for 30 seconds
     And I enter email "<USERNAME1>"
+    And I save device snapshot in file with path "Create Tags/Escenario_2/IngresarCorreo"
     And I wait for 1 seconds
     And I enter password "<PASSWORD1>"
+    And I save device snapshot in file with path "Create Tags/Escenario_2/IngresarContrasenia"
     And I wait for 1 seconds
     And I click login
+    And I save device snapshot in file with path "Create Tags/Escenario_2/ClickLogin"
   When I navigate to page "http://localhost:2368/ghost/#/tags"
+    And I save device snapshot in file with path "Create Tags/Escenario_2/PaginaEtiquetas"
     And I wait for 2 seconds
     And I click internal tags
+    And I save device snapshot in file with path "Create Tags/Escenario_2/EtiquetasInternas"
     And I wait for 1 seconds
     And I click new
+    And I save device snapshot in file with path "Create Tags/Escenario_2/NuevaEtiqueta"
     And I wait for 1 seconds
   Then I enter internal tag name "$name_1"
+    And I save device snapshot in file with path "Create Tags/Escenario_2/IngresarNombreEtiqueta"
     And I save tag
     And I navigate to page "http://localhost:2368/ghost/#/tags"
+    And I save device snapshot in file with path "Create Tags/Escenario_2/PaginaEtiquetasActualizada"
     And I wait for 2 seconds
     And I click internal tags
+    And I save device snapshot in file with path "Create Tags/Escenario_2/EtiquetasInternasActualizadas"
     And I check internal tag "$$name_1"
+    And I save device snapshot in file with path "Create Tags/Escenario_2/DetalleEtiqueta"
     And I send a signal to user 3 containing "Tag 2 complete"
 
 @user3 @web
@@ -49,25 +68,38 @@ Scenario: Escenario 3 Editar Tag después de crear
     And I wait for 10 seconds
     And I wait for a signal containing "Tag 2 complete" for 30 seconds
     And I enter email "<USERNAME1>"
+    And I save device snapshot in file with path "Create Tags/Escenario_3/IngresarCorreo"
     And I wait for 1 seconds
     And I enter password "<PASSWORD1>"
+    And I save device snapshot in file with path "Create Tags/Escenario_3/IngresarContrasenia"
     And I wait for 1 seconds
     And I click login
+    And I save device snapshot in file with path "Create Tags/Escenario_3/ClickLogin"
   When I navigate to page "http://localhost:2368/ghost/#/tags"
+    And I save device snapshot in file with path "Create Tags/Escenario_3/PaginaEtiquetas"
     And I wait for 2 seconds
     And I click new
+    And I save device snapshot in file with path "Create Tags/Escenario_3/NuevaEtiqueta"
   Then I enter tag name "$name_1"
+    And I save device snapshot in file with path "Create Tags/Escenario_3/IngresarNombreEtiqueta"
     And I wait for 1 seconds
     And I save tag
+    And I save device snapshot in file with path "Create Tags/Escenario_3/GuardarEtiqueta"
     And I navigate to page "http://localhost:2368/ghost/#/tags"
+    And I save device snapshot in file with path "Create Tags/Escenario_3/PaginaEtiquetasActualizada"
     And I wait for 2 seconds
     And I check tag "$$name_1"
+    And I save device snapshot in file with path "Create Tags/Escenario_3/DetalleEtiqueta"
     And I enter tag name "$name_2"
+    And I save device snapshot in file with path "Create Tags/Escenario_3/EditaEtiqueta"
     And I wait for 2 seconds
     And I save tag
+    And I save device snapshot in file with path "Create Tags/Escenario_3/GuardarEtiquetaActualizada"
     And I navigate to page "http://localhost:2368/ghost/#/tags"
+    And I save device snapshot in file with path "Create Tags/Escenario_3/PaginaEtiquetasActualizada1"
     And I wait for 2 seconds
     And I check tag "$$name_1"
+    And I save device snapshot in file with path "Create Tags/Escenario_3/DetalleEtiquetaActualizada"
     And I send a signal to user 4 containing "Tag 3 complete"
 
 
@@ -77,23 +109,35 @@ Scenario: Escenario 4 Eliminar Tag después de crear
     And I wait for 20 seconds
     And I wait for a signal containing "Tag 3 complete" for 30 seconds
     And I enter email "<USERNAME1>"
+    And I save device snapshot in file with path "Create Tags/Escenario_4/IngresarCorreo"
     And I wait for 1 seconds
     And I enter password "<PASSWORD1>"
+    And I save device snapshot in file with path "Create Tags/Escenario_4/IngresarContrasenia"
     And I wait for 1 seconds
     And I click login
+    And I save device snapshot in file with path "Create Tags/Escenario_4/ClickLogin"
   When I navigate to page "http://localhost:2368/ghost/#/tags"
+    And I save device snapshot in file with path "Create Tags/Escenario_4/PaginaEtiquetas"
     And I wait for 2 seconds
     And I click new
+    And I save device snapshot in file with path "Create Tags/Escenario_4/NuevaEtiqueta"
   Then I enter tag name "$name_1"
+    And I save device snapshot in file with path "Create Tags/Escenario_4/IngresarNombreEtiqueta"
     And I wait for 1 seconds
     And I save tag
+    And I save device snapshot in file with path "Create Tags/Escenario_4/GuardarEtiqueta"
     And I navigate to page "http://localhost:2368/ghost/#/tags"
+    And I save device snapshot in file with path "Create Tags/Escenario_4/PaginaEtiquetasActualizada"
     And I wait for 2 seconds
     And I check tag "$$name_1"
+    And I save device snapshot in file with path "Create Tags/Escenario_4/DetalleEtiqueta"
     And I delete tag
+    And I save device snapshot in file with path "Create Tags/Escenario_4/BorradoEtiqueta"
     And I confirm delete
+    And I save device snapshot in file with path "Create Tags/Escenario_4/ConfirmaBorrado"
     And I wait for 2 seconds
     And I navigate to page "http://localhost:2368/ghost/#/tags"
+    And I save device snapshot in file with path "Create Tags/Escenario_4/PaginaEtiquetasActualizada1"
     And I send a signal to user 5 containing "Tag 4 complete"
 
 
@@ -104,35 +148,56 @@ Scenario: Escenario 5 Crear tag, asignar tag a post y eliminar tag
     And I wait for 10 seconds
     And I wait for a signal containing "Tag 4 complete" for 30 seconds
     And I enter email "<USERNAME1>"
+    And I save device snapshot in file with path "Create Tags/Escenario_5/IngresarCorreo"
     And I wait for 1 seconds
     And I enter password "<PASSWORD1>"
+    And I save device snapshot in file with path "Create Tags/Escenario_5/IngresarContrasenia"
     And I wait for 1 seconds
     And I click login
+    And I save device snapshot in file with path "Create Tags/Escenario_5/ClickLogin"
   When I navigate to page "http://localhost:2368/ghost/#/tags"
+    And I save device snapshot in file with path "Create Tags/Escenario_5/PaginaEtiquetas"
     And I wait for 2 seconds
     And I click new
+    And I save device snapshot in file with path "Create Tags/Escenario_5/NuevaEtiqueta"
   Then I enter tag name "$name_1"
+    And I save device snapshot in file with path "Create Tags/Escenario_5/IngresarNombreEtiqueta"
     And I wait for 1 seconds
     And I save tag
+    And I save device snapshot in file with path "Create Tags/Escenario_5/GuardarEtiqueta"
     And I navigate to page "http://localhost:2368/ghost/#/posts"
+    And I save device snapshot in file with path "Create Tags/Escenario_5/PaginaPublicaciones"
     And I wait for 2 seconds
     And I click new
+    And I save device snapshot in file with path "Create Tags/Escenario_5/CrearPublicacion"
     And I enter title "$name_2"
+    And I save device snapshot in file with path "Create Tags/Escenario_5/IngresaTituloPublicacion"
     And I click on the redact post inputbox
     And I click on settings
+    And I save device snapshot in file with path "Create Tags/Escenario_5/ConfiguracionesPublicacion"
     And I click on list tags
+    And I save device snapshot in file with path "Create Tags/Escenario_5/PublicacionListaTags"
     And I select first tag option
+    And I save device snapshot in file with path "Create Tags/Escenario_5/PublicacionSeleccionaTags"
     And I wait for 1 seconds
     And I close settings
+    And I save device snapshot in file with path "Create Tags/Escenario_5/PublicacionEnBorrador"
     And I wait for 1 seconds
     And I click on link publish
+    And I save device snapshot in file with path "Create Tags/Escenario_5/PublicandoPublicacion"
     And I wait for 3 seconds
     And I click save
+    And I save device snapshot in file with path "Create Tags/Escenario_5/ConfirmaPublicacion"
     And I wait for 1 seconds
     And I navigate to page "http://localhost:2368/ghost/#/tags"
+    And I save device snapshot in file with path "Create Tags/Escenario_5/PaginaEtiquetasActualizada"
     And I wait for 2 seconds
     And I check tag "$$name_1"
+    And I save device snapshot in file with path "Create Tags/Escenario_5/DetalleEtiqueta"
     And I delete tag
+    And I save device snapshot in file with path "Create Tags/Escenario_5/BorradoEtiqueta"
     And I confirm delete
+    And I save device snapshot in file with path "Create Tags/Escenario_5/ConfirmaBorrado"
     And I wait for 1 seconds
     And I navigate to page "http://localhost:2368/ghost/#/tags"
+    And I save device snapshot in file with path "Create Tags/Escenario_5/PaginaEtiquetasActualizada1"

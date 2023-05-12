@@ -5,22 +5,33 @@ Scenario: Escenario 1 Crear página y publicar
   Given I navigate to page "http://localhost:2368/ghost"
     And I wait for 1 seconds
     And I enter email "<USERNAME1>"
+    And I save device snapshot in file with path "Create Page/Escenario_1/IngresarCorreo"
     And I enter password "<PASSWORD1>"
+    And I save device snapshot in file with path "Create Page/Escenario_1/IngresarContrasenia"
     And I click login
+    And I save device snapshot in file with path "Create Page/Escenario_1/ClickLogin"
   When I navigate to page "http://localhost:2368/ghost/#/pages"
+    And I save device snapshot in file with path "Create Page/Escenario_1/ListadoPagina"
     And I wait for 1 seconds
     And I click new
+    And I save device snapshot in file with path "Create Page/Escenario_1/NuevaPagina"
   Then I enter title "$name_1"
+    And I save device snapshot in file with path "Create Page/Escenario_1/IngresaTituloPagina"
     And I click on the redact post inputbox
     And I click on link publish
+    And I save device snapshot in file with path "Create Page/Escenario_1/PublicaPagina"
     And I wait for 3 seconds
     And I click save
+    And I save device snapshot in file with path "Create Page/Escenario_1/ConfirmaPublicacion"
     And I wait for 2 seconds
     And I go back to pages
+    And I save device snapshot in file with path "Create Page/Escenario_1/ListadoPagina2"
     And I wait for 1 seconds
     And I go to last created page
+    And I save device snapshot in file with path "Create Page/Escenario_1/DetallePagina"
     Then I send a signal to user 5 containing "Page 1 complete"
     And I click on settings
+    And I save device snapshot in file with path "Create Page/Escenario_1/ConfiguracionPagina"
     And I check page "$$name_1"
     And I wait for 30 seconds
     And I wait for 30 seconds
@@ -30,24 +41,35 @@ Scenario: Escenario 2 Programar creación de página
    Given I navigate to page "http://localhost:2368/ghost"
     And I wait for 1 seconds
     And I enter email "<USERNAME1>"
+    And I save device snapshot in file with path "Create Page/Escenario_2/IngresarCorreo"
     And I enter password "<PASSWORD1>"
+    And I save device snapshot in file with path "Create Page/Escenario_2/IngresarContrasenia"
     And I click login
+    And I save device snapshot in file with path "Create Page/Escenario_2/ClickLogin"
   When I navigate to page "http://localhost:2368/ghost/#/pages"
+    And I save device snapshot in file with path "Create Page/Escenario_2/ListadoPagina"
     And I wait for 3 seconds
     And I click new
+    And I save device snapshot in file with path "Create Page/Escenario_2/NuevaPagina"
     And I wait for 20 seconds
     And I wait for a signal containing "Page 3 complete" for 30 seconds
   Then I enter title "$name_1"
+    And I save device snapshot in file with path "Create Page/Escenario_2/IngresaTituloPagina"
     And I click on the redact post inputbox
     And I click on link publish
+    And I save device snapshot in file with path "Create Page/Escenario_2/PublicaPagina"
     And I wait for 3 seconds
     And I click on schedule
+    And I save device snapshot in file with path "Create Page/Escenario_2/ProgramaPublicacion"
     And I wait for 1 seconds
     And I click save
+    And I save device snapshot in file with path "Create Page/Escenario_2/ConfirmaPublicacion"
     And I wait for 1 seconds
     And I go back to pages
+    And I save device snapshot in file with path "Create Page/Escenario_2/ListadoPagina2"
     And I wait for 3 seconds
     And I go to last created page
+    And I save device snapshot in file with path "Create Page/Escenario_2/DetallePagina"
     And I wait for 3 seconds
 
 
@@ -56,27 +78,41 @@ Scenario: Escenario 3 Programar creación de página y eliminar
    Given I navigate to page "http://localhost:2368/ghost"
     And I wait for 1 seconds
     And I enter email "<USERNAME1>"
+    And I save device snapshot in file with path "Create Page/Escenario_3/IngresarCorreo"
     And I enter password "<PASSWORD1>"
+    And I save device snapshot in file with path "Create Page/Escenario_3/IngresarContrasenia"
     And I click login
+    And I save device snapshot in file with path "Create Page/Escenario_3/ClickLogin"
   When I navigate to page "http://localhost:2368/ghost/#/pages"
+    And I save device snapshot in file with path "Create Page/Escenario_3/ListadoPagina"
     And I wait for 10 seconds
     And I click new
+    And I save device snapshot in file with path "Create Page/Escenario_3/NuevaPagina"
     And I wait for a signal containing "Page 4 complete" for 30 seconds
   Then I enter title "$name_1"
+    And I save device snapshot in file with path "Create Page/Escenario_3/IngresaTituloPagina"
     And I click on the redact post inputbox
     And I click on link publish
+    And I save device snapshot in file with path "Create Page/Escenario_3/PublicaPagina"
     And I wait for 3 seconds
     And I click on schedule
+    And I save device snapshot in file with path "Create Page/Escenario_3/ProgramaPublicacion"
     And I wait for 2 seconds
     And I click save
+    And I save device snapshot in file with path "Create Page/Escenario_3/ConfirmaPublicacion"
     And I wait for 1 seconds
     And I go back to pages
+    And I save device snapshot in file with path "Create Page/Escenario_3/ListadoPagina2"
     And I wait for 1 seconds
     And I go to last created page
+    And I save device snapshot in file with path "Create Page/Escenario_3/DetallePagina"
     And I wait for 1 seconds
     And I click on settings
+    And I save device snapshot in file with path "Create Page/Escenario_3/ConfiguracionPagina"
     And I click on delete
+    And I save device snapshot in file with path "Create Page/Escenario_3/EliminarPagina"
     And I confirm delete
+    And I save device snapshot in file with path "Create Page/Escenario_3/ConfirmaBorrado"
     Then I send a signal to user 2 containing "Page 3 complete"
     And I wait for 30 seconds
 
@@ -85,32 +121,49 @@ Scenario: Escenario 4 Crear página, asignar tag, ver página
    Given I navigate to page "http://localhost:2368/ghost"
     And I wait for 1 seconds
     And I enter email "<USERNAME1>"
+    And I save device snapshot in file with path "Create Page/Escenario_4/IngresarCorreo"
     And I enter password "<PASSWORD1>"
+    And I save device snapshot in file with path "Create Page/Escenario_4/IngresarContrasenia"
     And I click login
+    And I save device snapshot in file with path "Create Page/Escenario_4/ClickLogin"
   When I navigate to page "http://localhost:2368/ghost/#/pages"
+    And I save device snapshot in file with path "Create Page/Escenario_4/ListadoPagina"
     And I wait for 1 seconds
     And I click new
+    And I save device snapshot in file with path "Create Page/Escenario_4/NuevaPagina"
     And I wait for a signal containing "Page 5 complete" for 30 seconds
   Then I enter title "$name_1"
+    And I save device snapshot in file with path "Create Page/Escenario_4/IngresaTituloPagina"
     And I click on the redact post inputbox
     And I click on link publish
+    And I save device snapshot in file with path "Create Page/Escenario_4/PublicaPagina"
     And I wait for 2 seconds
     And I click save
+    And I save device snapshot in file with path "Create Page/Escenario_4/ConfirmaPublicacion"
     And I wait for 1 seconds
     And I go back to pages
+    And I save device snapshot in file with path "Create Page/Escenario_4/ListadoPagina1"
     And I go to last created page
+    And I save device snapshot in file with path "Create Page/Escenario_4/DetallePagina"
     Then I send a signal to user 3 containing "Page 4 complete"
     And I click on settings
+    And I save device snapshot in file with path "Create Page/Escenario_4/ConfiguracionPagina"
     And I click on list tags
+    And I save device snapshot in file with path "Create Page/Escenario_4/PaginaListaTags"
     And I wait for 1 seconds
     And I select first option
+    And I save device snapshot in file with path "Create Page/Escenario_4/PaginaSeleccionaTag"
     And I wait for 1 seconds
     And I close settings
+    And I save device snapshot in file with path "Create Page/Escenario_4/PaginaEnBorrador"
     And I click on link publish
+    And I save device snapshot in file with path "Create Page/Escenario_4/PublicaPagina2"
     And I wait for 2 seconds
     And I click save
+    And I save device snapshot in file with path "Create Page/Escenario_4/ConfirmaPublicacion2"
     And I wait for 1 seconds
     And I go back to pages
+    And I save device snapshot in file with path "Create Page/Escenario_4/ListadoPagina2"
     And I wait for 30 seconds
 
 @user5 @web
@@ -118,32 +171,50 @@ Scenario: Escenario 5 Crear página, Publicar, Revisar, Despublicar, Revisar, Pu
    Given I navigate to page "http://localhost:2368/ghost"
     And I wait for 1 seconds
     And I enter email "<USERNAME1>"
+    And I save device snapshot in file with path "Create Page/Escenario_5/IngresarCorreo"
     And I enter password "<PASSWORD1>"
+    And I save device snapshot in file with path "Create Page/Escenario_5/IngresarContrasenia"
     And I click login
+    And I save device snapshot in file with path "Create Page/Escenario_5/ClickLogin"
   When I navigate to page "http://localhost:2368/ghost/#/pages"
+    And I save device snapshot in file with path "Create Page/Escenario_5/ListadoPagina"
     And I wait for 1 seconds
     And I click new
+    And I save device snapshot in file with path "Create Page/Escenario_5/NuevaPagina"
     And I wait for a signal containing "Page 1 complete" for 15 seconds
   Then I enter title "$name_1"
+    And I save device snapshot in file with path "Create Page/Escenario_5/IngresaTituloPagina"
     And I click on the redact post inputbox
     And I click on link publish
+    And I save device snapshot in file with path "Create Page/Escenario_5/PublicaPagina"
     And I wait for 3 seconds
     And I click save
+    And I save device snapshot in file with path "Create Page/Escenario_5/ConfirmaPublicacion"
     And I wait for 1 seconds
     And I go back to pages
+    And I save device snapshot in file with path "Create Page/Escenario_5/ListadoPagina1"
     And I go to last created page
+    And I save device snapshot in file with path "Create Page/Escenario_5/DetallePagina"
     And I click on link publish
+    And I save device snapshot in file with path "Create Page/Escenario_5/PublicaPagina1"
     And I wait for 3 seconds
     And I change publication state
+    And I save device snapshot in file with path "Create Page/Escenario_5/CambiaEstadoPublicacion"
     And I wait for 1 seconds
     And I click save
+    And I save device snapshot in file with path "Create Page/Escenario_5/ConfirmaPublicacion1"
     And I wait for 1 seconds
     And I go back to pages
+    And I save device snapshot in file with path "Create Page/Escenario_5/ListadoPagina2"
     And I go to last created page
+    And I save device snapshot in file with path "Create Page/Escenario_5/DetallePagina1"
     Then I send a signal to user 4 containing "Page 5 complete"
     And I click on link publish
+    And I save device snapshot in file with path "Create Page/Escenario_5/PublicaPagina2"
     And I wait for 3 seconds
     And I click save
+    And I save device snapshot in file with path "Create Page/Escenario_5/ConfirmaPublicacion2"
     And I wait for 1 seconds
     And I go back to pages
+    And I save device snapshot in file with path "Create Page/Escenario_5/ListadoPagina3"
     And I wait for 30 seconds
