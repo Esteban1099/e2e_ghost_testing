@@ -16,6 +16,7 @@ async function executeTest(){
   features.forEach(async feature => {
   let pathAfter = './results/'+ feature["after"]
   let pathBefore = './results/' + feature["before"]
+  let featureName = feature["feature"]
   var filesBefore = fs.readdirSync(pathBefore)
   var filesAfter = fs.readdirSync(pathAfter)
     if(filesBefore.length === 0 && filesAfter.length === 0){
@@ -24,7 +25,7 @@ async function executeTest(){
 
     let resultInfo = {}
     let datetime = new Date().toISOString().replace(/:/g,".");    
-
+    console.log(filesBefore)
     for(b of filesBefore){
         const data = await compareImages(
             fs.readFileSync(`${pathBefore}/${b}`),
@@ -40,11 +41,12 @@ async function executeTest(){
             diffBounds: data.diffBounds,
             analysisTime: data.analysisTime
         }
-        fs.writeFileSync(`./results/report/${feature["feature"]}/compare-${b}`, data.getBuffer());
+        console.log(b)
+        fs.writeFileSync(`./results/report/Comparacion/compare-${b}`, data.getBuffer());
     }
 
-    fs.writeFileSync(`./results/report/${feature["feature"]}/report.html`, createReport(datetime, resultInfo, feature, filesBefore));
-    fs.copyFileSync('./index.css', `./results/report/${feature["feature"]}/index.css`);
+    fs.writeFileSync(`./results/report/${featureName}-report.html`, createReport(datetime, resultInfo, feature, filesBefore));
+    fs.copyFileSync('./index.css', `./results/report/${featureName}-index.css`);
 
     console.log('------------------------------------------------------------------------------------')
     console.log("Execution finished. Check the report under the results folder")
@@ -61,17 +63,17 @@ async function executeTest(){
 				<div class="imgline">
 					<div class="imgcontainer">
 						<span class="imgname">Reference</span>
-						<img class="img2" src="../${feature["before"]}/${b}.png" id="refImage" label="Reference">
+						<img class="img2" src="../${feature["before"]}/${b}" id="refImage" label="Reference">
 					</div>
 					<div class="imgcontainer">
 						<span class="imgname">Test</span>
-						<img class="img2" src="../${feature["after"]}/${b}.png" id="testImage" label="Test">
+						<img class="img2" src="../${feature["after"]}/${b}" id="testImage" label="Test">
 					</div>
 				</div>
 				<div class="imgline">
 					<div class="imgcontainer">
 						<span class="imgname">Diff</span>
-						<img class="imgfull" src="./${feature["feature"]}/compare-${b}.png" id="diffImage" label="Diff">
+						<img class="imgfull" src="./Comparacion/compare-${b}" id="diffImage" label="Diff">
 					</div>
 				</div>
 			</div>`
@@ -83,7 +85,7 @@ function createReport(datetime, resInfo, feature, filesBefore){
     <html>
         <head>
             <title> VRT Report </title>
-            <link href="index.css" type="text/css" rel="stylesheet">
+            <link href="${feature["feature"]}-index.css" type="text/css" rel="stylesheet">
         </head>
         <body>
             <h1>Report for 
