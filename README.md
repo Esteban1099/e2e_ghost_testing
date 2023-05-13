@@ -323,11 +323,11 @@
 1. Haber ejecutado las pruebas de Cypress E2E para las versiones de ghost 3.41.1 y 4.44.0 (Instrucciones anteriores)
 2. Una vez se ejecutadas la pruebas de Cypress E2E para las versiones de ghost 3.41.1 y 4.44.0, se deben copiar la siguientes carpetas ubicadas en las siguientes rutas:
 
-    a. e2e_ghost_testing\e2e cypress ghost test\cypress\screenshots\Create post and pusblish
-    b. e2e_ghost_testing\e2e cypress ghost test\cypress\screenshots\Edit a recent created post and let it as draft
-    c. e2e_ghost_testing\e2e cypress ghost test\cypress\screenshots\Create page and publish
-    d. e2e_ghost_testing\e2e cypress ghost test\cypress\screenshots\Register member
-    e. e2e_ghost_testing\e2e cypress ghost test\cypress\screenshots\create internal tag
+    1. e2e_ghost_testing\e2e cypress ghost test\cypress\screenshots\Create post and pusblish
+    2. e2e_ghost_testing\e2e cypress ghost test\cypress\screenshots\Edit a recent created post and let it as draft
+    3. e2e_ghost_testing\e2e cypress ghost test\cypress\screenshots\Create page and publish
+    4. e2e_ghost_testing\e2e cypress ghost test\cypress\screenshots\Register member
+    5. e2e_ghost_testing\e2e cypress ghost test\cypress\screenshots\create internal tag
     
     Hacia la siguiente ruta: e2e_ghost_testing\RegressionTest Cypress\results\Screenshots
    
@@ -335,11 +335,11 @@
  4. Luego de terminar la ejecucion del comando anterior, ejecutamos 'node index.js'
  5. Al finalizar el comando en la carpeta e2e_ghost_testing\RegressionTest Cypress\results se mostraran los reportes de las pruebas de regresión visual, en las siguientes carpetas:
  
-     a. e2e_ghost_testing\RegressionTest Cypress\results\report_Create post and pusblish
-     b. e2e_ghost_testing\RegressionTest Cypress\results\report_Edit a recent created post and let it as draft
-     c. e2e_ghost_testing\RegressionTest Cypress\results\report_Create page and publish
-     d. e2e_ghost_testing\RegressionTest Cypress\results\report_Register member
-     e. e2e_ghost_testing\RegressionTest Cypress\results\report_create internal tag
+     1. e2e_ghost_testing\RegressionTest Cypress\results\report_Create post and pusblish
+     2. e2e_ghost_testing\RegressionTest Cypress\results\report_Edit a recent created post and let it as draft
+     3. e2e_ghost_testing\RegressionTest Cypress\results\report_Create page and publish
+     4. e2e_ghost_testing\RegressionTest Cypress\results\report_Register member
+     5. e2e_ghost_testing\RegressionTest Cypress\results\report_create internal tag
      
   6. Dentro de cada una de estas carpetas esta el archivo 'report.html' con los resultados obtenidos de las pruebas de regresión visual
     
