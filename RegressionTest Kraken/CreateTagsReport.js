@@ -55,17 +55,17 @@ async function executeTest(){
 				<div class="imgline">
 					<div class="imgcontainer">
 						<span class="imgname">Reference</span>
-						<img class="img2" src="../${feature["before"]}/${b}.png" id="refImage" label="Reference">
+						<img class="img2" src="../../${feature["before"]}/${b}" id="refImage" label="Reference">
 					</div>
 					<div class="imgcontainer">
 						<span class="imgname">Test</span>
-						<img class="img2" src="../${feature["after"]}/${b}.png" id="testImage" label="Test">
+						<img class="img2" src="../../${feature["after"]}/${b}" id="testImage" label="Test">
 					</div>
 				</div>
 				<div class="imgline">
 					<div class="imgcontainer">
 						<span class="imgname">Diff</span>
-						<img class="imgfull" src="./${feature["feature"]}/compare-${b}.png" id="diffImage" label="Diff">
+						<img class="imgfull" src="../${feature["feature"]}/compare-${b}" id="diffImage" label="Diff">
 					</div>
 				</div>
 			</div>`
