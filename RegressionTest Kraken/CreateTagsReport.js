@@ -5,15 +5,9 @@ const fs = require('fs');
 const { options } = config;
 
 async function executeTest(){
-  let features = [
-    { "feature" : "CreatePage", "before" : "CreatePage/Escenario_2", "after": "CreatePage_V4/Escenario_2"},
-    { "feature" : "CreatePost", "before" : "CreatePost/Escenario_2", "after" : "CreatePost_V4/Escenario_2"},
-    { "feature" : "CreateTags", "before" : "CreateTags/Escenario_1",  "after":"CreateTags_V4/Escenario_1"},
-    { "feature" : "EditPost", "before" : "EditPost/Escenario_1",  "after":"EditPost_V4/Escenario_1"},
-    { "feature" : "Navegacion", "before" : "Navegacion/Escenario_1",  "after":"Navegacion_V4/Escenario_1"}
-  ]
+  let feature = { "feature" : "CreateTags", "before" : "CreateTags/Escenario_1",  "after":"CreateTags_V4/Escenario_1"}
 
-  features.forEach(async feature => {
+
   let pathAfter = './results/'+ feature["after"]
   let pathBefore = './results/' + feature["before"]
   var filesBefore = fs.readdirSync(pathBefore)
@@ -49,7 +43,7 @@ async function executeTest(){
     console.log('------------------------------------------------------------------------------------')
     console.log("Execution finished. Check the report under the results folder")
     return resultInfo;  
-    });
+
   }
 
   function step(b, info, feature){
