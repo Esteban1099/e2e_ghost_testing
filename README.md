@@ -305,7 +305,7 @@
     4. Cuando la carpeta suba, se actualizará la interfaz de Cypress, seleccionamos E2E Testing (el icono indica que ya se encuentra configurado)
     5. Debemos seleccionar el buscador donde deseamos correr las pruebas, recomendamos seleccionar Google Chrome, cuando lo seleccionemos damos clic en el botón 'start E2E testing in Broswer' donde Broswer es el          buscador que usted selecciono
     6. En este momento se debió abrir una página en el buscador seleccionado anteriormente normalmente en la ruta 'http://localhost:55116/', en esta ventana en la            parte izquierda donde estan los modulos        de navegacion seleccionamos 'Specs'
-    7. Esto actualiza el módulo principal donde vemos el archivo # 'ghost.cy.js' que está en la carpeta 'cypress/e2e', damos click en el archivo
+    7. Esto actualiza el módulo principal donde vemos el archivo 'ghost.cy.js' que está en la carpeta 'cypress/e2e', damos click en el archivo
     8. Finalmente vemos como se ejecutan las pruebas y el informe resultado de estas una vez finalicen
 
 5. Ejecución escenarios de prueba E2E con Cypress para ghost 4.44.0
@@ -315,7 +315,7 @@
     4. Cuando la carpeta suba, se actualizará la interfaz de Cypress, seleccionamos E2E Testing (el icono indica que ya se encuentra configurado)
     5. Debemos seleccionar el buscador donde deseamos correr las pruebas, recomendamos seleccionar Google Chrome, cuando lo seleccionemos damos clic en el botón 'start E2E testing in Broswer' donde Broswer es el          buscador que usted selecciono
     6. En este momento se debió abrir una página en el buscador seleccionado anteriormente normalmente en la ruta 'http://localhost:55116/', en esta ventana en la            parte izquierda donde estan los modulos        de navegacion seleccionamos 'Specs'
-    7. Esto actualiza el módulo principal donde vemos el archivo # 'ghost_v2.cy.js' que está en la carpeta 'cypress/e2e', damos click en el archivo
+    7. Esto actualiza el módulo principal donde vemos el archivo 'ghost_v2.cy.js' que está en la carpeta 'cypress/e2e', damos click en el archivo
     8. Finalmente vemos como se ejecutan las pruebas y el informe resultado de estas una vez finalicen
 
 
