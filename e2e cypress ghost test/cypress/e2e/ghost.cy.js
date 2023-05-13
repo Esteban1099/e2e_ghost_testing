@@ -378,224 +378,282 @@ describe('E2E Test in ghost', () => {
         utility.takeScreenShot(scenario, screenShotBaseName + 'check_post_tag');
     });
 
-    // it('Feature: Create page - Scenario: Create page and publish', () => {
-    //     let pageName = cy.faker.lorem.word();
-    //     let pageText = cy.faker.lorem.lines();
+    it('Feature: Create page - Scenario: Create page and publish', () => {
+        let scenario = 'Create page and publish';
+        let pageName = cy.faker.lorem.word();
+        let pageText = cy.faker.lorem.lines();
 
-    //     // Given I visit ghost
-    //     loginPage.visitGhost();
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // And I login in ghost
-    //     loginPage.loginGhost();
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // When I navigate to pages
-    //     homePage.navigateModule('pages')
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // And I navigate to create page
-    //     homePage.navigateModule('editor/page')
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // And I desing page title, text and publish 
-    //     pagePage.desingPageEr('basic-text-publish', pageName, pageText)
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // And I navigate to pages
-    //     homePage.navigateModule('pages')
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // Then I expect that first page published on page list must has the title of the one I created
-    //     pagePage.checkPublishedPageTitleEr(0, pageName);
-    // });
+        // Given I visit ghost
+        loginPage.visitGhost();
+        utility.takeScreenShot(scenario, screenShotBaseName + 'visit_ghost');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // And I login in ghost
+        loginPage.loginGhost();
+        utility.takeScreenShot(scenario, screenShotBaseName + 'login_ghost');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // When I navigate to pages
+        homePage.navigateModule('pages')
+        utility.takeScreenShot(scenario, screenShotBaseName + 'navigate_pages_1');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // And I navigate to create page
+        homePage.navigateModule('editor/page')
+        utility.takeScreenShot(scenario, screenShotBaseName + 'navigate_create_page');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // And I desing page title, text and publish 
+        pagePage.desingPageEr('basic-text-publish', pageName, pageText)
+        utility.takeScreenShot(scenario, screenShotBaseName + 'desing_page_basic-text-publish');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // And I navigate to pages
+        homePage.navigateModule('pages')
+        utility.takeScreenShot(scenario, screenShotBaseName + 'navigate_pages_2');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // Then I expect that first page published on page list must has the title of the one I created
+        pagePage.checkPublishedPageTitleEr(0, pageName);
+        utility.takeScreenShot(scenario, screenShotBaseName + 'check_page_publish');
+    });
 
-    // it('Feature: Create page - Scenario: Create page and schedule publish in 5 minutes ', () => {
-    //     let pageName = cy.faker.lorem.word();
-    //     let pageText = cy.faker.lorem.lines();
+    it('Feature: Create page - Scenario: Create page and schedule publish in 5 minutes ', () => {
+        let scenario = 'Create page and schedule publish in 5 minutes';
+        let pageName = cy.faker.lorem.word();
+        let pageText = cy.faker.lorem.lines();
 
-    //     // Given I visit ghost
-    //     loginPage.visitGhost();
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // And I login in ghost
-    //     loginPage.loginGhost();
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // When I navigate to pages
-    //     homePage.navigateModule('pages')
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // And I navigate to create page
-    //     homePage.navigateModule('editor/page')
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // And I desing page title, text and schedule publish in 5 minutes 
-    //     pagePage.desingPageEr('basic-text-program-publish', pageName, pageText)
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // And I navigate to pages
-    //     homePage.navigateModule('pages')
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // Then I expect that first page scheduled on page list must has the title of the one I created
-    //     pagePage.checkScheduledPageTitleEr(0, pageName);
-    //     // And I wait 5 minutes for page be published
-    //     cy.wait(300000)
-    //     // And I re navigate to post
-    //     homePage.navigateModule('posts')
-    //     // And I re navigate to pages
-    //     homePage.navigateModule('pages')
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // And I expect that first post published on post list must has the title of the one I created
-    //     pagePage.checkPublishedPageTitleEr(0, pageName);
+        // Given I visit ghost
+        loginPage.visitGhost();
+        utility.takeScreenShot(scenario, screenShotBaseName + 'visit_ghost');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // And I login in ghost
+        loginPage.loginGhost();
+        utility.takeScreenShot(scenario, screenShotBaseName + 'login_ghost');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // When I navigate to pages
+        homePage.navigateModule('pages')
+        utility.takeScreenShot(scenario, screenShotBaseName + 'navigate_pages_1');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // And I navigate to create page
+        homePage.navigateModule('editor/page')
+        utility.takeScreenShot(scenario, screenShotBaseName + 'navigate_create_page');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // And I desing page title, text and schedule publish in 5 minutes 
+        pagePage.desingPageEr('basic-text-program-publish', pageName, pageText)
+        utility.takeScreenShot(scenario, screenShotBaseName + 'desing_page_basic-text-program-publish');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // And I navigate to pages
+        homePage.navigateModule('pages')
+        utility.takeScreenShot(scenario, screenShotBaseName + 'navigate_pages_2');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // Then I expect that first page scheduled on page list must has the title of the one I created
+        pagePage.checkScheduledPageTitleEr(0, pageName);
+        utility.takeScreenShot(scenario, screenShotBaseName + 'check_page_scheduled');
+        // And I wait 5 minutes for page be published
+        cy.wait(300000)
+        // And I re navigate to post
+        homePage.navigateModule('posts')
+        utility.takeScreenShot(scenario, screenShotBaseName + 'navigate_post');
+        // And I re navigate to pages
+        homePage.navigateModule('pages')
+        utility.takeScreenShot(scenario, screenShotBaseName + 'navigate_pages_3');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // And I expect that first post published on post list must has the title of the one I created
+        pagePage.checkPublishedPageTitleEr(0, pageName);
+        utility.takeScreenShot(scenario, screenShotBaseName + 'check_page_publish');
 
-    // });
+    });
 
-    // it('Feature: Create page - Scenario: Create page, schedule publish in 5 minutes and delete before pusblish', () => {
-    //     let pageName = cy.faker.lorem.word();
-    //     let pageText = cy.faker.lorem.lines();
+    it('Feature: Create page - Scenario: Create page, schedule publish in 5 minutes and delete before pusblish', () => {
+        let scenario = 'Create page, schedule publish in 5 minutes and delete before pusblish';
+        let pageName = cy.faker.lorem.word();
+        let pageText = cy.faker.lorem.lines();
 
-    //     // Given I visit ghost
-    //     loginPage.visitGhost();
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // And I login in ghost
-    //     loginPage.loginGhost();
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // When I navigate to pages
-    //     homePage.navigateModule('pages')
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // And I navigate to create page
-    //     homePage.navigateModule('editor/page')
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // And I desing page title, text and schedule publish in 5 minutes 
-    //     pagePage.desingPageEr('basic-text-program-publish', pageName, pageText)
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // And I navigate to pages
-    //     homePage.navigateModule('pages')
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // Then I expect that first page scheduled on page list must has the title of the one I created
-    //     pagePage.checkScheduledPageTitleEr(0, pageName);
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // And I navigate to edit page
-    //     pagePage.navigateEditPageByTitle(pageName);
-    //     // And I delete page
-    //     pagePage.deletePage()
-    //     // And I expect the page is not on page list
-    //     pagePage.checkScheduledPageTitleNotAtPosition(0, pageName);
+        // Given I visit ghost
+        loginPage.visitGhost();
+        utility.takeScreenShot(scenario, screenShotBaseName + 'visit_ghost');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // And I login in ghost
+        loginPage.loginGhost();
+        utility.takeScreenShot(scenario, screenShotBaseName + 'login_ghost');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // When I navigate to pages
+        homePage.navigateModule('pages')
+        utility.takeScreenShot(scenario, screenShotBaseName + 'navigate_pages_1');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // And I navigate to create page
+        homePage.navigateModule('editor/page')
+        utility.takeScreenShot(scenario, screenShotBaseName + 'navigate_create_page');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // And I desing page title, text and schedule publish in 5 minutes 
+        pagePage.desingPageEr('basic-text-program-publish', pageName, pageText)
+        utility.takeScreenShot(scenario, screenShotBaseName + 'desing_page_basic-text-program-publish');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // And I navigate to pages
+        homePage.navigateModule('pages')
+        utility.takeScreenShot(scenario, screenShotBaseName + 'navigate_pages_2');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // Then I expect that first page scheduled on page list must has the title of the one I created
+        pagePage.checkScheduledPageTitleEr(0, pageName);
+        utility.takeScreenShot(scenario, screenShotBaseName + 'check_page_scheduled');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // And I navigate to edit page
+        pagePage.navigateEditPageByTitle(pageName);
+        utility.takeScreenShot(scenario, screenShotBaseName + 'navigate_pages_3');
+        // And I delete page
+        pagePage.deletePage()
+        utility.takeScreenShot(scenario, screenShotBaseName + 'delete_page');
+        // And I wait 2 seconds
+        cy.wait(2000);
+        // And I expect the page is not on page list
+        pagePage.checkScheduledPageTitleNotAtPosition(0, pageName);
+        utility.takeScreenShot(scenario, screenShotBaseName + 'check_page_no_exists');
 
-    // });
+    });
 
-    // it('Feature: Create page - Scenario: Create page publish and edit to set tag', () => {
-    //     let pageName = cy.faker.lorem.word();
-    //     let pageText = cy.faker.lorem.lines();
-    //     let tagName = cy.faker.lorem.word();
-    //     let tagDescription = cy.faker.lorem.lines();
+    it('Feature: Create page - Scenario: Create page set tag and publish it', () => {
+        let scenario = 'Create page set tag and publish it';
+        let pageName = cy.faker.lorem.word();
+        let pageText = cy.faker.lorem.lines();
+        let tagName = cy.faker.lorem.word();
+        let tagDescription = cy.faker.lorem.lines();
 
-    //     // Given I visit ghost
-    //     loginPage.visitGhost();
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // And I login in ghost
-    //     loginPage.loginGhost();
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // And I navigate to tags
-    //     homePage.navigateModule('tags');
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // And I create a new tag
-    //     tagPage.createTag(tagName, tagDescription);
-    //     //And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // And I navigate to tags
-    //     homePage.navigateModule('tags')
-    //     //And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // When I navigate to pages
-    //     homePage.navigateModule('pages')
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // And I navigate to create page
-    //     homePage.navigateModule('editor/page')
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // And I desing page title, text and publish 
-    //     pagePage.desingPageEr('basic-text-tag', pageName, pageText, tagName)
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // And I navigate to pages
-    //     homePage.navigateModule('pages')
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // Then I expect that first page published on page list must has the title of the one I created
-    //     pagePage.checkPublishedPageTitleEr(0, pageName);
-    //     // And I expect that first post on post list must have the tag 
-    //     pagePage.checkPublishPageTag(0, tagName)
-    // });
+        // Given I visit ghost
+        loginPage.visitGhost();
+        utility.takeScreenShot(scenario, screenShotBaseName + 'visit_ghost');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // And I login in ghost
+        loginPage.loginGhost();
+        utility.takeScreenShot(scenario, screenShotBaseName + 'login_ghost');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // And I navigate to tags
+        homePage.navigateModule('tags');
+        utility.takeScreenShot(scenario, screenShotBaseName + 'navigate_tags_1');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // And I create a new tag
+        tagPage.createTag(tagName, tagDescription);
+        utility.takeScreenShot(scenario, screenShotBaseName + 'create_tag');
+        //And I wait 1 seconds
+        cy.wait(1000);
+        // And I navigate to tags
+        homePage.navigateModule('tags')
+        utility.takeScreenShot(scenario, screenShotBaseName + 'navigate_tags_2');
+        //And I wait 1 seconds
+        cy.wait(1000);
+        // When I navigate to pages
+        homePage.navigateModule('pages')
+        utility.takeScreenShot(scenario, screenShotBaseName + 'navigate_pages_1');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // And I navigate to create page
+        homePage.navigateModule('editor/page')
+        utility.takeScreenShot(scenario, screenShotBaseName + 'create_page');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // And I desing page title, text and publish 
+        pagePage.desingPageEr('basic-text-tag', pageName, pageText, tagName, scenario, screenShotBaseName + 'desing_page_basic-text-tag_1')
+        utility.takeScreenShot(scenario, screenShotBaseName + 'desing_page_basic-text-tag_2');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // And I navigate to pages
+        homePage.navigateModule('pages')
+        utility.takeScreenShot(scenario, screenShotBaseName + 'navigate_pages_2');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // Then I expect that first page published on page list must has the title of the one I created
+        pagePage.checkPublishedPageTitleEr(0, pageName);
+        utility.takeScreenShot(scenario, screenShotBaseName + 'check_page_publish');
+        // And I expect that first post on post list must have the tag 
+        pagePage.checkPublishPageTag(0, tagName)
+        utility.takeScreenShot(scenario, screenShotBaseName + 'check_page_tag');
+    });
 
-    // it('Feature: Create member | Scenario: Activate option and register member', () => {
-    //     const name = cy.faker.name.firstName();
-    //     const email = cy.faker.internet.email();
-    //     // Given I visit ghost
-    //     loginPage.visitGhost();
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // And I login in ghost
-    //     loginPage.loginGhost();
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // And I navigate to labs
-    //     homePage.navigateModule('settings/labs')
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // When i activate section members
-    //     memberPage.activateSectionMembers();
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // And I activate option members
-    //     memberPage.activateOptionMembers();
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // And I save configuration
-    //     memberPage.save();
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // And I navigate to members
-    //     homePage.navigateModule('members')
-    //     // And I wait 1 seconds
-    //     cy.wait(1500);
-    //     // And I navigate to new member
-    //     homePage.navigateModule('members/new')
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // And I fill the form input name
-    //     memberPage.fillForm('input[id="member-name"]', name);
-    //     // And I wait 0.5 seconds
-    //     cy.wait(500);
-    //     // And I fill the form input email
-    //     memberPage.fillForm('input[id="member-email"]', email);
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // Then I save member
-    //     memberPage.save();
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // And I navigate to members
-    //     homePage.navigateModule('members')
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // And I verify member created in the list
-    //     memberPage.findInList('section.content-list', 'p.gh-members-list-email', email);
-    // });
+    it('Feature: Create member | Scenario: Activate option and register member', () => {
+        let scenario = 'Activate option and register member';
+        const name = cy.faker.name.firstName();
+        const email = cy.faker.internet.email();
+        // Given I visit ghost
+        loginPage.visitGhost();
+        utility.takeScreenShot(scenario, screenShotBaseName + 'visit_ghost');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // And I login in ghost
+        loginPage.loginGhost();
+        utility.takeScreenShot(scenario, screenShotBaseName + 'login_ghost');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // And I navigate to labs
+        homePage.navigateModule('settings/labs')
+        utility.takeScreenShot(scenario, screenShotBaseName + 'navigate_settings_labs');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // When i activate section members
+        memberPage.activateSectionMembers();
+        utility.takeScreenShot(scenario, screenShotBaseName + 'activate_section_members');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // And I activate option members
+        memberPage.activateOptionMembers();
+        utility.takeScreenShot(scenario, screenShotBaseName + 'activate_option_members');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // And I save configuration
+        memberPage.save();
+        utility.takeScreenShot(scenario, screenShotBaseName + 'save_settings');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // And I navigate to members
+        homePage.navigateModule('members')
+        utility.takeScreenShot(scenario, screenShotBaseName + 'navigate_members_1');
+        // And I wait 1 seconds
+        cy.wait(1500);
+        // And I navigate to new member
+        homePage.navigateModule('members/new')
+        utility.takeScreenShot(scenario, screenShotBaseName + 'navigate_create_member');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // And I fill the form input name
+        memberPage.fillForm('input[id="member-name"]', name);
+        utility.takeScreenShot(scenario, screenShotBaseName + 'fill_member_name');
+        // And I wait 0.5 seconds
+        cy.wait(500);
+        // And I fill the form input email
+        memberPage.fillForm('input[id="member-email"]', email);
+        utility.takeScreenShot(scenario, screenShotBaseName + 'fill_member_mail');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // Then I save member
+        memberPage.save();
+        utility.takeScreenShot(scenario, screenShotBaseName + 'save_member');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // And I navigate to members
+        homePage.navigateModule('members')
+        utility.takeScreenShot(scenario, screenShotBaseName + 'navigate_members_2');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // And I verify member created in the list
+        memberPage.findInList('section.content-list', 'p.gh-members-list-email', email);
+        utility.takeScreenShot(scenario, screenShotBaseName + 'check_member_was_created');
+    });
 
     // it('Feature: Create member | Scenario: Register member', () => {
     //     const name = cy.faker.name.firstName();

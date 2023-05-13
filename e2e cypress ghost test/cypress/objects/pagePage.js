@@ -6,7 +6,7 @@ const homePage = new HomePage();
 export class PagePage {
 
     constructor() {
-    }    
+    }
 
     createPage(pageTitle, pageText) {
         homePage.navigateModule('editor/page');
@@ -18,7 +18,7 @@ export class PagePage {
         utility.clickButtonSave('button.gh-publishmenu-button')
     }
 
-    desingPageEr(type, pageName, pageText, tagName) {
+    desingPageEr(type, pageName, pageText, tagName, screenFolder, screenName) {
         if (type == 'basic-text-publish') {
             utility.enterInputInForm('textarea.gh-editor-title', pageName);
             utility.enterInputInForm('div.koenig-editor__editor', pageText);
@@ -48,6 +48,9 @@ export class PagePage {
                         var tag = $tags[index];
                         if (tag.textContent.trim() == tagName) {
                             cy.wrap(tag).click({ force: true });
+                            cy.wait(2000);
+                            utility.takeScreenShot(screenFolder, screenName);
+                            cy.wait(2000);
                             utility.enterInputInForm('textarea.gh-editor-title', pageName);
                             utility.enterInputInForm('div.koenig-editor__editor', pageText);
                             cy.wait(1000);
@@ -139,7 +142,7 @@ export class PagePage {
         cy.wait(1000);
         utility.clickButtonDelete('button.gh-btn-hover-red', false);
         cy.wait(1000);
-        utility.clickButtonDelete('button.gh-btn-red', false);    
+        utility.clickButtonDelete('button.gh-btn-red', false);
     }
 
     checkScheduledPageTitleNotAtPosition(position, title) {
@@ -229,17 +232,17 @@ export class PagePage {
             }
         });
     }
-    
 
-    unpublishPage(){
+
+    unpublishPage() {
         utility.clickInOptionAction('.gh-publishmenu-trigger')
         cy.wait(1000);
         utility.clickInOptionAction('.gh-publishmenu-radio-button')
         cy.wait(1000);
         utility.clickInOptionAction('.gh-btn-blue')
     }
-    
-    publishPage(){
+
+    publishPage() {
         utility.clickInOptionAction('.gh-publishmenu-trigger')
         cy.wait(1000);
         utility.clickInOptionAction('.gh-btn-blue')
