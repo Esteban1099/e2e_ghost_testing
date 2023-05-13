@@ -105,16 +105,30 @@ export class PagePage {
     }
 
     navigateEditPageByTitle(title) {
-        cy.wait(2000);
-        cy.get('ol.gh-list').then($ol => {
-            var objectList = $ol.get(0);
-            var items = objectList.querySelectorAll('li.gh-posts-list-item')
-            for (let index = 0; index < items.length; index++) {
-                var li = items[index];
-                var link = li.querySelectorAll('a')[1];
-                var header = link.querySelectorAll('h3')[0];
-                if (header.textContent.trim() == title) {
-                    cy.wrap(header).click({ force: true });
+
+        let aux = "";
+        let auxTag = "";
+
+        cy.document().then((doc) => {
+            let section = doc.querySelectorAll('ol.gh-list');
+            if (section.length > 0) {
+                var ol = section[0];
+                var li = ol.querySelectorAll('li.gh-posts-list-item');
+                if (li.length > 0) {
+                    cy.document().then((doc) => {
+                        let element = doc.querySelectorAll('h3.gh-content-entry-title');
+                        if (element.length > 0) {
+                            for (let index = 0; index < element.length; index++) {
+                                aux = element[index].textContent.trim();
+                                auxTag = element[index];
+                                if (aux == title) {
+                                    break;
+                                }
+                            }
+                            expect(aux).to.eql(title);
+                            cy.wrap(auxTag).click({ force: true });
+                        }
+                    });
                 }
             }
         });

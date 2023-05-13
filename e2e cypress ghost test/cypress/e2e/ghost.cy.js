@@ -18,297 +18,365 @@ import { NavPage } from '../objects/navPage';
 const navPage = new NavPage();
 
 describe('E2E Test in ghost', () => {
+    const screenShotBaseName = 'v1/';
 
     it('Feature: Create post - Scenario: Create draft post', () => {
+        let scenario = 'Create draft post';
         let postName = cy.faker.lorem.word();
+
         // Given I visit ghost
         loginPage.visitGhost();
-        utility.takeScreenShot('scenario_1', 'visit_ghost');
+        utility.takeScreenShot(scenario, screenShotBaseName + 'visit_ghost');
         // And I wait 1 seconds
         cy.wait(1000);
         // And I login in ghost       
         loginPage.loginGhost();
-        utility.takeScreenShot('scenario_1', 'login_ghost');
+        utility.takeScreenShot(scenario, screenShotBaseName + 'login_ghost');
         // And I wait 1 seconds
         cy.wait(1000);
         // And I navigate to staff
         homePage.navigateModule('staff');
-        utility.takeScreenShot('scenario_1', 'navigate_staff');
+        utility.takeScreenShot(scenario, screenShotBaseName + 'navigate_staff');
         // And I wait 1 seconds
         cy.wait(1000);
         // When I navigate to post
         homePage.navigateModule('posts');
-        utility.takeScreenShot('scenario_1', 'navigate_post_1');
+        utility.takeScreenShot(scenario, screenShotBaseName + 'navigate_post_1');
         // And I wait 1 seconds
         cy.wait(1000);
         // And I navigate to create post
         homePage.navigateModule('editor/post');
-        utility.takeScreenShot('scenario_1', 'navigate_create_post');
+        utility.takeScreenShot(scenario, screenShotBaseName + 'navigate_create_post');
         // And I wait 1 seconds
         cy.wait(1000);
         // And I desing post title 
         postPage.desingPost('basic', postName);
-        utility.takeScreenShot('scenario_1', 'desing_basic_post');
+        utility.takeScreenShot(scenario, screenShotBaseName + 'desing_post_basic');
         // And I wait 1 seconds
         cy.wait(1000);
         // And I navigate to post
         homePage.navigateModule('posts');
-        utility.takeScreenShot('scenario_1', 'navigate_post_2');
+        utility.takeScreenShot(scenario, screenShotBaseName + 'navigate_post_2');
         // And I wait 1 seconds
         cy.wait(1000);
         // Then I expect to see the post at first on post list
         postPage.checkPostTitle(0, postName);
-        utility.takeScreenShot('scenario_1', 'check_post_title');
+        utility.takeScreenShot(scenario, screenShotBaseName + 'check_post_title');
         // And I expect that first post on post list must be draft 
         postPage.checkPostIsDraft(0);
-        utility.takeScreenShot('scenario_1', 'check_post_draft');
+        utility.takeScreenShot(scenario, screenShotBaseName + 'check_post_draft');
     });
 
-    // it('Feature: Create post - Scenario: Create draft post with tag', () => {
-    //     let postName = cy.faker.lorem.word();
-    //     let tagName = cy.faker.lorem.word();
-    //     let tagDescription = cy.faker.lorem.lines();
+    it('Feature: Create post - Scenario: Create draft post with tag', () => {
+        let scenario = 'Create draft post with tag';
+        let postName = cy.faker.lorem.word();
+        let tagName = cy.faker.lorem.word();
+        let tagDescription = cy.faker.lorem.lines();
 
-    //     // Given I visit ghost
-    //     loginPage.visitGhost();
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // And I login in ghost
-    //     loginPage.loginGhost();
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // And I navigate to tags
-    //     homePage.navigateModule('tags');
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // And I create a new tag
-    //     tagPage.createTag(tagName, tagDescription);
-    //     //And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // And I navigate to tags
-    //     homePage.navigateModule('tags')
-    //     //And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // And I navigate to pages
-    //     homePage.navigateModule('pages')
-    //     // When I navigate to post
-    //     homePage.navigateModule('posts');
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // And I navigate to create post
-    //     homePage.navigateModule('editor/post');
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // And I desing post title and set post tag
-    //     postPage.desingPost('basic-tag', postName, tagName);
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // And I navigate to post
-    //     homePage.navigateModule('posts');
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // Then I expect that first post on post list must has the title of the one I created
-    //     postPage.checkPostTitle(0, postName);
-    //     // And I expect that first post on post list must be draft 
-    //     postPage.checkPostIsDraft(0);
-    //     // And I expect that first post on post list must have the tag 
-    //     postPage.checkPostTag(0, tagName);
-    // });
+        // Given I visit ghost
+        loginPage.visitGhost();
+        utility.takeScreenShot(scenario, screenShotBaseName + 'visit_ghost');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // And I login in ghost
+        loginPage.loginGhost();
+        utility.takeScreenShot(scenario, screenShotBaseName + 'login_ghost');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // And I navigate to tags
+        homePage.navigateModule('tags');
+        utility.takeScreenShot(scenario, screenShotBaseName + 'navigate_tags_1');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // And I create a new tag
+        tagPage.createTag(tagName, tagDescription);
+        utility.takeScreenShot(scenario, screenShotBaseName + 'create_tag');
+        //And I wait 1 seconds
+        cy.wait(1000);
+        // And I navigate to tags
+        homePage.navigateModule('tags')
+        utility.takeScreenShot(scenario, screenShotBaseName + 'navigate_tags_2');
+        //And I wait 1 seconds
+        cy.wait(1000);
+        // And I navigate to pages
+        homePage.navigateModule('pages')
+        utility.takeScreenShot(scenario, screenShotBaseName + 'navigate_pages_1');
+        // When I navigate to post
+        homePage.navigateModule('posts');
+        utility.takeScreenShot(scenario, screenShotBaseName + 'navigate_post_1');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // And I navigate to create post
+        homePage.navigateModule('editor/post');
+        utility.takeScreenShot(scenario, screenShotBaseName + 'navigate_create_post');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // And I desing post title and set post tag
+        postPage.desingPost('basic-tag', postName, tagName, '', scenario, screenShotBaseName + 'desing_post_basic-tag_1');
+        cy.wait(500);
+        utility.takeScreenShot(scenario, screenShotBaseName + 'desing_post_basic-tag_2');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // And I navigate to post
+        homePage.navigateModule('posts');
+        utility.takeScreenShot(scenario, screenShotBaseName + 'navigate_post_2');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // Then I expect that first post on post list must has the title of the one I created
+        postPage.checkPostTitle(0, postName);
+        utility.takeScreenShot(scenario, screenShotBaseName + 'check_post_title');
+        // And I expect that first post on post list must be draft 
+        postPage.checkPostIsDraft(0);
+        utility.takeScreenShot(scenario, screenShotBaseName + 'check_post_draft');
+        // And I expect that first post on post list must have the tag 
+        postPage.checkPostTag(0, tagName);
+        utility.takeScreenShot(scenario, screenShotBaseName + 'check_post_tag');
+    });
 
-    // it('Feature: Create post - Scenario: Create post and pusblish', () => {
-    //     let postName = cy.faker.lorem.word();
-    //     let tagName = cy.faker.lorem.word();
-    //     let postText = cy.faker.lorem.lines();
+    it('Feature: Create post - Scenario: Create post and pusblish', () => {
+        let scenario = 'Create post and pusblish';
+        let postName = cy.faker.lorem.word();
+        let tagName = cy.faker.lorem.word();
+        let postText = cy.faker.lorem.lines();
 
-    //     // Given I visit ghost
-    //     loginPage.visitGhost();
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // And I login in ghost
-    //     loginPage.loginGhost();
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // When I navigate to post
-    //     homePage.navigateModule('posts');
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // And I navigate to create post
-    //     homePage.navigateModule('editor/post');
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // And I desing post title, text and publish
-    //     postPage.desingPost('basic-text-publish', postName, tagName, postText);
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // And I navigate to post
-    //     homePage.navigateModule('posts');
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // Then I expect that first post published on post list must has the title of the one I created
-    //     postPage.checkPublishedPostTitle(0, postName);
-    // });
+        // Given I visit ghost
+        loginPage.visitGhost();
+        utility.takeScreenShot(scenario, screenShotBaseName + 'visit_ghost');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // And I login in ghost
+        loginPage.loginGhost();
+        utility.takeScreenShot(scenario, screenShotBaseName + 'login_ghost');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // When I navigate to post
+        homePage.navigateModule('posts');
+        utility.takeScreenShot(scenario, screenShotBaseName + 'navigate_posts_1');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // And I navigate to create post
+        homePage.navigateModule('editor/post');
+        utility.takeScreenShot(scenario, screenShotBaseName + 'navigate_create_post');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // And I desing post title, text and publish
+        postPage.desingPost('basic-text-publish', postName, tagName, postText);
+        utility.takeScreenShot(scenario, screenShotBaseName + 'desing_post_basic-text-publish');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // And I navigate to post
+        homePage.navigateModule('posts');
+        utility.takeScreenShot(scenario, screenShotBaseName + 'navigate_posts_2');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // Then I expect that first post published on post list must has the title of the one I created
+        postPage.checkPublishedPostTitle(0, postName);
+        utility.takeScreenShot(scenario, screenShotBaseName + 'check_posts_publish');
+    });
 
-    // it('Feature: Edit post - Scenario: Edit a recent created post and publish', () => {
-    //     let postName = cy.faker.lorem.word();
-    //     let editPostName = cy.faker.lorem.word();
-    //     let postText = cy.faker.lorem.lines();
-    //     let tagName = cy.faker.lorem.word();
+    it('Feature: Edit post - Scenario: Edit a recent created post and publish', () => {
+        let scenario = 'Edit a recent created post and publish';
+        let postName = cy.faker.lorem.word();
+        let editPostName = cy.faker.lorem.word();
+        let postText = cy.faker.lorem.lines();
+        let tagName = cy.faker.lorem.word();
 
-    //     // Given I visit ghost
-    //     loginPage.visitGhost();
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // And I login in ghost
-    //     loginPage.loginGhost();
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // When I navigate to post
-    //     homePage.navigateModule('posts');
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // And I navigate to create post
-    //     homePage.navigateModule('editor/post');
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // And I desing post title 
-    //     postPage.desingPost('basic', postName)
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // And I navigate to post
-    //     homePage.navigateModule('posts');
-    //     // And I navigate to edit post
-    //     postPage.navigateEditPostByTitle(postName);
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // And I edit desing post title, text and publish
-    //     postPage.desingPost('basic-text-publish', editPostName, tagName, postText);
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // And I navigate to post
-    //     homePage.navigateModule('posts');
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // Then I expect that first post published on post list must has the edit title of the one I edit
-    //     postPage.checkPublishedPostTitle(0, editPostName);
-    // });
+        // Given I visit ghost
+        loginPage.visitGhost();
+        utility.takeScreenShot(scenario, screenShotBaseName + 'visit_ghost');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // And I login in ghost
+        loginPage.loginGhost();
+        utility.takeScreenShot(scenario, screenShotBaseName + 'login_ghost');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // When I navigate to post
+        homePage.navigateModule('posts');
+        utility.takeScreenShot(scenario, screenShotBaseName + 'navigate_posts_1');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // And I navigate to create post
+        homePage.navigateModule('editor/post');
+        utility.takeScreenShot(scenario, screenShotBaseName + 'navigate_create_post');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // And I desing post title 
+        postPage.desingPost('basic', postName)
+        utility.takeScreenShot(scenario, screenShotBaseName + 'desing_post_basic');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // And I navigate to post
+        homePage.navigateModule('posts');
+        utility.takeScreenShot(scenario, screenShotBaseName + 'navigate_posts_2');
+        // And I navigate to edit post
+        postPage.navigateEditPostByTitle(postName);
+        utility.takeScreenShot(scenario, screenShotBaseName + 'navigate_edit_post');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // And I edit desing post title, text and publish
+        postPage.desingPost('basic-text-publish', editPostName, tagName, postText);
+        utility.takeScreenShot(scenario, screenShotBaseName + 'desing_post_basic-text-publish');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // And I navigate to post
+        homePage.navigateModule('posts');
+        utility.takeScreenShot(scenario, screenShotBaseName + 'navigate_posts_3');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // Then I expect that first post published on post list must has the edit title of the one I edit
+        postPage.checkPublishedPostTitle(0, editPostName);
+        utility.takeScreenShot(scenario, screenShotBaseName + 'check_posts_publish');
+    });
 
-    // it('Feature: Edit post - Scenario: Edit a recent created post and let it as draft', () => {
-    //     let postName = cy.faker.lorem.word();
-    //     let editPostName = cy.faker.lorem.word();
-    //     let postText = cy.faker.lorem.lines();
-    //     let tagName = cy.faker.lorem.word();
+    it('Feature: Edit post - Scenario: Edit a recent created post and let it as draft', () => {
+        let scenario = 'Edit a recent created post and let it as draft';
+        let postName = cy.faker.lorem.word();
+        let editPostName = cy.faker.lorem.word();
+        let postText = cy.faker.lorem.lines();
+        let tagName = cy.faker.lorem.word();
 
-    //     // Given I visit ghost
-    //     loginPage.visitGhost();
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // And I login in ghost
-    //     loginPage.loginGhost();
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // When I navigate to post
-    //     homePage.navigateModule('posts');
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // And I navigate to create post
-    //     homePage.navigateModule('editor/post');
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // And I desing post title 
-    //     postPage.desingPost('basic', postName);
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // And I navigate to post
-    //     homePage.navigateModule('posts');
-    //     // And I navigate to edit post
-    //     postPage.navigateEditPostByTitle(postName);
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // And I edit desing post title, text and publish
-    //     postPage.desingPost('basic-text', editPostName, tagName, postText);
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // And I navigate to post
-    //     homePage.navigateModule('posts');
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // Then I expect that first post on post list must has the title of the one I created
-    //     postPage.checkPostTitle(0, editPostName);
-    //     //   // And I expect that first post on post list must be draft 
-    //     postPage.checkPostIsDraft(0);
-    // });
+        // Given I visit ghost
+        loginPage.visitGhost();
+        utility.takeScreenShot(scenario, screenShotBaseName + 'visit_ghost');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // And I login in ghost
+        loginPage.loginGhost();
+        utility.takeScreenShot(scenario, screenShotBaseName + 'login_ghost');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // When I navigate to post
+        homePage.navigateModule('posts');
+        utility.takeScreenShot(scenario, screenShotBaseName + 'navigate_posts_1');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // And I navigate to create post
+        homePage.navigateModule('editor/post');
+        utility.takeScreenShot(scenario, screenShotBaseName + 'navigate_create_post');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // And I desing post title 
+        postPage.desingPost('basic', postName);
+        utility.takeScreenShot(scenario, screenShotBaseName + 'desing_post_basic');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // And I navigate to post
+        homePage.navigateModule('posts');
+        utility.takeScreenShot(scenario, screenShotBaseName + 'navigate_posts_2');
+        // And I navigate to edit post
+        postPage.navigateEditPostByTitle(postName);
+        utility.takeScreenShot(scenario, screenShotBaseName + 'navigate_edit_post');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // And I edit desing post title, text and publish
+        postPage.desingPost('basic-text', editPostName, tagName, postText);
+        utility.takeScreenShot(scenario, screenShotBaseName + 'desing_post_basic-text');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // And I navigate to post
+        homePage.navigateModule('posts');
+        utility.takeScreenShot(scenario, screenShotBaseName + 'navigate_posts_3');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // Then I expect that first post on post list must has the title of the one I created
+        postPage.checkPostTitle(0, editPostName);
+        utility.takeScreenShot(scenario, screenShotBaseName + 'check_posts_title');
+        //   // And I expect that first post on post list must be draft 
+        postPage.checkPostIsDraft(0);
+        utility.takeScreenShot(scenario, screenShotBaseName + 'check_posts_draft');
+    });
 
-    // it('Feature: Edit post - Scenario: Edit a recent created post and change tag', () => {
-    //     let postName = cy.faker.lorem.word();
-    //     let postText = cy.faker.lorem.lines();
-    //     let tagNameA = cy.faker.lorem.word();
-    //     let tagDescriptionA = cy.faker.lorem.lines();
-    //     let tagNameB = cy.faker.lorem.word();
-    //     let tagDescriptionB = cy.faker.lorem.lines();
+    it('Feature: Edit post - Scenario: Edit a recent created post and change tag', () => {
+        let scenario = 'Edit a recent created post and change tag';
+        let postName = cy.faker.lorem.word();
+        let postText = cy.faker.lorem.lines();
+        let tagNameA = cy.faker.lorem.word();
+        let tagDescriptionA = cy.faker.lorem.lines();
+        let tagNameB = cy.faker.lorem.word();
+        let tagDescriptionB = cy.faker.lorem.lines();
 
-    //     // Given I visit ghost
-    //     loginPage.visitGhost();
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // And I login in ghost
-    //     loginPage.loginGhost();
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // And I navigate to tags
-    //     homePage.navigateModule('tags');
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // And I create a new tag
-    //     tagPage.createTag(tagNameA, tagDescriptionA);
-    //     //And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // And I navigate to tags
-    //     homePage.navigateModule('tags')
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // And I create a new tag
-    //     tagPage.createTag(tagNameB, tagDescriptionB);
-    //     //And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // And I navigate to tags
-    //     homePage.navigateModule('tags')
-    //     //And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // When I navigate to post
-    //     homePage.navigateModule('posts');
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // And I navigate to create post
-    //     homePage.navigateModule('editor/post');
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // And I desing post title with a tag A
-    //     postPage.desingPost('basic-tag', postName, tagNameA);
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // And I navigate to post
-    //     homePage.navigateModule('posts');
-    //     // And I navigate to edit post
-    //     postPage.navigateEditPostByTitle(postName);
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // And I delete tag A from the post
-    //     postPage.deleteTagFromPost(tagNameA)
-    //     // And I edit desing post title and set post tag B
-    //     postPage.desingPost('basic-tag-edit', postName, tagNameB, postText);
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // And I navigate to post
-    //     homePage.navigateModule('posts');
-    //     // And I wait 1 seconds
-    //     cy.wait(1000);
-    //     // Then I expect that first post on post list must has the title of the one I created
-    //     postPage.checkPostTitle(0, postName);
-    //     // And I expect that first post on post list must be draft 
-    //     postPage.checkPostIsDraft(0);
-    //     // And I expect that first post on post list must have the edit tag 
-    //     postPage.checkPostTag(0, tagNameB)
-    // });
+        // Given I visit ghost
+        loginPage.visitGhost();
+        utility.takeScreenShot(scenario, screenShotBaseName + 'visit_ghost');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // And I login in ghost
+        loginPage.loginGhost();
+        utility.takeScreenShot(scenario, screenShotBaseName + 'login_ghost');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // And I navigate to tags
+        homePage.navigateModule('tags');
+        utility.takeScreenShot(scenario, screenShotBaseName + 'navigate_tags_1');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // And I create a new tag
+        tagPage.createTag(tagNameA, tagDescriptionA);
+        utility.takeScreenShot(scenario, screenShotBaseName + 'create_tag_a');
+        //And I wait 1 seconds
+        cy.wait(1000);
+        // And I navigate to tags
+        homePage.navigateModule('tags')
+        utility.takeScreenShot(scenario, screenShotBaseName + 'navigate_tags_2');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // And I create a new tag
+        tagPage.createTag(tagNameB, tagDescriptionB);
+        utility.takeScreenShot(scenario, screenShotBaseName + 'create_tag_b');
+        //And I wait 1 seconds
+        cy.wait(1000);
+        // And I navigate to tags
+        homePage.navigateModule('tags')
+        utility.takeScreenShot(scenario, screenShotBaseName + 'navigate_tags_3');
+        //And I wait 1 seconds
+        cy.wait(1000);
+        // When I navigate to post
+        homePage.navigateModule('posts');
+        utility.takeScreenShot(scenario, screenShotBaseName + 'navigate_post_1');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // And I navigate to create post
+        homePage.navigateModule('editor/post');
+        utility.takeScreenShot(scenario, screenShotBaseName + 'navigate_edit_post_1');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // And I desing post title with a tag A
+        postPage.desingPost('basic-tag', postName, tagNameA, '', scenario, screenShotBaseName + 'desing_post_basic-tag_a_1');
+        utility.takeScreenShot(scenario, screenShotBaseName + 'desing_post_basic-tag_a_2');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // And I navigate to post
+        homePage.navigateModule('posts');
+        utility.takeScreenShot(scenario, screenShotBaseName + 'navigate_post_2');
+        // And I navigate to edit post
+        postPage.navigateEditPostByTitle(postName);
+        utility.takeScreenShot(scenario, screenShotBaseName + 'navigate_edit_post_2');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // And I delete tag A from the post
+        postPage.deleteTagFromPost(tagNameA, scenario, screenShotBaseName + 'desing_post_delete-tag_1')
+        utility.takeScreenShot(scenario, screenShotBaseName + 'desing_post_delete-tag_2');
+        // And I edit desing post title and set post tag B
+        postPage.desingPost('basic-tag-edit', postName, tagNameB, postText, scenario, screenShotBaseName + 'desing_post_basic-tag_b_1');
+        utility.takeScreenShot(scenario, screenShotBaseName + 'desing_post_basic-tag_b_2');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // And I navigate to post
+        homePage.navigateModule('posts');
+        utility.takeScreenShot(scenario, screenShotBaseName + 'navigate_post_3');
+        // And I wait 1 seconds
+        cy.wait(1000);
+        // Then I expect that first post on post list must has the title of the one I created
+        postPage.checkPostTitle(0, postName);
+        utility.takeScreenShot(scenario, screenShotBaseName + 'check_post_title');
+        // And I expect that first post on post list must be draft 
+        postPage.checkPostIsDraft(0);
+        utility.takeScreenShot(scenario, screenShotBaseName + 'check_post_draft');
+        // And I expect that first post on post list must have the edit tag 
+        postPage.checkPostTag(0, tagNameB)
+        utility.takeScreenShot(scenario, screenShotBaseName + 'check_post_tag');
+    });
 
     // it('Feature: Create page - Scenario: Create page and publish', () => {
     //     let pageName = cy.faker.lorem.word();
