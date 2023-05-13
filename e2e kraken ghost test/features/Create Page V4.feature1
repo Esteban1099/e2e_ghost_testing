@@ -1,0 +1,36 @@
+Feature: Crear Página
+
+@user2 @web
+Scenario: Escenario 2 Programar creación de página
+   Given I navigate to page "<URL2>"
+    And I wait for 1 seconds
+    And I enter email "<USERNAME1>"
+    And I save device snapshot in file with path "Create Page Nueva Version/Escenario_2/IngresarCorreo"
+    And I enter password "<PASSWORD1>"
+    And I save device snapshot in file with path "Create Page Nueva Version/Escenario_2/IngresarContrasenia"
+    And I click login
+    And I save device snapshot in file with path "Create Page Nueva Version/Escenario_2/ClickLogin"
+  When I click Pages
+    And I save device snapshot in file with path "Create Page Nueva Version/Escenario_2/ListadoPagina"
+    And I wait for 3 seconds
+    And I click new page
+    And I save device snapshot in file with path "Create Page Nueva Version/Escenario_2/NuevaPagina"
+    And I wait for 2 seconds
+  Then I enter title "$name_1"
+    And I save device snapshot in file with path "Create Page Nueva Version/Escenario_2/IngresaTituloPagina"
+    And I click on the redact post inputbox
+    And I click on link publish
+    And I save device snapshot in file with path "Create Page Nueva Version/Escenario_2/PublicaPagina"
+    And I wait for 3 seconds
+    And I click on schedule
+    And I save device snapshot in file with path "Create Page Nueva Version/Escenario_2/ProgramaPublicacion"
+    And I wait for 1 seconds
+    And I publish
+    And I save device snapshot in file with path "Create Page Nueva Version/Escenario_2/ConfirmaPublicacion"
+    And I wait for 1 seconds
+    And I go back to pages
+    And I save device snapshot in file with path "Create Page Nueva Version/Escenario_2/ListadoPagina2"
+    And I wait for 3 seconds
+    And I go to last created page
+    And I save device snapshot in file with path "Create Page Nueva Version/Escenario_2/DetallePagina"
+    And I wait for 3 seconds

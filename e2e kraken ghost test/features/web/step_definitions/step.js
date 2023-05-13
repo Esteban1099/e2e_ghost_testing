@@ -306,6 +306,11 @@ When('I check tag {kraken-string}',  async function (string) {
     return await element.click();
 });
 
+When('I check tag v4 {kraken-string}',  async function (string) {
+  let tag = string.toLowerCase()
+  let element = await this.driver.$("a[href$='"+tag+"/']");
+  return await element.click();
+});
 
 When('I check internal tag {kraken-string}',  async function (string) {
     let tag = string.toLowerCase()
