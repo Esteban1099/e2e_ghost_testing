@@ -1,0 +1,29 @@
+Feature: Crear Tag
+
+@user1 @web
+Scenario: Escenario 1 Crear Tag Publico 
+  Given I navigate to page "<URL2>"
+  	And I wait for 1 seconds
+    And I enter email "<USERNAME1>"
+    And I save device snapshot in file with path "Create Tags Nueva Version/Escenario_1/IngresarCorreo"
+    And I wait for 1 seconds
+    And I enter password "<PASSWORD1>"
+    And I save device snapshot in file with path "Create Tags Nueva Version/Escenario_1/IngresarContrasenia"
+    And I wait for 2 seconds
+    And I click login
+    And I save device snapshot in file with path "Create Tags Nueva Version/Escenario_1/ClickLogin"
+  When I click tags
+    And I wait for 2 seconds
+    And I save device snapshot in file with path "Create Tags Nueva Version/Escenario_1/PaginaEtiquetas"
+    And I click new tag
+    And I save device snapshot in file with path "Create Tags Nueva Version/Escenario_1/NuevaEtiqueta"
+  Then I enter tag name "$name_1"
+    And I save device snapshot in file with path "Create Tags Nueva Version/Escenario_1/IngresarNombreEtiqueta"
+    And I wait for 1 seconds
+    And I save tag
+    And I save device snapshot in file with path "Create Tags Nueva Version/Escenario_1/GuardarEtiqueta"
+    And I click tags
+    And I save device snapshot in file with path "Create Tags Nueva Version/Escenario_1/PaginaEtiquetasActualizada"
+    And I wait for 2 seconds
+    And I check tag v4 "$$name_1"
+    And I save device snapshot in file with path "Create Tags Nueva Version/Escenario_1/DetalleEtiqueta"

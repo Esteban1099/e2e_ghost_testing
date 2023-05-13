@@ -1,0 +1,68 @@
+Feature: Navegation
+
+@user1 @web
+Scenario: Crear sitio de navegación
+	Given I navigate to page "<URL2>"
+	And I wait for 5 seconds
+	When I enter email "<USERNAME1>"
+	And I save device snapshot in file with path "Navegacion Nueva Version/Escenario_1/IngresarCorreo"
+	And I wait for 5 seconds
+	And I enter password "<PASSWORD1>"
+	And I save device snapshot in file with path "Navegacion Nueva Version/Escenario_1/IngresarPassword"
+	And I wait for 5 seconds
+  	And I click next
+	And I save device snapshot in file with path "Navegacion Nueva Version/Escenario_1/IniciarSesion"
+	And I wait for 5 seconds
+	And I click Pages
+	And I save device snapshot in file with path "Navegacion Nueva Version/Escenario_1/Paginas"
+	And I wait for 5 seconds
+	And I click new page
+	And I save device snapshot in file with path "Navegacion Nueva Version/Escenario_1/NuevaPagina"
+	And I wait for 5 seconds
+	And I click on the redact message inputbox
+  	And I wait for 2 seconds
+	And I enter text "Pagina kraken"
+	And I save device snapshot in file with path "Navegacion Nueva Version/Escenario_1/NombrePagina"
+  	And I wait for 2 seconds
+	And I click on the redact post inputbox
+  	And I wait for 2 seconds
+	And I enter text "Descripcion Pagina"
+	And I save device snapshot in file with path "Navegacion Nueva Version/Escenario_1/DescripcionPagina"
+  	And I wait for 2 seconds
+	And I click on link publish
+	And I save device snapshot in file with path "Navegacion Nueva Version/Escenario_1/LinkParaPublicar"
+	And I wait for 2 seconds
+	And I publish
+	And I save device snapshot in file with path "Navegacion Nueva Version/Escenario_1/Publicar"
+	And I wait for 4 seconds
+	And I click on the post for back
+	And I save device snapshot in file with path "Navegacion Nueva Version/Escenario_1/RegresarAPaginas"
+	And I wait for 4 seconds
+	Then I click menu settings
+	And I save device snapshot in file with path "Navegacion Nueva Version/Escenario_1/Settings"
+	And I wait for 5 seconds
+	And I click navigation
+	And I save device snapshot in file with path "Navegacion Nueva Version/Escenario_1/Navegacion"
+	And I add label Version
+	And I wait for 2 seconds
+	And I enter text "LabelNew"
+	And I save device snapshot in file with path "Navegacion Nueva Version/Escenario_1/NombreLabel"
+  	And I wait for 2 seconds
+	And I add url Version
+	And I wait for 2 seconds
+	And I enter text "pagina-kraken"
+	And I save device snapshot in file with path "Navegacion Nueva Version/Escenario_1/UrlLabel"
+  	And I wait for 2 seconds
+	And I click save
+	And I save device snapshot in file with path "Navegacion Nueva Version/Escenario_1/GuardarLabel"
+	And I wait for 4 seconds
+	And I click ViewSite
+	And I save device snapshot in file with path "Navegacion Nueva Version/Escenario_1/ViewSite"
+	And I wait for 4 seconds
+	And I navigate to page "<URL2_2>"
+	And I wait for 4 seconds
+	And I click new site Version
+	And I save device snapshot in file with path "Navegacion Nueva Version/Escenario_1/NuevoSitioCreado"
+	And I wait for 4 seconds
+	And I navigate to page "<URL2>"
+	And I wait for 10 seconds	
