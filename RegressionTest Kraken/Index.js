@@ -43,7 +43,7 @@ async function executeTest(){
         fs.writeFileSync(`./results/report/${feature["feature"]}/compare-${b}`, data.getBuffer());
     }
 
-    fs.writeFileSync(`./results/report/${feature["feature"]}/report.html`, createReport(datetime, resultInfo));
+    fs.writeFileSync(`./results/report/${feature["feature"]}/report.html`, createReport(datetime, resultInfo, feature, filesBefore));
     fs.copyFileSync('./index.css', `./results/report/${feature["feature"]}/index.css`);
 
     console.log('------------------------------------------------------------------------------------')
@@ -52,7 +52,7 @@ async function executeTest(){
     });
   }
 
-  function browser(b, info){
+  function step(b, info, feature){
 	var aux = `<div class=" browser" id="test0">
 				<div class=" btitle">
 					<h2>Escenario: ${b}</h2>
@@ -61,24 +61,24 @@ async function executeTest(){
 				<div class="imgline">
 					<div class="imgcontainer">
 						<span class="imgname">Reference</span>
-						<img class="img2" src="../before/${b}.png" id="refImage" label="Reference">
+						<img class="img2" src="../${feature["before"]}/${b}.png" id="refImage" label="Reference">
 					</div>
 					<div class="imgcontainer">
 						<span class="imgname">Test</span>
-						<img class="img2" src="../after/${b}.png" id="testImage" label="Test">
+						<img class="img2" src="../${feature["after"]}/${b}.png" id="testImage" label="Test">
 					</div>
 				</div>
 				<div class="imgline">
 					<div class="imgcontainer">
 						<span class="imgname">Diff</span>
-						<img class="imgfull" src="./compare-${b}.png" id="diffImage" label="Diff">
+						<img class="imgfull" src="./${feature["feature"]}/compare-${b}.png" id="diffImage" label="Diff">
 					</div>
 				</div>
 			</div>`
 			return aux;
 	}
 
-function createReport(datetime, resInfo){
+function createReport(datetime, resInfo, feature, filesBefore){
     return `
     <html>
         <head>
@@ -91,7 +91,7 @@ function createReport(datetime, resInfo){
             </h1>
             <p>Executed: ${datetime}</p>
             <div id="visualizer">
-                ${config.browsers.map(b=>browser(b, resInfo[b+'.png']))}
+                ${filesBefore.map(b=>step(b, resInfo[b+'.png'], feature))}
             </div>
         </body>
     </html>`

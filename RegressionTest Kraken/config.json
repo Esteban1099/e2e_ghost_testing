@@ -1,6 +1,5 @@
 {
-    "url":"https://monitor177.github.io/color-palette/",
-    "browsers":["chromium", "webkit", "firefox"],
+    "url":"http://localhost:3002/ghost",
     "options":{
         "output": {
             "errorColor": {
