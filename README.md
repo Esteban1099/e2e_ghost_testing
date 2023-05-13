@@ -268,7 +268,7 @@
         * Navegar a módulo de páginas 
         * Verificar página en estado Publicado
 
-# Pasos para ejecución Cypress
+# Pasos para ejecución Cypress test E2E
 
 1. Instalación de Cypress versión 12.11.0
     1. Se contempla que se tenga instalado en la maquina local la versión 12.11.0 de Cypres, si no se cuenta con la versión instalada, siga los pasos de instalación en        el siguiente link: https://docs.cypress.io/guides/getting-started/installing-cypress
@@ -318,7 +318,31 @@
     7. Esto actualiza el módulo principal donde vemos el archivo 'ghost_v2.cy.js' que está en la carpeta 'cypress/e2e', damos click en el archivo
     8. Finalmente vemos como se ejecutan las pruebas y el informe resultado de estas una vez finalicen
 
+# Pasos para ejecución RessembleJS sobre Cypress test E2E
 
+1. Haber ejecutado las pruebas de Cypress E2E para las versiones de ghost 3.41.1 y 4.44.0 (Instrucciones anteriores)
+2. Una vez se ejecutadas la pruebas de Cypress E2E para las versiones de ghost 3.41.1 y 4.44.0, se deben copiar la siguientes carpetas ubicadas en las siguientes rutas:
+
+    a. e2e_ghost_testing\e2e cypress ghost test\cypress\screenshots\Create post and pusblish
+    b. e2e_ghost_testing\e2e cypress ghost test\cypress\screenshots\Edit a recent created post and let it as draft
+    c. e2e_ghost_testing\e2e cypress ghost test\cypress\screenshots\Create page and publish
+    d. e2e_ghost_testing\e2e cypress ghost test\cypress\screenshots\Register member
+    e. e2e_ghost_testing\e2e cypress ghost test\cypress\screenshots\create internal tag
+    
+    Hacia la siguiente ruta: e2e_ghost_testing\RegressionTest Cypress\results\Screenshots
+   
+ 3. Luego abrimos una terminal que se ubique en la carpeta e2e_ghost_testing\RegressionTest Cypress, y se ejecuta el comando 'npm install'
+ 4. Luego de terminar la ejecucion del comando anterior, ejecutamos 'node index.js'
+ 5. Al finalizar el comando en la carpeta e2e_ghost_testing\RegressionTest Cypress\results se mostraran los reportes de las pruebas de regresión visual, en las siguientes carpetas:
+ 
+     a. e2e_ghost_testing\RegressionTest Cypress\results\report_Create post and pusblish
+     b. e2e_ghost_testing\RegressionTest Cypress\results\report_Edit a recent created post and let it as draft
+     c. e2e_ghost_testing\RegressionTest Cypress\results\report_Create page and publish
+     d. e2e_ghost_testing\RegressionTest Cypress\results\report_Register member
+     e. e2e_ghost_testing\RegressionTest Cypress\results\report_create internal tag
+     
+  6. Dentro de cada una de estas carpetas esta el archivo 'report.html' con los resultados obtenidos de las pruebas de regresión visual
+    
 # Pasos para ejecución Kraken con Ghost V3.41.1
 1. Instalación de Kraken y dependencias
     1. Desde el directorio donde desea trabajar abra una terminal e ingrese el siguiente comando: `git clone https://github.com/Esteban1099/e2e_ghost_testing.git`
