@@ -319,11 +319,12 @@ export class PagePageV2 {
             var items = objectList.querySelectorAll('li.gh-posts-list-item')
             for (let index = 0; index < items.length; index++) {
                 var li = items[index];
-                var link = li.querySelectorAll('a')[2];
-                var span = link.querySelectorAll('span')[0];
+                var link = li.querySelectorAll('a')[1];
+                var div = link.querySelectorAll('div')[0];
+                var span = div.querySelectorAll('span')[0];
                 if (span.textContent.trim() == 'Published') {
                     if (contador == position) {
-                        var link = li.querySelectorAll('a')[1];
+                        var link = li.querySelectorAll('a')[0];
                         var header = link.querySelectorAll('h3')[0];
                         expect(header.textContent.trim()).to.eql(title)
                     }

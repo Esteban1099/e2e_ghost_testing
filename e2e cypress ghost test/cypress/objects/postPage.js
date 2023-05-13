@@ -19,9 +19,9 @@ export class PostPage {
                     var tag = $tags.get(index);
                     if (tag.textContent.trim() == tagName) {
                         cy.wrap(tag).click({ force: true });
-                        cy.wait(2000);   
-                        utility.takeScreenShot(screenFolder, screenName);    
-                        cy.wait(2000);                    
+                        cy.wait(2000);
+                        utility.takeScreenShot(screenFolder, screenName);
+                        cy.wait(2000);
                         utility.enterInputInForm('textarea.gh-editor-title', postName);
                         break;
                     }
@@ -47,9 +47,9 @@ export class PostPage {
                     var tag = $tags.get(index);
                     if (tag.textContent.trim() == tagName) {
                         cy.wrap(tag).click({ force: true });
-                        cy.wait(2000);   
-                        utility.takeScreenShot(screenFolder, screenName);    
-                        cy.wait(2000);  
+                        cy.wait(2000);
+                        utility.takeScreenShot(screenFolder, screenName);
+                        cy.wait(2000);
                         utility.enterInputInForm('textarea.gh-editor-title', postName);
                         utility.enterInputInForm('div.koenig-editor__editor', postText);
                         break;
@@ -183,18 +183,18 @@ export class PostPage {
                     if (tag.textContent.trim() == tagName) {
                         var span = tag.querySelectorAll('span')[0];
                         cy.wrap(span).click({ force: true });
-                        cy.wait(2000);   
-                        utility.takeScreenShot(screenFolder, screenName);    
+                        cy.wait(2000);
+                        utility.takeScreenShot(screenFolder, screenName);
                         cy.wait(2000);
                         utility.clickInOptionAction('button.settings-menu-header-action');
                     }
                 }
-    
+
             }
         });
     }
 
-    publishPost(){
+    publishPost() {
         utility.clickButtonSave('div.gh-publishmenu-trigger')
         cy.wait(1000);
         utility.clickButtonSave('button.gh-publishmenu-button')
@@ -208,63 +208,118 @@ export class PostPageV2 {
     }
 
     desingPost(type, postName, tagName, postText, screenFolder, screenName) {
+
         if (type == 'basic') {
+
             utility.enterInputInForm('textarea.gh-editor-title', postName);
+
         }
+
         else if (type == 'basic-tag') {
+
             utility.clickInOptionAction('button.post-settings');
+
             cy.wait(1000)
+
             utility.clickInOptionAction('span.ember-power-select-status-icon');
+
             cy.get('li.ember-power-select-option').then(($tags) => {
+
                 for (let index = 0; index < $tags.length; index++) {
+
                     var tag = $tags.get(index);
+
                     if (tag.textContent.trim() == tagName) {
+
                         cy.wrap(tag).click({ force: true });
-                        cy.wait(2000);   
-                        utility.takeScreenShot(screenFolder, screenName);    
-                        cy.wait(2000);                    
+
+                        cy.wait(2000);
+
+                        utility.takeScreenShot(screenFolder, screenName);
+
+                        cy.wait(2000);
+
                         utility.enterInputInForm('textarea.gh-editor-title', postName);
+
                         break;
+
                     }
+
                 }
+
             });
+
         }
+
         else if (type == 'basic-text-publish') {
+
             utility.enterInputInForm('textarea.gh-editor-title', postName);
+
             utility.enterInputInForm('div.koenig-editor__editor', postText);
+
             cy.wait(1000);
+
             utility.clickButtonSave('div.gh-publishmenu-trigger');
+
             cy.wait(1000);
+
             utility.clickButtonSave('button.gh-publishmenu-button');
+
+            cy.wait(1000);
+
+            utility.clickButtonSave('button.ember-view');
+
         } else if (type == 'basic-text') {
+
             utility.enterInputInForm('textarea.gh-editor-title', postName);
+
             utility.enterInputInForm('div.koenig-editor__editor', postText);
+
         } else if (type == 'basic-tag-edit') {
+
             utility.clickInOptionAction('button.post-settings');
+
             cy.wait(1000)
+
             utility.clickInOptionAction('span.ember-power-select-status-icon');
+
             cy.get('li.ember-power-select-option').then(($tags) => {
+
                 for (let index = 0; index < $tags.length; index++) {
+
                     var tag = $tags.get(index);
+
                     if (tag.textContent.trim() == tagName) {
+
                         cy.wrap(tag).click({ force: true });
-                        cy.wait(2000);   
-                        utility.takeScreenShot(screenFolder, screenName);    
-                        cy.wait(2000);  
+
+                        cy.wait(2000);
+
+                        utility.takeScreenShot(screenFolder, screenName);
+
+                        cy.wait(2000);
+
                         utility.enterInputInForm('textarea.gh-editor-title', postName);
+
                         utility.enterInputInForm('div.koenig-editor__editor', postText);
+
                         break;
+
                     }
+
                 }
+
             });
+
         }
+
     }
 
     checkPostTitle(position, title) {
         cy.get('ol.posts-list').then($ol => {
             var objectList = $ol.get(0);
             var li = objectList.querySelectorAll('li.gh-posts-list-item')[position]
-            var link = li.querySelectorAll('a')[1];
+            var link = li.querySelectorAll('a')[0];
             var header = link.querySelectorAll('h3')[0];
             expect(header.textContent.trim()).to.eql(title)
         });
@@ -274,8 +329,9 @@ export class PostPageV2 {
         cy.get('ol.posts-list').then($ol => {
             var objectList = $ol.get(0);
             var li = objectList.querySelectorAll('li.gh-posts-list-item')[position]
-            var link = li.querySelectorAll('a')[4];
-            var span = link.querySelectorAll('span')[0];
+            var link = li.querySelectorAll('a')[3];
+            var div = link.querySelectorAll('div')[0];
+            var span = div.querySelectorAll('span')[0];
             expect(span.textContent.trim()).to.eql('Draft')
         });
     }
@@ -299,11 +355,12 @@ export class PostPageV2 {
             var items = objectList.querySelectorAll('li.gh-posts-list-item')
             for (let index = 0; index < items.length; index++) {
                 var li = items[index];
-                var link = li.querySelectorAll('a')[4];
-                var span = link.querySelectorAll('span')[0];
+                var link = li.querySelectorAll('a')[3];
+                var div = link.querySelectorAll('div')[0];
+                var span = div.querySelectorAll('span')[0];
                 if (span.textContent.trim() == 'Published') {
                     if (contador == position) {
-                        var link = li.querySelectorAll('a')[1];
+                        var link = li.querySelectorAll('a')[0];
                         var header = link.querySelectorAll('h3')[0];
                         expect(header.textContent.trim()).to.eql(title)
                     }
@@ -384,18 +441,18 @@ export class PostPageV2 {
                     if (tag.textContent.trim() == tagName) {
                         var span = tag.querySelectorAll('span')[0];
                         cy.wrap(span).click({ force: true });
-                        cy.wait(2000);   
-                        utility.takeScreenShot(screenFolder, screenName);    
+                        cy.wait(2000);
+                        utility.takeScreenShot(screenFolder, screenName);
                         cy.wait(2000);
                         utility.clickInOptionAction('button.settings-menu-header-action');
                     }
                 }
-    
+
             }
         });
     }
 
-    publishPost(){
+    publishPost() {
         utility.clickButtonSave('div.gh-publishmenu-trigger')
         cy.wait(1000);
         utility.clickButtonSave('button.gh-publishmenu-button')
