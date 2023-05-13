@@ -1,3 +1,6 @@
+# VIDEO Entrega semana 6
+https://drive.google.com/file/d/1OPo_BAv538hau0FeICD8UUDcu_hpkK07/view?usp=sharing
+
 # Funcionalidades
 - Crear Publicación
 - Crear Miembros
