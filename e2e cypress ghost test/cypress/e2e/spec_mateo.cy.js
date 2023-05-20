@@ -32,6 +32,39 @@ describe('Data test in ghost', () => {
     loginPage.loginGhost();
     // And I wait 1 seconds
     cy.wait(1000);
+    // And I navigate to members
+    homePage.navigateModule('staff')
+    // And I wait 1 seconds
+    cy.wait(1000);
+    utility.clickButtonSave('button.gh-btn-green')
+    // And I fill the form input email
+    // memberPage.fillForm('input[id="member-name"]', name);
+    // // And I wait 1 seconds
+    // cy.wait(1000);
+    // // Then I save member
+    // memberPage.save();
+    // // And I wait 1 seconds
+    // cy.wait(1000);
+    // // And I navigate to members
+    // homePage.navigateModule('members')
+    // // And I wait 1 seconds
+    // cy.wait(1000);
+    // // And I verify member created in the list
+    // memberPage.findInList('section.content-list', 'p.gh-members-list-email', name);
+  });
+  
+  /*
+  it('Feature: Create member | Scenario: Activate option and register member without email', () => {
+    const name = cy.faker.name.firstName();
+
+    // Given I visit ghost
+    loginPage.visitGhost();
+    // And I wait 1 seconds
+    cy.wait(1000);
+    // And I login in ghost
+    loginPage.loginGhost();
+    // And I wait 1 seconds
+    cy.wait(1000);
     // And I navigate to labs
     homePage.navigateModule('settings/labs')
     // And I wait 1 seconds
@@ -72,7 +105,6 @@ describe('Data test in ghost', () => {
     memberPage.findInList('section.content-list', 'p.gh-members-list-email', name);
   });
 
-  /*
   it('Feature: Create member | Scenario: Activate option and register member with email repeat', () => {
     const name = cy.faker.name.firstName();
     const name2 = cy.faker.name.firstName();
