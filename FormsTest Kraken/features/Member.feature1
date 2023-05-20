@@ -1,0 +1,322 @@
+Feature: Member
+
+@user1 @web
+Scenario: Crear miembro
+	Given I navigate to page "<URL1>"
+	And I wait for 1 seconds
+	When I enter email "<USERNAME1>"
+	And I save device snapshot in file with path "Member/Escenario_1/IngresarCorreo"
+	And I wait for 1 seconds
+	And I enter password "<PASSWORD1>"
+	And I save device snapshot in file with path "Member/Escenario_1/IngresarPassword"
+	And I wait for 1 seconds
+  	And I click next
+	And I save device snapshot in file with path "Member/Escenario_1/IniciarSesion"
+	And I wait for 1 seconds
+	And I click Labs
+	And I save device snapshot in file with path "Member/Escenario_1/ClickLabs"
+	And I wait for 1 seconds
+	And I click on members option
+	And I save device snapshot in file with path "Member/Escenario_1/ParaHabilitar"
+	And I wait for 1 seconds
+	And I active members
+	And I save device snapshot in file with path "Member/Escenario_1/ActivarMiembros"
+	And I wait for 2 seconds
+	And I click save habilitar
+	And I save device snapshot in file with path "Member/Escenario_1/GuardarHabilitar"
+	And I wait for 2 seconds
+	And I click members
+	And I save device snapshot in file with path "Member/Escenario_1/OpcionMiembros"
+	And I wait for 1 seconds
+	And I click new
+	And I save device snapshot in file with path "Member/Escenario_1/NuevoMiembro"
+	And I wait for 1 seconds
+	Then I click on the redact name member inputbox "$name_1"
+	And I save device snapshot in file with path "Member/Escenario_1/NombreMiembro"
+  	And I wait for 2 seconds
+	And I click on the redact email inputbox "$email_1"
+	And I save device snapshot in file with path "Member/Escenario_1/EmailMiembro"
+  	And I wait for 2 seconds
+	And I click save
+	And I save device snapshot in file with path "Member/Escenario_1/GuardarMiembro"
+	And I wait for 1 seconds
+	And I click members
+	And I wait for 1 seconds
+
+@user2 @web
+Scenario: Crear miembro con datos incorrectos
+	Given I navigate to page "<URL1>"
+	And I wait for 1 seconds
+	When I enter email "<USERNAME1>"
+	And I save device snapshot in file with path "Member/Escenario_2/IngresarCorreo"
+	And I wait for 1 seconds
+	And I enter password "<PASSWORD1>"
+	And I save device snapshot in file with path "Member/Escenario_2/IngresarPassword"
+	And I wait for 1 seconds
+  	And I click next
+	And I save device snapshot in file with path "Member/Escenario_2/IniciarSesion"
+	And I wait for 1 seconds
+	And I click Labs
+	And I save device snapshot in file with path "Member/Escenario_2/ClickLabs"
+	And I wait for 1 seconds
+	And I click on members option
+	And I save device snapshot in file with path "Member/Escenario_2/ParaHabilitar"
+	And I wait for 1 seconds
+	And I active members
+	And I save device snapshot in file with path "Member/Escenario_2/ActivarMiembros"
+	And I wait for 2 seconds
+	And I click save habilitar
+	And I save device snapshot in file with path "Member/Escenario_2/GuardarHabilitar"
+	And I wait for 2 seconds
+	And I click members
+	And I save device snapshot in file with path "Member/Escenario_2/OpcionMiembros"
+	And I wait for 1 seconds
+	And I click new
+	And I save device snapshot in file with path "Member/Escenario_2/NuevoMiembro"
+	And I wait for 1 seconds
+	Then I click on the redact name member inputbox "$name_2"
+	And I save device snapshot in file with path "Member/Escenario_2/NombreMiembro"
+  	And I wait for 1 seconds
+	And I click on the redact email inputbox "$name_3"
+	And I save device snapshot in file with path "Member/Escenario_2/CorreoIncorrecto"
+  	And I wait for 2 seconds
+	And I click save
+	And I save device snapshot in file with path "Member/Escenario_2/GuardarMiembro"
+	And I wait for 1 seconds
+	And I click on the redact email inputbox " "
+  	And I wait for 2 seconds
+	Then I delete text
+	And I click on the redact email inputbox "$email_2"
+	And I save device snapshot in file with path "Member/Escenario_2/CorreoCorregido"
+  	And I wait for 2 seconds
+	And I click save
+	And I save device snapshot in file with path "Member/Escenario_2/GuardarMiembroCorrectamente"
+	And I wait for 1 seconds
+	And I click members
+	And I wait for 1 seconds
+
+@user3 @web
+Scenario: Crear miembro con datos incorrectos
+	Given I navigate to page "<URL1>"
+	And I wait for 1 seconds
+	When I enter email "<USERNAME1>"
+	And I save device snapshot in file with path "Member/Escenario_3/IngresarCorreo"
+	And I wait for 1 seconds
+	And I enter password "<PASSWORD1>"
+	And I save device snapshot in file with path "Member/Escenario_3/IngresarPassword"
+	And I wait for 1 seconds
+  	And I click next
+	And I save device snapshot in file with path "Member/Escenario_3/IniciarSesion"
+	And I wait for 1 seconds
+	And I click Labs
+	And I save device snapshot in file with path "Member/Escenario_3/ClickLabs"
+	And I wait for 1 seconds
+	And I click on members option
+	And I save device snapshot in file with path "Member/Escenario_3/ParaHabilitar"
+	And I wait for 1 seconds
+	And I active members
+	And I save device snapshot in file with path "Member/Escenario_3/ActivarMiembros"
+	And I wait for 1 seconds
+	And I click save habilitar
+	And I save device snapshot in file with path "Member/Escenario_3/GuardarHabilitar"
+	And I wait for 1 seconds
+	And I click members
+	And I save device snapshot in file with path "Member/Escenario_3/OpcionMiembros"
+	And I wait for 1 seconds
+	And I click new
+	And I save device snapshot in file with path "Member/Escenario_3/NuevoMiembro"
+	And I wait for 1 seconds
+	Then I click on the redact name member inputbox "$name_4"
+	And I save device snapshot in file with path "Member/Escenario_3/NombreMiembro"
+  	And I wait for 1 seconds
+	And I click on the redact email inputbox "$email_3"
+	And I save device snapshot in file with path "Member/Escenario_3/CorreoIncorrecto"
+  	And I wait for 1 seconds
+	And I click save
+	And I save device snapshot in file with path "Member/Escenario_3/GuardarMiembro"
+	And I wait for 1 seconds
+        And I click members
+        And I save device snapshot in file with path "Member/Escenario_3/OpcionMiembros2"
+	And I wait for 1 seconds
+        And I click new
+	And I save device snapshot in file with path "Member/Escenario_3/NuevoMiembro2"
+	And I wait for 1 seconds
+	And I click on the redact name member inputbox "$name_5"
+        And I save device snapshot in file with path "Member/Escenario_3/NombreMiembro2"
+  	And I wait for 1 seconds
+        And I click on the redact email inputbox "$$email_3"
+	And I save device snapshot in file with path "Member/Escenario_3/CorreoRepetido"
+  	And I wait for 1 seconds
+        And I click save
+	And I save device snapshot in file with path "Member/Escenario_2/GuardarMiembroFallo"
+	And I wait for 1 seconds
+
+@user4 @web
+Scenario: Crear miembro con datos incorrectos
+	Given I navigate to page "<URL1>"
+	And I wait for 1 seconds
+	When I enter email "<USERNAME1>"
+	And I save device snapshot in file with path "Member/Escenario_4/IngresarCorreo"
+	And I wait for 1 seconds
+	And I enter password "<PASSWORD1>"
+	And I save device snapshot in file with path "Member/Escenario_4/IngresarPassword"
+	And I wait for 1 seconds
+  	And I click next
+	And I save device snapshot in file with path "Member/Escenario_4/IniciarSesion"
+	And I wait for 1 seconds
+	And I click Labs
+	And I save device snapshot in file with path "Member/Escenario_4/ClickLabs"
+	And I wait for 1 seconds
+	And I click on members option
+	And I save device snapshot in file with path "Member/Escenario_4/ParaHabilitar"
+	And I wait for 1 seconds
+	And I active members
+	And I save device snapshot in file with path "Member/Escenario_4/ActivarMiembros"
+	And I wait for 1 seconds
+	And I click save habilitar
+	And I save device snapshot in file with path "Member/Escenario_4/GuardarHabilitar"
+	And I wait for 1 seconds
+	And I click members
+	And I save device snapshot in file with path "Member/Escenario_4/OpcionMiembros"
+	And I wait for 1 seconds
+	And I click new
+	And I save device snapshot in file with path "Member/Escenario_4/NuevoMiembro"
+	And I wait for 1 seconds
+	Then I click on the redact name member inputbox "$name_6"
+	And I save device snapshot in file with path "Member/Escenario_4/NombreMiembro"
+  	And I wait for 1 seconds
+	And I click on the redact email inputbox " "
+	And I save device snapshot in file with path "Member/Escenario_4/CorreoVacio"
+  	And I wait for 1 seconds
+	And I click save
+	And I save device snapshot in file with path "Member/Escenario_4/GuardarMiembroFallo"
+	And I wait for 10 seconds
+
+@user5 @web
+Scenario: Crear miembro con datos incorrectos
+	Given I navigate to page "<URL1>"
+	And I wait for 5 seconds
+	When I enter email "<USERNAME1>"
+	And I save device snapshot in file with path "Member/Escenario_5/IngresarCorreo"
+	And I wait for 5 seconds
+	And I enter password "<PASSWORD1>"
+	And I save device snapshot in file with path "Member/Escenario_5/IngresarPassword"
+	And I wait for 5 seconds
+  	And I click next
+	And I save device snapshot in file with path "Member/Escenario_5/IniciarSesion"
+	And I wait for 1 seconds
+	And I click Labs
+	And I save device snapshot in file with path "Member/Escenario_5/ClickLabs"
+	And I wait for 1 seconds
+	And I click on members option
+	And I save device snapshot in file with path "Member/Escenario_5/ParaHabilitar"
+	And I wait for 1 seconds
+	And I active members
+	And I save device snapshot in file with path "Member/Escenario_5/ActivarMiembros"
+	And I wait for 1 seconds
+	And I click save habilitar
+	And I save device snapshot in file with path "Member/Escenario_5/GuardarHabilitar"
+	And I wait for 1 seconds
+	And I click members
+	And I save device snapshot in file with path "Member/Escenario_5/OpcionMiembros"
+	And I wait for 1 seconds
+	And I click new
+	And I save device snapshot in file with path "Member/Escenario_5/NuevoMiembro"
+	And I wait for 10 seconds
+	Then I click on the redact name member inputbox "$name_7"
+	And I save device snapshot in file with path "Member/Escenario_5/NombreMiembro"
+  	And I wait for 1 seconds
+	And I click Pages
+  	And I save device snapshot in file with path "Member/Escenario_5/Paginas"
+  	And I wait for 1 seconds
+        And I leave
+	And I save device snapshot in file with path "Member/Escenario_5/Abandonar"
+	And I wait for 1 seconds
+	And I click members
+	And I save device snapshot in file with path "Member/Escenario_5/OpcionMiembros"
+	And I wait for 1 seconds
+	And I click new
+	And I save device snapshot in file with path "Member/Escenario_5/NoPermiteCrear"
+	And I wait for 10 seconds
+
+@user6 @web
+Scenario: Crear miembro con datos incorrectos
+	Given I navigate to page "<URL1>"
+	And I wait for 1 seconds
+	When I enter email "<USERNAME1>"
+	And I save device snapshot in file with path "Member/Escenario_6/IngresarCorreo"
+	And I wait for 1 seconds
+	And I enter password "<PASSWORD1>"
+	And I save device snapshot in file with path "Member/Escenario_6/IngresarPassword"
+	And I wait for 1 seconds
+  	And I click next
+	And I save device snapshot in file with path "Member/Escenario_6/IniciarSesion"
+	And I wait for 1 seconds
+	And I click Labs
+	And I save device snapshot in file with path "Member/Escenario_6/ClickLabs"
+	And I wait for 1 seconds
+	And I click on members option
+	And I save device snapshot in file with path "Member/Escenario_6/ParaHabilitar"
+	And I wait for 1 seconds
+	And I active members
+	And I save device snapshot in file with path "Member/Escenario_6/ActivarMiembros"
+	And I wait for 1 seconds
+	And I click save habilitar
+	And I save device snapshot in file with path "Member/Escenario_6/GuardarHabilitar"
+	And I wait for 1 seconds
+	And I click members
+	And I save device snapshot in file with path "Member/Escenario_6/OpcionMiembros"
+	And I wait for 1 seconds
+	And I click new
+	And I save device snapshot in file with path "Member/Escenario_6/NuevoMiembro"
+	And I wait for 1 seconds
+	Then I click on the redact name member inputbox "<CARACTERMAL>"
+	And I save device snapshot in file with path "Member/Escenario_6/CaracterLargo"
+  	And I wait for 1 seconds
+	And I click on the redact email inputbox "$email_4"
+	And I save device snapshot in file with path "Member/Escenario_6/Correo"
+  	And I wait for 1 seconds
+	And I click save
+	And I save device snapshot in file with path "Member/Escenario_6/GuardarMiembroFallo"
+	And I wait for 10 seconds
+
+@user7 @web
+Scenario: Crear miembro con datos incorrectos
+	Given I navigate to page "<URL1>"
+	And I wait for 1 seconds
+	When I enter email "<USERNAME1>"
+	And I save device snapshot in file with path "Member/Escenario_7/IngresarCorreo"
+	And I wait for 1 seconds
+	And I enter password "<PASSWORD1>"
+	And I save device snapshot in file with path "Member/Escenario_7/IngresarPassword"
+	And I wait for 1 seconds
+  	And I click next
+	And I save device snapshot in file with path "Member/Escenario_7/IniciarSesion"
+	And I wait for 1 seconds
+	And I click Labs
+	And I save device snapshot in file with path "Member/Escenario_7/ClickLabs"
+	And I wait for 1 seconds
+	And I click on members option
+	And I save device snapshot in file with path "Member/Escenario_7/ParaHabilitar"
+	And I wait for 1 seconds
+	And I active members
+	And I save device snapshot in file with path "Member/Escenario_7/ActivarMiembros"
+	And I wait for 1 seconds
+	And I click save habilitar
+	And I save device snapshot in file with path "Member/Escenario_7/GuardarHabilitar"
+	And I wait for 1 seconds
+	And I click members
+	And I save device snapshot in file with path "Member/Escenario_7/OpcionMiembros"
+	And I wait for 1 seconds
+	And I click new
+	And I save device snapshot in file with path "Member/Escenario_7/NuevoMiembro"
+	And I wait for 1 seconds
+	Then I click on the redact name member inputbox "<CARACTERBIEN>"
+	And I save device snapshot in file with path "Member/Escenario_7/CaracterLargo"
+  	And I wait for 1 seconds
+	And I click on the redact email inputbox "$email_5"
+	And I save device snapshot in file with path "Member/Escenario_7/Correo"
+  	And I wait for 1 seconds
+	And I click save
+	And I save device snapshot in file with path "Member/Escenario_7/GuardarMiembro"
+	And I wait for 10 seconds

@@ -1,0 +1,305 @@
+Feature: Crear Tag
+
+@user1 @web
+Scenario: Escenario 1 Crear Tag Publico 
+  Given I navigate to page "<URL1>"
+  	And I wait for 1 seconds
+    And I enter email "<USERNAME1>"
+    And I save device snapshot in file with path "Formularios/Escenario_1/IngresarCorreo"
+    And I wait for 1 seconds
+    And I enter password "<PASSWORD1>"
+    And I save device snapshot in file with path "Formularios/Escenario_1/IngresarContrasenia"
+    And I wait for 2 seconds
+    And I click login
+    And I save device snapshot in file with path "Formularios/Escenario_1/ClickLogin"
+  When I click tags
+    And I wait for 2 seconds
+    And I save device snapshot in file with path "Formularios/Escenario_1/PaginaEtiquetas"
+    And I click new
+    And I save device snapshot in file with path "Formularios/Escenario_1/NuevaEtiqueta"
+  Then I enter tag name " "
+    And I save device snapshot in file with path "Formularios/Escenario_1/IngresarNombreEtiqueta"
+    And I wait for 1 seconds
+    And I save tag
+    And I save device snapshot in file with path "Formularios/Escenario_1/GuardarEtiqueta"
+
+@user2 @web
+Scenario: Escenario 1 Crear Tag Publico 
+  Given I navigate to page "<URL1>"
+  	And I wait for 1 seconds
+    And I enter email "<USERNAME1>"
+    And I save device snapshot in file with path "Formularios/Escenario_2/IngresarCorreo"
+    And I wait for 1 seconds
+    And I enter password "<PASSWORD1>"
+    And I save device snapshot in file with path "Formularios/Escenario_2/IngresarContrasenia"
+    And I wait for 2 seconds
+    And I click login
+    And I save device snapshot in file with path "Formularios/Escenario_2/ClickLogin"
+  When I click tags
+    And I wait for 2 seconds
+    And I save device snapshot in file with path "Formularios/Escenario_2/PaginaEtiquetas"
+    And I click new
+    And I save device snapshot in file with path "Formularios/Escenario_2/NuevaEtiqueta"
+  Then I enter tag name "$number_1"
+    And I save device snapshot in file with path "Formularios/Escenario_2/IngresarNombreEtiqueta"
+    And I wait for 1 seconds
+    And I save tag
+    And I save device snapshot in file with path "Formularios/Escenario_2/GuardarEtiqueta"
+    And I wait for 1 seconds
+    And I click tags
+    And I wait for 1 seconds
+    And I check tag "$$number_1"
+    And I save device snapshot in file with path "Formularios/Escenario_2/DetalleEtiqueta"
+
+@user3 @web
+Scenario: Escenario 1 Crear Tag Publico 
+  Given I navigate to page "<URL1>"
+  	And I wait for 1 seconds
+    And I enter email "<USERNAME1>"
+    And I save device snapshot in file with path "Formularios/Escenario_3/IngresarCorreo"
+    And I wait for 1 seconds
+    And I enter password "<PASSWORD1>"
+    And I save device snapshot in file with path "Formularios/Escenario_3/IngresarContrasenia"
+    And I wait for 2 seconds
+    And I click login
+    And I save device snapshot in file with path "Formularios/Escenario_3/ClickLogin"
+  When I click tags
+    And I wait for 2 seconds
+    And I save device snapshot in file with path "Formularios/Escenario_3/PaginaEtiquetas"
+    And I click new
+    And I save device snapshot in file with path "Formularios/Escenario_3/NuevaEtiqueta"
+  Then I enter tag name "$string_1"
+    And I save device snapshot in file with path "Formularios/Escenario_3/IngresarNombreEtiqueta"
+    And I wait for 3 seconds
+    And I save tag
+    And I save device snapshot in file with path "Formularios/Escenario_3/GuardarEtiqueta"
+    And I wait for 2 seconds
+    And I click tags
+    And I wait for 1 seconds
+
+@user4 @web
+Scenario: Escenario 1 Crear Tag Publico 
+  Given I navigate to page "<URL1>"
+  	And I wait for 1 seconds
+    And I enter email "<USERNAME1>"
+    And I save device snapshot in file with path "Formularios/Escenario_4/IngresarCorreo"
+    And I wait for 1 seconds
+    And I enter password "<PASSWORD1>"
+    And I save device snapshot in file with path "Formularios/Escenario_4/IngresarContrasenia"
+    And I wait for 2 seconds
+    And I click login
+    And I save device snapshot in file with path "Formularios/Escenario_4/ClickLogin"
+  When I click tags
+    And I wait for 2 seconds
+    And I save device snapshot in file with path "Formularios/Escenario_4/PaginaEtiquetas"
+    And I click new
+    And I save device snapshot in file with path "Formularios/Escenario_4/NuevaEtiqueta"
+  Then I enter tag name " "
+    And I save device snapshot in file with path "Formularios/Escenario_4/IngresarVacio"
+    And I wait for 1 seconds
+    And I save tag
+    And I save device snapshot in file with path "Formularios/Escenario_4/GuardarEtiqueta"
+    And I wait for 1 seconds
+    And I click on the redact name inputbox "$name_1"
+    And I save device snapshot in file with path "Formularios/Escenario_4/NombreEtiqueta"
+    And I wait for 1 seconds
+    And I save tag
+    And I save device snapshot in file with path "Formularios/Escenario_4/IntentarGuardarEtiqueta"
+    And I wait for 1 seconds
+
+@user5 @web
+Scenario: Crear sitio de navegación secundaria
+	Given I navigate to page "<URL1>"
+	And I wait for 1 seconds
+	When I enter email "<USERNAME1>"
+	And I save device snapshot in file with path "Formularios/Escenario_5/IngresarCorreo"
+	And I wait for 1 seconds
+	And I enter password "<PASSWORD1>"
+	And I save device snapshot in file with path "Formularios/Escenario_5/IngresarPassword"
+	And I wait for 1 seconds
+  	And I click next
+	And I save device snapshot in file with path "Formularios/Escenario_5/IniciarSesion"
+	And I wait for 1 seconds
+	And I click Pages
+	And I save device snapshot in file with path "Formularios/Escenario_5/Paginas"
+	And I wait for 1 seconds
+	And I click new
+	And I save device snapshot in file with path "Formularios/Escenario_5/NuevaPagina"
+	And I wait for 1 seconds
+	And I click on the redact message inputbox "$name_4"
+	And I save device snapshot in file with path "Formularios/Escenario_5/NombrePagina"
+  	And I wait for 1 seconds
+	And I click on the redact post inputbox "$name_5"
+	And I save device snapshot in file with path "Formularios/Escenario_5/DescripcionPagina"
+  	And I wait for 1 seconds
+	And I click on link publish
+	And I save device snapshot in file with path "Formularios/Escenario_5/LinkParaPublicar"
+	And I wait for 1 seconds
+	And I click save
+	And I save device snapshot in file with path "Formularios/Escenario_5/Publicar"
+	And I wait for 1 seconds
+	And I click on the post for back
+	And I save device snapshot in file with path "Formularios/Escenario_5/RegresarAPaginas"
+	And I wait for 1 seconds
+	And I click Design
+	And I save device snapshot in file with path "Formularios/Escenario_5/Diseño"
+	And I wait for 1 seconds
+	And I add label
+	And I wait for 1 seconds
+	And I enter text "$name_6"
+	And I save device snapshot in file with path "Formularios/Escenario_5/NombreLabel"
+  	And I wait for 1 seconds
+	And I add url
+	And I wait for 1 seconds
+	And I enter text "$$name_4"
+	And I save device snapshot in file with path "Formularios/Escenario_5/URLLabel"
+  	And I wait for 3 seconds
+	And I click save
+	And I save device snapshot in file with path "Formularios/Escenario_5/GuardarLabel"
+	And I wait for 1 seconds
+        And I click Pages
+	And I save device snapshot in file with path "Formularios/Escenario_5/Paginas2"
+	And I wait for 1 seconds
+        And I go to last created page
+    	And I save device snapshot in file with path "Formularios/Escenario_5/DetallePagina"
+	And I wait for 1 seconds
+    	And I click on settings
+    	And I save device snapshot in file with path "Formularios/Escenario_5/ConfiguracionPagina"
+    	And I click on delete
+    	And I save device snapshot in file with path "Formularios/Escenario_5/EliminarPagina"
+    	And I confirm delete
+    	And I save device snapshot in file with path "Formularios/Escenario_5/ConfirmaBorrado"
+	And I click ViewSite
+	And I save device snapshot in file with path "Formularios/Escenario_5/ViewSite"
+	And I wait for 1 seconds
+	And I navigate to page "<URL1_1>"
+	And I wait for 1 seconds
+	Then I click new site
+	And I save device snapshot in file with path "Formularios/Escenario_5/NuevoSitioCreadoError"
+	And I wait for 1 seconds
+	And I navigate to page "<URL1>"
+	And I wait for 1 seconds
+
+@user6 @web
+Scenario: Crear sitio de navegación secundaria
+	Given I navigate to page "<URL1>"
+	And I wait for 5 seconds
+	When I enter email "<USERNAME1>"
+	And I save device snapshot in file with path "Formularios/Escenario_6/IngresarCorreo"
+	And I wait for 5 seconds
+	And I enter password "<PASSWORD1>"
+	And I save device snapshot in file with path "Formularios/Escenario_6/IngresarPassword"
+	And I wait for 5 seconds
+  	And I click next
+	And I save device snapshot in file with path "Formularios/Escenario_6/IniciarSesion"
+	And I wait for 5 seconds
+	And I click Pages
+	And I save device snapshot in file with path "Formularios/Escenario_6/Paginas"
+	And I wait for 1 seconds
+	And I click new
+	And I save device snapshot in file with path "Formularios/Escenario_6/NuevaPagina"
+	And I wait for 20 seconds
+	And I click on the redact message inputbox "$name_7"
+	And I save device snapshot in file with path "Formularios/Escenario_6/NombrePagina"
+  	And I wait for 1 seconds
+	And I click on the redact post inputbox "$name_8"
+	And I save device snapshot in file with path "Formularios/Escenario_6/DescripcionPagina"
+  	And I wait for 1 seconds
+	And I click on link publish
+	And I save device snapshot in file with path "Formularios/Escenario_6/LinkParaPublicar"
+	And I wait for 1 seconds
+	And I click save
+	And I save device snapshot in file with path "Formularios/Escenario_6/Publicar"
+	And I wait for 1 seconds
+	And I click on the post for back
+	And I save device snapshot in file with path "Formularios/Escenario_6/RegresarAPaginas"
+	And I wait for 1 seconds
+	And I click Design
+	And I save device snapshot in file with path "Formularios/Escenario_6/Diseño"
+	And I wait for 1 seconds
+	And I add secondary label
+	And I wait for 1 seconds
+	And I enter text "$name_9"
+	And I save device snapshot in file with path "Formularios/Escenario_6/NombreLabelSecundario"
+  	And I wait for 1 seconds
+	And I add secondary url
+	And I wait for 1 seconds
+	And I enter text "$$name_7"
+	And I save device snapshot in file with path "Formularios/Escenario_6/URLLabelSecundario"
+  	And I wait for 1 seconds
+	And I click save
+	And I save device snapshot in file with path "Formularios/Escenario_6/GuardarLabelSecundario"
+	And I wait for 1 seconds
+        And I click Pages
+	And I save device snapshot in file with path "Formularios/Escenario_6/Paginas2"
+	And I wait for 1 seconds
+        And I go to last created page
+    	And I save device snapshot in file with path "Formularios/Escenario_6/DetallePagina"
+	And I wait for 1 seconds
+    	And I click on settings
+    	And I save device snapshot in file with path "Formularios/Escenario_6/ConfiguracionPagina"
+    	And I click on delete
+    	And I save device snapshot in file with path "Formularios/Escenario_6/EliminarPagina"
+    	And I confirm delete
+    	And I save device snapshot in file with path "Formularios/Escenario_6/ConfirmaBorrado"
+	And I wait for 1 seconds
+	And I click ViewSite
+	And I save device snapshot in file with path "Formularios/Escenario_6/ViewSiteSecundario"
+	And I wait for 1 seconds
+	And I navigate to page "<URL1_1>"
+	And I wait for 1 seconds
+	And I click new secondary site
+	And I save device snapshot in file with path "Formularios/Escenario_6/NuevoSitioSecundarioCreado"
+	And I wait for 1 seconds
+	And I navigate to page "<URL1>"
+	And I wait for 1 seconds
+
+@user7 @web
+Scenario: Escenario 1 Crear Tag Publico 
+  Given I navigate to page "<URL1>"
+  	And I wait for 1 seconds
+    And I enter email "<USERNAME1>"
+    And I save device snapshot in file with path "Formularios/Escenario_7/IngresarCorreo"
+    And I wait for 1 seconds
+    And I enter password "<PASSWORD1>"
+    And I save device snapshot in file with path "Formularios/Escenario_7/IngresarContrasenia"
+    And I wait for 2 seconds
+    And I click login
+    And I save device snapshot in file with path "Formularios/Escenario_7/ClickLogin"
+  When I click tags
+    And I wait for 2 seconds
+    And I save device snapshot in file with path "Formularios/Escenario_7/PaginaEtiquetas"
+    And I click new
+    And I save device snapshot in file with path "Formularios/Escenario_7/NuevaEtiqueta"
+  Then I enter tag name "<CARACTERMAL>"
+    And I save device snapshot in file with path "Formularios/Escenario_7/IngresarNombreEtiqueta"
+    And I wait for 1 seconds
+    And I save tag
+    And I save device snapshot in file with path "Formularios/Escenario_7/GuardarEtiquetaError"
+    And I wait for 10 seconds
+
+@user8 @web
+Scenario: Escenario 1 Crear Tag Publico 
+  Given I navigate to page "<URL1>"
+  	And I wait for 1 seconds
+    And I enter email "<USERNAME1>"
+    And I save device snapshot in file with path "Formularios/Escenario_8/IngresarCorreo"
+    And I wait for 1 seconds
+    And I enter password "<PASSWORD1>"
+    And I save device snapshot in file with path "Formularios/Escenario_8/IngresarContrasenia"
+    And I wait for 2 seconds
+    And I click login
+    And I save device snapshot in file with path "Formularios/Escenario_8/ClickLogin"
+  When I click tags
+    And I wait for 2 seconds
+    And I save device snapshot in file with path "Formularios/Escenario_8/PaginaEtiquetas"
+    And I click new
+    And I save device snapshot in file with path "Formularios/Escenario_8/NuevaEtiqueta"
+  Then I enter tag name "<CARACTERBIEN>"
+    And I save device snapshot in file with path "Formularios/Escenario_8/IngresarNombreEtiqueta"
+    And I wait for 1 seconds
+    And I save tag
+    And I save device snapshot in file with path "Formularios/Escenario_8/GuardarEtiqueta"
+    And I wait for 10 seconds
+
+
