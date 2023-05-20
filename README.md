@@ -274,7 +274,7 @@ https://drive.google.com/file/d/1OPo_BAv538hau0FeICD8UUDcu_hpkK07/view?usp=shari
 # Pasos para ejecución Cypress test E2E
 
 1. Instalación de Cypress versión 12.11.0
-    1. Se contempla que se tenga instalado en la maquina local la versión 12.11.0 de Cypres, si no se cuenta con la versión instalada, siga los pasos de instalación en        el siguiente link: https://docs.cypress.io/guides/getting-started/installing-cypress
+    1. Se contempla que se tenga instalado en la maquina local la versión 12.11.0 de Cypres, si no se cuenta con la versión instalada, siga los pasos de instalación en el siguiente link: https://docs.cypress.io/guides/getting-started/installing-cypress
     
 2. Instalación de ghost 3.41.1 y configuración del usuario y contraseña
     1. Precondición: Se debe tener instalado `Node v12.22.1`
@@ -402,3 +402,7 @@ https://drive.google.com/file/d/1OPo_BAv538hau0FeICD8UUDcu_hpkK07/view?usp=shari
     5. Al ejecutar el comando anterior se abrirán tantas ventanas del navegador como escenarios tenga el feature
     6. Al finalizar la prueba, en la carpeta `Snapshots`, encontrará más directorios para cada funcionalidad/feature (agregando al nombre `Nueva versión`), y dentro de estas otros directorios con el número del escenario que ejecutó; al entrar a cada escenario encontrará las evidencias de cada paso ejecutado.
     7. Repita desde el paso 3 al 6 por cada feature que desea ejecutar.
+    
+# Instrucciones de ejecución escenarios semana 7
+# Cypress
+# Kraken
