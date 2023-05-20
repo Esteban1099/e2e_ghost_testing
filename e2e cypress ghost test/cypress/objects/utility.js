@@ -23,6 +23,12 @@ export class Utility {
         });
     }
 
+    clearInput(selector){
+        cy.get(selector).then(($inputs) => {
+            cy.wrap($inputs.get(0)).clear({ force: true });
+        });
+    }
+
 
     outfocus() {
         cy.get('body.ember-application').then($links => {
