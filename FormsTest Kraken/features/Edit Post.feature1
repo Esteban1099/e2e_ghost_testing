@@ -1,0 +1,186 @@
+@user1 @web
+Scenario: Crear y editar publicación
+	Given I navigate to page "<URL1>"
+	And I wait for 5 seconds
+	When I enter email "<USERNAME1>"
+	And I save device snapshot in file with path "Edit Post/Escenario_1/IngresarCorreo"
+	And I wait for 5 seconds
+	And I enter password "<PASSWORD1>"
+	And I save device snapshot in file with path "Edit Post/Escenario_1/IngresarPassword"
+	And I wait for 5 seconds
+  	And I click next
+	And I save device snapshot in file with path "Edit Post/Escenario_1/IniciarSesion"
+	And I wait for 5 seconds
+	And I click post
+	And I save device snapshot in file with path "Edit Post/Escenario_1/Publicaciones"
+	And I wait for 5 seconds
+	And I click new
+	And I save device snapshot in file with path "Edit Post/Escenario_1/NuevaPublicacion"
+	And I wait for 5 seconds
+	And I click on the redact message inputbox "$name_1"
+	And I save device snapshot in file with path "Edit Post/Escenario_1/NombrePublicacion"
+  	And I wait for 4 seconds
+	And I click on the redact post inputbox "$name_2"
+	And I save device snapshot in file with path "Edit Post/Escenario_1/DescripcionPublicacion"
+  	And I wait for 4 seconds
+	And I click on the post for back
+	And I save device snapshot in file with path "Edit Post/Escenario_1/VolverAPublicaciones"
+	And I wait for 4 seconds
+	Then I click on the last post
+	And I save device snapshot in file with path "Edit Post/Escenario_1/SeleccionarBorrador"
+	And I wait for 4 seconds
+	And I click on link publish
+	And I save device snapshot in file with path "Edit Post/Escenario_1/LinkPublicacion"
+	And I wait for 2 seconds
+	And I click save
+	And I save device snapshot in file with path "Edit Post/Escenario_1/Publicar"
+	And I wait for 4 seconds
+	And I click on the post for back
+	And I wait for 10 seconds
+	And I wait for 10 seconds
+
+@user2 @web 
+Scenario: Crear y editar borrador de publicación
+	Given I navigate to page "<URL1>"
+	And I wait for 5 seconds
+	When I enter email "<USERNAME1>"
+	And I save device snapshot in file with path "Edit Post/Escenario_2/IngresarCorreo"
+	And I wait for 5 seconds
+	And I enter password "<PASSWORD1>"
+	And I save device snapshot in file with path "Edit Post/Escenario_2/IngresarPassword"
+	And I wait for 5 seconds
+  	And I click next
+	And I save device snapshot in file with path "Edit Post/Escenario_2/IniciarSesion"
+	And I wait for 5 seconds
+	And I click post
+	And I save device snapshot in file with path "Edit Post/Escenario_2/Publicaciones"
+	And I wait for 5 seconds
+	And I click new
+	And I save device snapshot in file with path "Edit Post/Escenario_2/NuevaPublicacion"
+	And I wait for 15 seconds
+	And I click on the redact message inputbox "$name_3"
+	And I save device snapshot in file with path "Edit Post/Escenario_2/NombrePublicacion"
+  	And I wait for 1 seconds
+	And I click on the redact post inputbox "$name_4"
+	And I save device snapshot in file with path "Edit Post/Escenario_2/DescripcionPublicacion"
+  	And I wait for 5 seconds
+	And I click on the post for back
+	And I save device snapshot in file with path "Edit Post/Escenario_2/VolverAPublicaciones"
+	And I wait for 4 seconds
+	Then I click on the last post
+	And I save device snapshot in file with path "Edit Post/Escenario_2/SeleccionarBorrador"
+	And I wait for 4 seconds
+	And I click on message inputbox
+	And I clear message inputbox
+	And I wait for 2 seconds
+	And I click on the redact message inputbox "$name_5"
+	And I save device snapshot in file with path "Edit Post/Escenario_2/EditarNombrePublicacion"
+	And I wait for 2 seconds
+	And I click on post inputbox
+	And I wait for 2 seconds
+	And I click on the post for back
+	And I save device snapshot in file with path "Edit Post/Escenario_2/VerificarPublicacion"
+	And I wait for 10 seconds
+
+@user3 @web
+Scenario: Crear y editar borrador de publicación agregar etiqueta y editar etiqueta
+	Given I navigate to page "<URL1>"
+	And I wait for 5 seconds
+	When I enter email "<USERNAME1>"
+	And I save device snapshot in file with path "Edit Post/Escenario_3/IngresarCorreo"
+	And I wait for 5 seconds
+	And I enter password "<PASSWORD1>"
+	And I save device snapshot in file with path "Edit Post/Escenario_3/IngresarPassword"
+	And I wait for 5 seconds
+  	And I click next
+	And I save device snapshot in file with path "Edit Post/Escenario_3/IniciarSesion"
+	And I wait for 5 seconds
+	And I click tags
+	And I save device snapshot in file with path "Edit Post/Escenario_3/Etiquetas"
+	And I wait for 5 seconds
+	And I click new
+	And I save device snapshot in file with path "Edit Post/Escenario_3/NuevaEtiqueta"
+	And I wait for 5 seconds
+	And I click on the redact name inputbox "$name_6"
+	And I save device snapshot in file with path "Edit Post/Escenario_3/NombreEtiqueta"
+  	And I wait for 4 seconds
+	And I click on the redact description inputbox "$name_7"
+	And I save device snapshot in file with path "Edit Post/Escenario_3/DescripcionEtiqueta"
+  	And I wait for 4 seconds
+	And I click save
+	And I save device snapshot in file with path "Edit Post/Escenario_3/GuardarEtiqueta"
+	And I wait for 4 seconds
+	And I click tags
+	And I save device snapshot in file with path "Edit Post/Escenario_3/Etiquetas2"
+	And I wait for 5 seconds
+	And I click new
+	And I save device snapshot in file with path "Edit Post/Escenario_3/NuevaEtiqueta2"
+	And I wait for 5 seconds
+	And I click on the redact name inputbox "$name_8"
+	And I save device snapshot in file with path "Edit Post/Escenario_3/NombreEtiqueta2"
+  	And I wait for 4 seconds
+	And I click on the redact description inputbox "$name_9"
+	And I save device snapshot in file with path "Edit Post/Escenario_3/DescripcionEtiqueta2"
+  	And I wait for 1 seconds
+	And I click save
+	And I save device snapshot in file with path "Edit Post/Escenario_3/GuardarEtiqueta2"
+	And I wait for 1 seconds
+	And I click pages
+	And I save device snapshot in file with path "Edit Post/Escenario_3/Paginas"
+	And I wait for 1 seconds
+	And I click post
+	And I save device snapshot in file with path "Edit Post/Escenario_3/Publicaciones"
+	And I wait for 1 seconds
+	And I click new
+	And I save device snapshot in file with path "Edit Post/Escenario_3/NuevaPublicacion"
+	And I wait for 1 seconds
+	And I click on the redact message inputbox "$name_10"
+	And I save device snapshot in file with path "Edit Post/Escenario_3/NombrePublicacion"
+  	And I wait for 1 seconds
+	And I click on the redact post inputbox "$name_11"
+	And I save device snapshot in file with path "Edit Post/Escenario_3/DescripcionPublicacion"
+  	And I wait for 1 seconds
+	And I click on settings
+	And I save device snapshot in file with path "Edit Post/Escenario_3/Configuracion"
+  	And I wait for 1 seconds
+	And I click on list tags
+  	And I wait for 2 seconds
+	And I enter text "$$name_6"
+	And I save device snapshot in file with path "Edit Post/Escenario_3/BuscarEtiqueta"
+  	And I wait for 1 seconds
+	And I select first option
+	And I save device snapshot in file with path "Edit Post/Escenario_3/SeleccionarEtiqueta"
+	And I wait for 2 seconds
+	And I click on message inputbox
+  	And I wait for 1 seconds
+	And I click on the post for back
+	And I save device snapshot in file with path "Edit Post/Escenario_3/VolverAPublicaciones"
+	And I wait for 1 seconds
+	And I leave
+	And I save device snapshot in file with path "Edit Post/Escenario_3/Abandonar"
+	And I wait for 1 seconds
+	Then I click on the last post
+	And I save device snapshot in file with path "Edit Post/Escenario_3/SeleccionarPublicacion"
+	And I wait for 1 seconds
+	And I click on settings
+	And I save device snapshot in file with path "Edit Post/Escenario_3/Configuracion2"
+  	And I wait for 1 seconds
+	And I click on list tags
+  	And I wait for 1 seconds
+	And I enter text "$$name_8"
+	And I save device snapshot in file with path "Edit Post/Escenario_3/BuscarSegundaEtiqueta"
+  	And I wait for 1 seconds
+	And I select first option
+	And I save device snapshot in file with path "Edit Post/Escenario_3/SeleccionarEtiqueta2"
+	And I wait for 1 seconds
+	And I click on message inputbox
+  	And I wait for 1 seconds
+	And I click on settings
+  	And I wait for 1 seconds
+	And I click on message inputbox
+  	And I wait for 1 seconds
+	And I click on the post for back
+	And I save device snapshot in file with path "Edit Post/Escenario_3/VolverAPublicaciones2"
+	And I wait for 1 seconds
+	And I leave
+	And I wait for 1 seconds
