@@ -61,6 +61,18 @@ export class Utility {
         });
     }
 
+    clickButtonAdd(selector, modal) {
+        cy.get(selector).then(($buttons) => {
+            if (modal) {
+                var randomButton = $buttons.get(1);
+                cy.get(randomButton).eq(0).click({ force: true })
+            } else {
+                var randomButton = $buttons.get(0);
+                cy.wrap(randomButton).click({ force: true });
+            }
+        });
+    }
+
     activateCheckBox() {
         cy.get('input[type="checkbox"]').check({ force: true })
     }
