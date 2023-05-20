@@ -3,8 +3,8 @@ export class Utility {
     constructor() {
     }
 
-    takeScreenShot( folderName, screenShotName){
-        cy.screenshot('../' +  folderName + '/' + screenShotName, { overwrite: true });
+    takeScreenShot(folderName, screenShotName) {
+        cy.screenshot('../' + folderName + '/' + screenShotName, { overwrite: true });
     }
 
     enterInputInForm(selector, value) {
@@ -14,6 +14,15 @@ export class Utility {
             this.outfocus();
         });
     }
+
+    enterInputInFormWithoutOutfocus(selector, value) {
+        cy.get(selector).then(($inputs) => {
+            cy.get(selector).invoke('val', '');
+            cy.wrap($inputs.get(0)).clear({ force: true });
+            cy.wrap($inputs.get(0)).type(value, { force: true });
+        });
+    }
+
 
     outfocus() {
         cy.get('body.ember-application').then($links => {
@@ -105,5 +114,47 @@ export class Utility {
             }
         });
     }
-    
+
+    checkTextBySelector(selector, text) {
+        cy.get(selector).then(($result) => {
+            var element = $result.get(0);
+            expect(element.textContent.trim()).to.eql(text);
+        });
+    }
+
+    getRandomString(length) {
+        let result = '';
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        const charactersLength = characters.length;
+        let counter = 0;
+        while (counter < length) {
+            result += characters.charAt(Math.floor(Math.random() * charactersLength));
+            counter += 1;
+        }
+        return result;
+    }
+
+    randomIntFromInterval(min, max) { // min and max included 
+        return Math.floor(Math.random() * (max - min + 1) + min)
+    }
+
+    padTo2Digits(num) {
+        return num.toString().padStart(2, '0');
+    }
+
+    formatDate(date) {
+        return [
+            date.getFullYear(),
+            this.padTo2Digits(date.getMonth() + 1),
+            this.padTo2Digits(date.getDate()),
+        ].join('-');
+    }
+
+    getPastDateFromToday() {
+        var date = new Date()
+        var previous = new Date(date.getTime());
+        previous.setDate(date.getDate() - this.randomIntFromInterval(2, 365));
+        return this.formatDate(previous);
+    }
+
 }
