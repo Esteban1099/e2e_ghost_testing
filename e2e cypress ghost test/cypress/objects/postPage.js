@@ -488,7 +488,10 @@ export class PostPageV3 {
             });
         }
         else if (type == 'basic-text-publish') {
-            utility.enterInputInForm('textarea.gh-editor-title', postName);
+            if (postName !== null && postName !== ""){
+                console.log('entre al if su validacion no sirve: ', postName)
+                utility.enterInputInForm('textarea.gh-editor-title', postName);                
+            } 
             utility.enterInputInForm('div.koenig-editor__editor', postText);
             cy.wait(1000);
             utility.clickButtonSave('div.gh-publishmenu-trigger');
