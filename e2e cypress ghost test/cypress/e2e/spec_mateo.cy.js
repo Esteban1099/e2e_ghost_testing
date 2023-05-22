@@ -751,4 +751,90 @@ describe('Data test in ghost', () => {
     memberPage.findInList('section.content-list', 'p.gh-members-list-email', email);
   });  
 
+  it('Feature: Create post - Scenario: Create post with title characters specials and publish', () => {
+    let postName = dataPool.specialCharactersText[0];
+    let tagName = cy.faker.lorem.word();
+    let postText = cy.faker.lorem.lines();
+
+   // Given I visit ghost
+   loginPage.visitGhost();
+   // And I wait 1 seconds
+   cy.wait(1000);
+   // And I login in ghost
+   loginPage.loginGhost();
+   // And I wait 1 seconds
+   cy.wait(1000);
+    // When I navigate to post
+    homePage.navigateModule('posts');
+    // And I wait 1 seconds
+    cy.wait(1000);
+    // And I navigate to create post
+    homePage.navigateModule('editor/post');
+    // And I wait 1 seconds
+    cy.wait(1000);
+    // And I desing post title, text and publish
+    postPage.desingPost('basic-text-publish', postName, tagName, postText);
+    // And I wait 1 seconds
+    cy.wait(1000);
+    // And I navigate to post
+    homePage.navigateModule('posts');
+  });
+  
+  it('Feature: Create post - Scenario: Create post with title numeric and publish', () => {
+    let postName = cy.faker.datatype.number({ min: 1000000 });
+    let tagName = cy.faker.lorem.word();
+    let postText = cy.faker.lorem.lines();
+
+   // Given I visit ghost
+   loginPage.visitGhost();
+   // And I wait 1 seconds
+   cy.wait(1000);
+   // And I login in ghost
+   loginPage.loginGhost();
+   // And I wait 1 seconds
+   cy.wait(1000);
+    // When I navigate to post
+    homePage.navigateModule('posts');
+    // And I wait 1 seconds
+    cy.wait(1000);
+    // And I navigate to create post
+    homePage.navigateModule('editor/post');
+    // And I wait 1 seconds
+    cy.wait(1000);
+    // And I desing post title, text and publish
+    postPage.desingPost('basic-text-publish', postName, tagName, postText);
+    // And I wait 1 seconds
+    cy.wait(1000);
+    // And I navigate to post
+    homePage.navigateModule('posts');
+  });
+
+  it('Feature: Create post - Scenario: Create post with empty title and publish', () => {
+    let tagName = cy.faker.lorem.word();
+    let postText = cy.faker.lorem.lines();
+
+   // Given I visit ghost
+   loginPage.visitGhost();
+   // And I wait 1 seconds
+   cy.wait(1000);
+   // And I login in ghost
+   loginPage.loginGhost();
+   // And I wait 1 seconds
+   cy.wait(1000);
+    // When I navigate to post
+    homePage.navigateModule('posts');
+    // And I wait 1 seconds
+    cy.wait(1000);
+    // And I navigate to create post
+    homePage.navigateModule('editor/post');
+    // And I wait 1 seconds
+    cy.wait(1000);
+    // And I desing post title, text and publish
+    postPage.desingPost('basic-text-publish', "", tagName, postText);
+    // And I wait 1 seconds
+    cy.wait(1000);
+    // And I navigate to post
+    homePage.navigateModule('posts');
+  });
+
 })
