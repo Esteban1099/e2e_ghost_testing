@@ -218,3 +218,203 @@ Scenario: Escenario 5 Crear página, Publicar, Revisar, Despublicar, Revisar, Pu
     And I go back to pages
     And I save device snapshot in file with path "Create Page/Escenario_5/ListadoPagina3"
     And I wait for 30 seconds
+
+
+@user6 @web
+Scenario: Ingresar fecha con letras en la página (validación)
+  Given I navigate to page "<URL1>"
+    And I wait for 1 seconds
+    And I enter email "<USERNAME1>"
+    And I save device snapshot in file with path "Create Page/Escenario_6/IngresarCorreo"
+    And I enter password "<PASSWORD1>"
+    And I save device snapshot in file with path "Create Page/Escenario_6/IngresarContrasenia"
+    And I click login
+    And I save device snapshot in file with path "Create Page/Escenario_6/ClickLogin"
+  When I navigate to page "http://localhost:2368/ghost/#/pages"
+    And I save device snapshot in file with path "Create Page/Escenario_6/ListadoPagina"
+    And I wait for 3 seconds
+    And I click new
+    And I save device snapshot in file with path "Create Page/Escenario_6/NuevaPagina"
+  Then I enter title "$name_1"
+    And I save device snapshot in file with path "Create Page/Escenario_6/IngresaTituloPagina"
+    And I click on the redact post inputbox
+    And I click on link publish
+    And I save device snapshot in file with path "Create Page/Escenario_6/PublicaPagina"
+    And I wait for 3 seconds
+    And I click on schedule
+    And I save device snapshot in file with path "Create Page/Escenario_6/ProgramaPublicacion"
+    And I enter schedule date "MAÑANA"
+    And I click save
+    And I save device snapshot in file with path "Create Page/Escenario_6/ConfirmaPublicacion"
+    And I wait for 1 seconds
+    And I go back to pages
+    And I save device snapshot in file with path "Create Page/Escenario_6/ListadoPagina2"
+
+@user7 @web
+Scenario: Ingresar hora con letras en la página (validación)
+  Given I navigate to page "<URL1>"
+    And I wait for 1 seconds
+    And I enter email "<USERNAME1>"
+    And I save device snapshot in file with path "Create Page/Escenario_7/IngresarCorreo"
+    And I enter password "<PASSWORD1>"
+    And I save device snapshot in file with path "Create Page/Escenario_7/IngresarContrasenia"
+    And I click login
+    And I save device snapshot in file with path "Create Page/Escenario_7/ClickLogin"
+  When I navigate to page "http://localhost:2368/ghost/#/pages"
+    And I save device snapshot in file with path "Create Page/Escenario_7/ListadoPagina"
+    And I wait for 3 seconds
+    And I click new
+    And I save device snapshot in file with path "Create Page/Escenario_7/NuevaPagina"
+  Then I enter title "$name_1"
+    And I save device snapshot in file with path "Create Page/Escenario_7/IngresaTituloPagina"
+    And I click on the redact post inputbox
+    And I click on link publish
+    And I save device snapshot in file with path "Create Page/Escenario_7/PublicaPagina"
+    And I wait for 3 seconds
+    And I click on schedule
+    And I save device snapshot in file with path "Create Page/Escenario_7/ProgramaPublicacion"
+    And I enter schedule hour "YA"
+    And I click save
+    And I save device snapshot in file with path "Create Page/Escenario_7/ConfirmaPublicacion"
+    And I wait for 1 seconds
+    And I go back to pages
+    And I save device snapshot in file with path "Create Page/Escenario_7/ListadoPagina2"
+
+@user8 @web
+Scenario: Crear página con schedule mal fecha (validación)
+  Given I navigate to page "<URL1>"
+    And I wait for 1 seconds
+    And I enter email "<USERNAME1>"
+    And I save device snapshot in file with path "Create Page/Escenario_8/IngresarCorreo"
+    And I enter password "<PASSWORD1>"
+    And I save device snapshot in file with path "Create Page/Escenario_8/IngresarContrasenia"
+    And I click login
+    And I save device snapshot in file with path "Create Page/Escenario_8/ClickLogin"
+  When I navigate to page "http://localhost:2368/ghost/#/pages"
+    And I save device snapshot in file with path "Create Page/Escenario_8/ListadoPagina"
+    And I wait for 3 seconds
+    And I click new
+    And I save device snapshot in file with path "Create Page/Escenario_8/NuevaPagina"
+  Then I enter title "$name_1"
+    And I save device snapshot in file with path "Create Page/Escenario_8/IngresaTituloPagina"
+    And I click on the redact post inputbox
+    And I click on link publish
+    And I save device snapshot in file with path "Create Page/Escenario_8/PublicaPagina"
+    And I wait for 3 seconds
+    And I click on schedule
+    And I save device snapshot in file with path "Create Page/Escenario_8/ProgramaPublicacion"
+    And I enter schedule date "1999-01-01"
+    And I click save
+    And I save device snapshot in file with path "Create Page/Escenario_8/ConfirmaPublicacion"
+    And I wait for 1 seconds
+    And I go back to pages
+    And I save device snapshot in file with path "Create Page/Escenario_8/ListadoPagina2"
+
+
+@user9 @web
+Scenario: Crear página con schedule mal hora (Validación)
+  Given I navigate to page "<URL1>"
+    And I wait for 1 seconds
+    And I enter email "<USERNAME1>"
+    And I save device snapshot in file with path "Create Page/Escenario_9/IngresarCorreo"
+    And I enter password "<PASSWORD1>"
+    And I save device snapshot in file with path "Create Page/Escenario_9/IngresarContrasenia"
+    And I click login
+    And I save device snapshot in file with path "Create Page/Escenario_9/ClickLogin"
+  When I navigate to page "http://localhost:2368/ghost/#/pages"
+    And I save device snapshot in file with path "Create Page/Escenario_9/ListadoPagina"
+    And I wait for 3 seconds
+    And I click new
+    And I save device snapshot in file with path "Create Page/Escenario_9/NuevaPagina"
+  Then I enter title "$name_1"
+    And I save device snapshot in file with path "Create Page/Escenario_9/IngresaTituloPagina"
+    And I click on the redact post inputbox
+    And I click on link publish
+    And I save device snapshot in file with path "Create Page/Escenario_9/PublicaPagina"
+    And I wait for 3 seconds
+    And I click on schedule
+    And I save device snapshot in file with path "Create Page/Escenario_9/ProgramaPublicacion"
+    And I enter schedule hour "00:00"
+    And I click save
+    And I save device snapshot in file with path "Create Page/Escenario_9/ConfirmaPublicacion"
+    And I wait for 1 seconds
+    And I go back to pages
+    And I save device snapshot in file with path "Create Page/Escenario_9/ListadoPagina2"
+
+@user10 @web 
+Scenario: Crear página con nombre vacío
+  Given I navigate to page "<URL1>"
+    And I wait for 1 seconds
+    And I enter email "<USERNAME1>"
+    And I save device snapshot in file with path "Create Page/Escenario_10/IngresarCorreo"
+    And I enter password "<PASSWORD1>"
+    And I save device snapshot in file with path "Create Page/Escenario_10/IngresarContrasenia"
+    And I click login
+    And I save device snapshot in file with path "Create Page/Escenario_10/ClickLogin"
+  When I navigate to page "http://localhost:2368/ghost/#/pages"
+    And I save device snapshot in file with path "Create Page/Escenario_10/ListadoPagina"
+    And I wait for 3 seconds
+    And I click new
+    And I save device snapshot in file with path "Create Page/Escenario_10/NuevaPagina"
+  Then I enter title " "
+    And I save device snapshot in file with path "Create Page/Escenario_10/IngresaTituloPagina"
+    And I click on the redact post inputbox
+    And I click on link publish
+    And I save device snapshot in file with path "Create Page/Escenario_10/PublicaPagina"
+    And I click save
+    And I save device snapshot in file with path "Create Page/Escenario_10/ConfirmaPublicacion"
+    And I wait for 2 seconds
+    And I go back to pages
+    And I save device snapshot in file with path "Create Page/Escenario_10/ListadoPagina2"
+
+@user11 @web
+Scenario: Crear página con nombre numérico
+  Given I navigate to page "<URL1>"
+    And I wait for 1 seconds
+    And I enter email "<USERNAME1>"
+    And I save device snapshot in file with path "Create Page/Escenario_11/IngresarCorreo"
+    And I enter password "<PASSWORD1>"
+    And I save device snapshot in file with path "Create Page/Escenario_11/IngresarContrasenia"
+    And I click login
+    And I save device snapshot in file with path "Create Page/Escenario_11/ClickLogin"
+  When I navigate to page "http://localhost:2368/ghost/#/pages"
+    And I save device snapshot in file with path "Create Page/Escenario_11/ListadoPagina"
+    And I wait for 3 seconds
+    And I click new
+    And I save device snapshot in file with path "Create Page/Escenario_11/NuevaPagina"
+  Then I enter title "$number_1"
+    And I save device snapshot in file with path "Create Page/Escenario_11/IngresaTituloPagina"
+    And I click on the redact post inputbox
+    And I click on link publish
+    And I save device snapshot in file with path "Create Page/Escenario_11/PublicaPagina"
+    And I click save
+    And I save device snapshot in file with path "Create Page/Escenario_11/ConfirmaPublicacion"
+    And I wait for 2 seconds
+    And I go back to pages
+    And I save device snapshot in file with path "Create Page/Escenario_11/ListadoPagina2"
+
+@user12 @web
+Scenario: Crear página con nombre con caracteres especiales
+  Given I navigate to page "<URL1>"
+    And I wait for 1 seconds
+    And I enter email "<USERNAME1>"
+    And I save device snapshot in file with path "Create Page/Escenario_12/IngresarCorreo"
+    And I enter password "<PASSWORD1>"
+    And I save device snapshot in file with path "Create Page/Escenario_12/IngresarContrasenia"
+    And I click login
+    And I save device snapshot in file with path "Create Page/Escenario_12/ClickLogin"
+  When I navigate to page "http://localhost:2368/ghost/#/pages"
+    And I save device snapshot in file with path "Create Page/Escenario_12/ListadoPagina"
+    And I wait for 3 seconds
+    And I click new
+    And I save device snapshot in file with path "Create Page/Escenario_12/NuevaPagina"
+  Then I enter title "???!!!%%%:::"
+    And I save device snapshot in file with path "Create Page/Escenario_12/IngresaTituloPagina"
+    And I click on the redact post inputbox
+    And I click on link publish
+    And I save device snapshot in file with path "Create Page/Escenario_12/PublicaPagina"
+    And I click save
+    And I save device snapshot in file with path "Create Page/Escenario_12/ConfirmaPublicacion"
+    And I wait for 2 seconds
+    And I go back to pages
+    And I save device snapshot in file with path "Create Page/Escenario_12/ListadoPagina2"

@@ -201,3 +201,28 @@ Scenario: Escenario 5 Crear tag, asignar tag a post y eliminar tag
     And I wait for 1 seconds
     And I navigate to page "<URL1>/#/tags"
     And I save device snapshot in file with path "Create Tags/Escenario_5/PaginaEtiquetasActualizada1"
+
+@user6 @web
+Scenario: Crear tag con color inválido (validación)
+  Given I navigate to page "<URL1>"
+  	And I wait for 1 seconds
+    And I enter email "<USERNAME1>"
+    And I save device snapshot in file with path "Create Tags/Escenario_6/IngresarCorreo"
+    And I wait for 1 seconds
+    And I enter password "<PASSWORD1>"
+    And I save device snapshot in file with path "Create Tags/Escenario_6/IngresarContrasenia"
+    And I wait for 2 seconds
+    And I click login
+    And I save device snapshot in file with path "Create Tags/Escenario_6/ClickLogin"
+  When I click tags
+    And I wait for 2 seconds
+    And I save device snapshot in file with path "Create Tags/Escenario_6/PaginaEtiquetas"
+    And I click new
+    And I save device snapshot in file with path "Create Tags/Escenario_6/NuevaEtiqueta"
+  Then I enter tag name "$name_1"
+    And I save device snapshot in file with path "Create Tags/Escenario_6/IngresarNombreEtiqueta"
+    And I wait for 1 seconds
+    And I enter wrong color
+    And I save tag
+    And I save device snapshot in file with path "Create Tags/Escenario_6/GuardarEtiqueta"
+    And I click tags

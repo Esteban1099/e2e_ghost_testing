@@ -1,4 +1,4 @@
-Feature: Navegation
+Feature: Iniciar Sesión
 
 @user1 @web
 Scenario: Crear sitio de navegación
@@ -50,3 +50,30 @@ Scenario: Crear sitio de navegación
 	And I save device snapshot in file with path "IniciarSesion/Escenario_4/IniciarSesion"
 	And I wait for 2 seconds
 
+@user5 @web
+Scenario: Iniciar sesión y poner en la contraseña 500 caracteres y usuario correcto
+	Given I navigate to page "<URL1>"
+	And I wait for 2 seconds
+	When I enter email "<USERNAME1>"
+	And I save device snapshot in file with path "IniciarSesion/Escenario_5/IngresarCorreo"
+	And I wait for 2 seconds
+	And I enter long password 
+	And I save device snapshot in file with path "IniciarSesion/Escenario_5/IngresarPassword"
+	And I wait for 2 seconds
+  	Then I click next
+	And I save device snapshot in file with path "IniciarSesion/Escenario_5/IniciarSesion"
+	And I wait for 2 seconds
+
+@user6 @web
+Scenario: Iniciar sesión y poner en el usuario 500 caracteres y contraseña correcta
+	Given I navigate to page "<URL1>"
+	And I wait for 2 seconds
+	When I enter long email 
+	And I save device snapshot in file with path "IniciarSesion/Escenario_6/IngresarCorreoMal"
+	And I wait for 2 seconds
+	And I enter password "<PASSWORD1>"
+	And I save device snapshot in file with path "IniciarSesion/Escenario_6/IngresarPassword"
+	And I wait for 2 seconds
+  	Then I click next
+	And I save device snapshot in file with path "IniciarSesion/Escenario_6/IniciarSesion"
+	And I wait for 2 seconds

@@ -397,4 +397,51 @@ Then('I select first tag option', async function () {
     return await element.click();
   });
 
-  
+  When('I enter long password', async function () {
+    let element = await this.driver.$('.password');
+    let password = "a".padStart(500);
+    return await element.setValue(password);
+  })
+
+  When('I enter long email', async function () {
+    let element = await this.driver.$('.email');
+    let email = "a".padStart(500);
+    return await element.setValue(email);
+  });
+
+  Then('I enter wrong color', async function () {
+    let element = await this.driver.$('.input-color > input')
+    return await element.setValue("KKKKKK");
+  })
+
+  Then('I enter schedule date {string}', async function (string) {
+    let element = await this.driver.$('.gh-date-time-picker-date > input');
+    return await element.setValue(string)
+  })
+
+  Then('I enter schedule hour {string}', async function (string) {
+    let element = await this.driver.$('.gh-date-time-picker-time > input');
+    return await element.setValue(string)
+  })
+
+  Then('I enter long excerpt', async function () {
+    let element = await this.driver.$('#custom-excerpt');
+    let string = "a".padStart(300);
+    return await element.setValue(string);
+  });
+
+  Then('I confirm create', async function () {
+    let element = await this.driver.$('.modal-footer > .gh-btn-green');
+    return await element.click();
+});
+
+  Then('I enter staff email {kraken-string}', async function (email) {
+    let element = await this.driver.$('#new-user-email');
+    return await element.setValue(email);
+  })
+
+  Then('I enter longer staff email', async function () {
+    let element = await this.driver.$('#new-user-email');
+    let string = "a@a.com".padStart(191, "a")
+    return await element.setValue(string);
+  })

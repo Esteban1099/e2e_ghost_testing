@@ -152,3 +152,184 @@ Scenario: Crear publicación, editarla y publicar el ajuste
 	And I wait for 1 seconds
 	And I click on the post for back
 	And I wait for 1 seconds
+
+@user4 @web
+Scenario: Crear publicación con schedule mal fecha (validación)
+	Given I navigate to page "<URL1>"
+    And I wait for 1 seconds
+    And I enter email "<USERNAME1>"
+    And I save device snapshot in file with path "Create Post/Escenario_4/IngresarCorreo"
+    And I enter password "<PASSWORD1>"
+    And I save device snapshot in file with path "Create Post/Escenario_4/IngresarContrasenia"
+    And I click login
+    And I save device snapshot in file with path "Create Post/Escenario_4/ClickLogin"
+  When I navigate to page "http://localhost:2368/ghost/#/posts"
+    And I save device snapshot in file with path "Create Post/Escenario_4/ListadoPublicaciones"
+    And I wait for 3 seconds
+    And I click new
+    And I save device snapshot in file with path "Create Post/Escenario_4/NuevaPublicacion"
+  Then I enter title "$name_1"
+    And I save device snapshot in file with path "Create Post/Escenario_4/IngresaTituloPublicacion"
+    And I click on the redact post inputbox
+    And I click on link publish
+    And I save device snapshot in file with path "Create Post/Escenario_4/PublicaPublicacion"
+    And I wait for 3 seconds
+    And I click on schedule
+    And I save device snapshot in file with path "Create Post/Escenario_4/ProgramaPublicacion"
+    And I enter schedule date "MAÑANA"
+    And I click save
+    And I save device snapshot in file with path "Create Post/Escenario_4/ConfirmaPublicacion"
+    And I wait for 1 seconds
+    And I click post
+    And I save device snapshot in file with path "Create Post/Escenario_4/ListadoPublicaciones2"
+
+@user5 @web
+Scenario: Crear publicación con schedule mal hora (Validación)
+  Given I navigate to page "<URL1>"
+    And I wait for 1 seconds
+    And I enter email "<USERNAME1>"
+    And I save device snapshot in file with path "Create Post/Escenario_5/IngresarCorreo"
+    And I enter password "<PASSWORD1>"
+    And I save device snapshot in file with path "Create Post/Escenario_5/IngresarContrasenia"
+    And I click login
+    And I save device snapshot in file with path "Create Post/Escenario_5/ClickLogin"
+  When I navigate to page "http://localhost:2368/ghost/#/posts"
+    And I save device snapshot in file with path "Create Post/Escenario_5/ListadoPublicaciones"
+    And I wait for 3 seconds
+    And I click new
+    And I save device snapshot in file with path "Create Post/Escenario_5/NuevaPublicacion"
+  Then I enter title "$name_1"
+    And I save device snapshot in file with path "Create Post/Escenario_5/IngresaTituloPublicacion"
+    And I click on the redact post inputbox
+    And I click on link publish
+    And I save device snapshot in file with path "Create Post/Escenario_5/PublicaPublicacion"
+    And I wait for 3 seconds
+    And I click on schedule
+    And I save device snapshot in file with path "Create Post/Escenario_5/ProgramaPublicacion"
+    And I enter schedule hour "YA"
+    And I click save
+    And I save device snapshot in file with path "Create Post/Escenario_5/ConfirmaPublicacion"
+    And I wait for 1 seconds
+    And I click post
+    And I save device snapshot in file with path "Create Post/Escenario_5/ListadoPublicaciones2"
+
+@user6 @web
+Scenario: Crear publicación con nombre vacío
+	Given I navigate to page "<URL1>"
+    And I wait for 1 seconds
+    And I enter email "<USERNAME1>"
+    And I save device snapshot in file with path "Create Post/Escenario_6/IngresarCorreo"
+    And I enter password "<PASSWORD1>"
+    And I save device snapshot in file with path "Create Post/Escenario_6/IngresarContrasenia"
+    And I click login
+    And I save device snapshot in file with path "Create Post/Escenario_6/ClickLogin"
+  When I navigate to page "http://localhost:2368/ghost/#/posts"
+    And I save device snapshot in file with path "Create Post/Escenario_6/ListadoPublicaciones"
+    And I wait for 3 seconds
+    And I click new
+    And I save device snapshot in file with path "Create Post/Escenario_6/NuevaPublicacion"
+  Then I enter title " "
+    And I save device snapshot in file with path "Create Post/Escenario_6/IngresaTituloPublicacion"
+    And I click on the redact post inputbox
+    And I click on link publish
+    And I save device snapshot in file with path "Create Post/Escenario_6/PublicaPublicacion"
+    And I click save
+    And I save device snapshot in file with path "Create Post/Escenario_6/ConfirmaPublicacion"
+    And I wait for 1 seconds
+    And I click post
+    And I save device snapshot in file with path "Create Post/Escenario_6/ListadoPublicaciones2"
+
+@user7 @web
+Scenario: Crear publicación con nombre numérico
+  Given I navigate to page "<URL1>"
+    And I wait for 1 seconds
+    And I enter email "<USERNAME1>"
+    And I save device snapshot in file with path "Create Post/Escenario_7/IngresarCorreo"
+    And I enter password "<PASSWORD1>"
+    And I save device snapshot in file with path "Create Post/Escenario_7/IngresarContrasenia"
+    And I click login
+    And I save device snapshot in file with path "Create Post/Escenario_7/ClickLogin"
+  When I navigate to page "http://localhost:2368/ghost/#/posts"
+    And I save device snapshot in file with path "Create Post/Escenario_7/ListadoPublicaciones"
+    And I wait for 3 seconds
+    And I click new
+    And I save device snapshot in file with path "Create Post/Escenario_7/NuevaPublicacion"
+  Then I enter title "$number_1"
+    And I save device snapshot in file with path "Create Post/Escenario_7/IngresaTituloPublicacion"
+    And I click on the redact post inputbox
+    And I click on link publish
+    And I save device snapshot in file with path "Create Post/Escenario_7/PublicaPublicacion"
+    And I click save
+    And I save device snapshot in file with path "Create Post/Escenario_7/ConfirmaPublicacion"
+    And I wait for 1 seconds
+    And I click post
+    And I save device snapshot in file with path "Create Post/Escenario_7/ListadoPublicaciones2"
+
+@user8 @web
+Scenario: Crear publicación con nombre con caracteres especiales
+  Given I navigate to page "<URL1>"
+    And I wait for 1 seconds
+    And I enter email "<USERNAME1>"
+    And I save device snapshot in file with path "Create Post/Escenario_8/IngresarCorreo"
+    And I enter password "<PASSWORD1>"
+    And I save device snapshot in file with path "Create Post/Escenario_8/IngresarContrasenia"
+    And I click login
+    And I save device snapshot in file with path "Create Post/Escenario_8/ClickLogin"
+  When I navigate to page "http://localhost:2368/ghost/#/posts"
+    And I save device snapshot in file with path "Create Post/Escenario_8/ListadoPublicaciones"
+    And I wait for 3 seconds
+    And I click new
+    And I save device snapshot in file with path "Create Post/Escenario_8/NuevaPublicacion"
+  Then I enter title "???!!!%%%:::"
+    And I save device snapshot in file with path "Create Post/Escenario_8/IngresaTituloPublicacion"
+    And I click on the redact post inputbox
+    And I click on link publish
+    And I save device snapshot in file with path "Create Post/Escenario_8/PublicaPublicacion"
+    And I click save
+    And I save device snapshot in file with path "Create Post/Escenario_8/ConfirmaPublicacion"
+    And I wait for 1 seconds
+    And I click post
+    And I save device snapshot in file with path "Create Post/Escenario_8/ListadoPublicaciones2"
+
+@user9 @web
+Scenario: Crear una publicacion y poner en Excerpt 300 caracteres
+  Given I navigate to page "<URL1>"
+	And I wait for 2 seconds
+	When I enter email "<USERNAME1>"
+	And I save device snapshot in file with path "Create Post/Escenario_9/IngresarCorreo"
+	And I wait for 1 seconds
+	And I enter password "<PASSWORD1>"
+	And I save device snapshot in file with path "Create Post/Escenario_9/IngresarPassword"
+	And I wait for 1 seconds
+  	And I click next
+	And I save device snapshot in file with path "Create Post/Escenario_9/IniciarSesion"
+	And I wait for 1 seconds
+  Then I click post
+	And I save device snapshot in file with path "Create Post/Escenario_9/Publicaciones"
+	And I wait for 1 seconds
+	And I click new
+	And I save device snapshot in file with path "Create Post/Escenario_9/NuevaPublicacion"
+	And I wait for 1 seconds
+	And I click on the redact message inputbox "$name_1"
+	And I save device snapshot in file with path "Create Post/Escenario_9/NombrePublicacion"
+  	And I wait for 1 seconds
+	And I click on the redact post inputbox "$name_2"
+	And I save device snapshot in file with path "Create Post/Escenario_9/DescripcionPublicacion"
+  	And I wait for 1 seconds
+	And I click on settings
+	And I save device snapshot in file with path "Create Post/Escenario_9/ConfiguracionPublicacion"
+  	And I wait for 1 seconds
+	And I enter long excerpt
+  	And I wait for 1 seconds
+	And I save device snapshot in file with path "Create Post/Escenario_9/IngresoExcerpt"
+  	And I wait for 1 seconds
+	And I click on message inputbox 
+  	And I wait for 1 seconds
+	And I click on link publish
+	And I save device snapshot in file with path "Create Post/Escenario_9/LinkPublicar"
+	And I wait for 1 seconds
+	And I click save
+	And I save device snapshot in file with path "Create Post/Escenario_9/Publicar"
+	And I wait for 1 seconds
+	And I click on the post for back
+	And I wait for 1 seconds
